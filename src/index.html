@@ -45,28 +45,31 @@
 								   id="inp-name"
 								   class="form-control"
 								   placeholder="Name:"
-								   ng-model="data.name">
+								   ng-model="vm.data.name">
 						</label>
 						<label class="controll-label" for="inp-email">
 							<input type="email" 
 								   name="email"
 								   id="inp-email"
 								   class="form-control"
-								   placeholder="Email:">
+								   placeholder="Email:"
+								   ng-model="vm.data.email">
 						</label>
 						<label class="controll-label" for="inp-password">
 							<input type="password" 
 								   name="password"
 								   id="inp-password"
 								   class="form-control"
-								   placeholder="Enter a password">
+								   placeholder="Enter a password"
+								   ng-model="vm.data.password1">
 						</label>
 						<label class="controll-label" for="inp-password-rep">
 							<input type="password" 
 								   name="password-rep"
 								   id="inp-password-rep"
 								   class="form-control"
-								   placeholder="Repeat password">
+								   placeholder="Repeat password"
+								   ng-model="vm.data.password2">
 						</label>
 					<section class="submit-form">
 						<input id="submit" class="btn btn-default" type="submit" ng-click="vm.checkValidation()" >
