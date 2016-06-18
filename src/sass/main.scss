@@ -1,0 +1,31 @@
+.main {
+	background: #9EB0B0;
+	// max-width: 700px;
+	padding: 20px;
+	// text-align: center;
+}
+
+.input-form {
+	background: #BDD5D5;
+	// max-width: 700px;
+}
+
+.sign-in-form label {
+	display: inline;
+}
+
+.controll-label {
+	width: 100%;
+}
+
+.sign-in div {
+	margin-bottom: 20px;
+}
+
+input.btn {
+	border-radius: 0px;
+    background-image: none;
+    width: 50;
+    display: block;
+    margin: 0 auto;
+}

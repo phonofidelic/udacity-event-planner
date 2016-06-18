@@ -1,17 +1,26 @@
+/*eslint-env node*/
 var gulp = require('gulp'),
-	sass = require('gulp-sass')
-	autoprefixer = require('gulp-autoprefixer');
-	// browserSync = require('browser-sync').create();
+	sass = require('gulp-sass'),
+	autoprefixer = require('gulp-autoprefixer'),
+	eslint = require('gulp-eslint');
+
 var browserSync = require('browser-sync').create();
- browserSync.init({
-    server: {
-    	baseDir: "./src",
-    	routes: {
-    		"/bower_components": "bower_components",
-    	}
-    }
- });
- browserSync.stream();
+browserSync.init({
+	server: {
+		baseDir: './src',
+		routes: {
+			'/bower_components': 'bower_components'
+		}
+	}
+});
+browserSync.stream();
+
+gulp.task('lint', function() {
+	return gulp.src(['src/**/*.js', '!node_modules/**', '!bower_components/**'])
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError());
+});
 
 gulp.task('html', function() {
 	gulp.src('src/index.html')
@@ -45,4 +54,4 @@ gulp.task('watch-js', function() {
 	gulp.watch('src/js/**/*.js', ['js']);
 });
 
-gulp.task('default', ['watch-html', 'watch-css', 'watch-js']);
+gulp.task('default', ['watch-html', 'watch-css', 'lint', 'watch-js']);
