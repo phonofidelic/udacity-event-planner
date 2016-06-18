@@ -2,7 +2,7 @@
 'use-strict';
 angular.module('signUp', []);
 
-angular.module('signUp').controller('SignUppController', ['$scope', function($scope) {
+angular.module('signUp').controller('SignUppController', ['$scope', '$log', function($scope, $log) {
 	var data = {},
 		inputArr = [],
 		vm = this;
