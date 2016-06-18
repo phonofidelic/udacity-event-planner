@@ -2,7 +2,7 @@
 'use-strict';
 angular.module('signUp', []);
 
-angular.module('signUp').controller('SignUppController', ['$scope', '$log', 'IssueTracker', function($scope, $log, IssueTracker) {
+angular.module('signUp').controller('SignUppController', ['$scope', '$log', 'IssueTracker', 'PasswordStrengthMeter', function($scope, $log, IssueTracker, PasswordStrengthMeter) {
 	var inputArr = [],
 		vm = this;
 	vm.data = {};
@@ -11,19 +11,19 @@ angular.module('signUp').controller('SignUppController', ['$scope', '$log', 'Iss
 
 	vm.checkValidation = function() {
 		// check name input
-		if (vm.data.name === undefined) {
+		if (angular.isUndefined(vm.data.name)) {
 			issueTracker.add('Pleas enter your name.');
 		}
 
 		// check email input
-		if (vm.data.email === undefined) {
+		if (angular.isUndefined(vm.data.email)) {
 			issueTracker.add('Please enter a vallid email address.');
 		}
 
-		// check password
-		if (vm.data.password1 === undefined) {
-			issueTracker.add('Pleas create a password.')
-		}
+		// // check password
+		// if (angular.isUndefined(vm.data.password1)) {
+		// 	issueTracker.add('Pleas create a password.');
+		// }
 
 		// check that passwords match
 
@@ -35,20 +35,62 @@ angular.module('signUp').controller('SignUppController', ['$scope', '$log', 'Iss
 	};
 
 	// check password strength
-	vm.passwordStrength = function() {
-		var password = vm.data.password1.split('');
-		var strength = [];
-		// var reccomendedChars = [/[A-z0-9\!\@\#\$\%\^\&\*]/g];
-		var reccomendedChars = ['!', '@', '#', '$', '%', '^', '&', '*'];
-		for (var i = 0; i < password.length; i++) {
-			$log.log('password indexOf: ', password.indexOf(reccomendedChars[i]));
-			var found = password.indexOf(reccomendedChars[i]);
-			if (found != -1) {
-				strength.push(found);
-			}
-		}
-		$log.log('found: ', strength);
+	var passwordStrengthMeter = new PasswordStrengthMeter();
+	vm.passwordStrength = function(password) {
+		vm.passwordProgress = passwordStrengthMeter.passTest(password);
+		
+		
+		vm.passwordProgress = vm.passwordProgress+'%';
+		$log.log('vm.passwordProgress: ', vm.passwordProgress);
+		return vm.passwordProgress;
 	};
+
+}]);
+
+angular.module('signUp').factory('PasswordStrengthMeter', ['$log', function($log) {
+	function PasswordStrengthMeter() {
+		this.points = {
+			reccomendedChars: /[\!\@\#\$\%\^\&\*]/,
+			hasLower: /[a-z]/,
+			hasUpper: /[A-Z]/,
+			hasNumber: /[0-9]/,
+			notEmail: ''
+		};
+	};
+	PasswordStrengthMeter.prototype = {
+		passTest: function(password) {
+			var strength = 0;
+			// convert password input to an array of single character strings
+			password = password.split('');
+
+			// each time passTest is called, check each character against 
+			// points. Increase strength by 10 for each passing condition.
+			var result = this.points.reccomendedChars.test(password);
+			if (result === true) {
+				strength += 20;
+			}
+			if (this.points.hasLower.test(password)) {
+				strength += 20;
+			}
+			if (this.points.hasUpper.test(password)) {
+				strength += 20;
+			}
+			if (this.points.hasNumber.test(password)) {
+				strength += 20;
+			}
+			if (password.length >= 6) {
+				strength += 20;
+			}
+			
+
+
+
+			// $log.log(result);
+			$log.log('strength: ', strength);
+			return strength;
+		}
+	};
+	return PasswordStrengthMeter;
 }]);
 
 angular.module('signUp').factory('IssueTracker', function() {
