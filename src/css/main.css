@@ -1,3 +1,6 @@
+body {
+  font: 2em Raleway, sans-serif; }
+
 .logo {
   text-align: center; }
 
@@ -8,7 +11,7 @@
   margin: 0 auto; }
 
 .input-form {
-  background: #BDD5D5; }
+  background: #9EB0B0; }
 
 .sign-in-form label {
   display: inline; }
@@ -42,3 +45,6 @@ input.btn {
   margin-bottom: 0px;
   border-radius: 0px;
   height: 10px; }
+
+.sign-up button.btn {
+  display: block; }

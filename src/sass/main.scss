@@ -1,9 +1,16 @@
 
+$font-stack: Raleway, sans-serif;
+$background-1: #9EB0B0;
+$background-2: #BDD5D5;
+
+body {
+	font: 2em $font-stack;
+}
 .logo {
 	text-align: center;
 }
 .main {
-	background: #9EB0B0;
+	background: $background-1;
 	max-width: 700px;
 	padding: 20px;
 	margin: 0 auto;
@@ -11,7 +18,7 @@
 }
 
 .input-form {
-	background: #BDD5D5;
+	background: $background-1;
 	// max-width: 700px;
 }
 
@@ -53,4 +60,7 @@ input.btn {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	height: 10px;
+}
+.sign-up button.btn {
+	display: block;
 }
