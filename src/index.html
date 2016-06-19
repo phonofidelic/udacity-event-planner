@@ -43,65 +43,9 @@
 
 				<div class="sign-up" ng-app="signUp" ng-controller="SignUpController as vm">Create an account
 					<button class="btn btn-default" ng-click="signUp = !signUp">Sign up</button>
-					<form class="input-form form-group" ng-show="signUp" ng-init="!signUp">
-						
-						<label class="controll-label" for="inp-name">
-							<input type="text" 
-								   name="name" 
-								   id="inp-name"
-								   class="form-control"
-								   placeholder="Name:"
-								   ng-model="vm.data.name"
-								   required>
-						</label>
-
-						<label class="controll-label" for="inp-email">
-							<input type="email" 
-								   name="email"
-								   id="inp-email"
-								   class="form-control"
-								   placeholder="Email:"
-								   ng-model="vm.data.email"
-								   required>
-						</label>
-
-						<label class="controll-label" for="inp-password">
-							
-
-							<input type="password" 
-								   name="password"
-								   id="inp-password"
-								   class="form-control"
-								   placeholder="Enter a password"
-								   ng-model="vm.data.password1"
-								   ng-change="vm.passwordStrength(vm.data.password1)"
-								   required>
-							
-							<div class="progress">	   
-							  <div class="progress-bar" 
-							  	   role="progressbar" 
-							  	   aria-valuenow="0" 
-							  	   aria-valuemin="0" 
-							  	   aria-valuemax="100" 
-							  	   ng-style="{width: vm.passwordProgress}">
-							    <span class="sr-only">0% Complete</span>
-							  </div>
-							</div>	
-
-						</label>
-
-						<label class="controll-label" for="inp-password-rep">
-							<input type="password" 
-								   name="password-rep"
-								   id="inp-password-rep"
-								   class="form-control"
-								   placeholder="Repeat password"
-								   ng-model="vm.data.password2">
-						</label>
-					<section class="submit-form">
-						<input id="submit" class="btn btn-default" type="submit" ng-click="vm.checkValidation()" >
-					</section>
-					</form>
+					<div sign-up-directive>
+						<!-- sign-up template -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -118,5 +62,8 @@
 		</script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript" src="js/controllers/SignUpController.js"></script>
+		<script type="text/javascript" src="js/directives/SignUpDirective.js"></script>
+		<script type="text/javascript" src="js/services/IssueTracker.js"></script>
+		<script type="text/javascript" src="js/services/PasswordStrengthMeter.js"></script>
 	</body>
 </html>
