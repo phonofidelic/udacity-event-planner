@@ -21,7 +21,7 @@ angular.module('signUp').controller('SignUppController', ['$scope', '$log', 'Iss
 		}
 
 		// // check password
-		// if (angular.isUndefined(vm.data.password1)) {
+		// if (vm.data.password1 === "") {
 		// 	issueTracker.add('Pleas create a password.');
 		// }
 

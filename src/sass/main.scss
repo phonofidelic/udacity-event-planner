@@ -1,7 +1,12 @@
+
+.logo {
+	text-align: center;
+}
 .main {
 	background: #9EB0B0;
-	// max-width: 700px;
+	max-width: 700px;
 	padding: 20px;
+	margin: 0 auto;
 	// text-align: center;
 }
 
@@ -18,9 +23,23 @@
 	width: 100%;
 }
 
-.sign-in div {
+.sign-in-native,
+.sign-in-google,
+.sign-up {
+	max-width: 500px;
 	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+label.controll-label {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+label.controll-label input {
+	border-radius: 0px;
+}
+
 
 input.btn {
 	border-radius: 0px;
@@ -28,4 +47,10 @@ input.btn {
     width: 50;
     display: block;
     margin: 0 auto;
+}
+
+.progress {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	height: 10px;
 }
