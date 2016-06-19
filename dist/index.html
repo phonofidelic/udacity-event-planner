@@ -41,7 +41,7 @@
 					<div class="g-signin2" data-onsuccess="onSignIn"></div>
 				</div>
 
-				<div class="sign-up" ng-app="signUp" ng-controller="SignUppController as vm">Create an account
+				<div class="sign-up" ng-app="signUp" ng-controller="SignUpController as vm">Create an account
 					<button class="btn btn-default" ng-click="signUp = !signUp">Sign up</button>
 					<form class="input-form form-group" ng-show="signUp" ng-init="!signUp">
 						
@@ -117,5 +117,6 @@
 		  firebase.initializeApp(config);
 		</script>
 		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/controllers/SignUpController.js"></script>
 	</body>
 </html>
