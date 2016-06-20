@@ -1,5 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('signUp').controller('SignUpController', ['$scope', '$log', 'IssueTracker', 'PasswordStrengthMeter', function($scope, $log, IssueTracker, PasswordStrengthMeter) {
+angular.module('eventPlan').controller('SignUpController', ['$scope', '$log', 'IssueTracker', 'PasswordStrengthMeter', function($scope, $log, IssueTracker, PasswordStrengthMeter) {
 	var inputArr = [],
 		vm = this;
 	vm.data = {};

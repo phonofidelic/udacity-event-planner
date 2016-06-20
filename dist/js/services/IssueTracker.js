@@ -1,4 +1,4 @@
-angular.module('signUp').factory('IssueTracker', function() {
+angular.module('eventPlan').factory('IssueTracker', function() {
 	function IssueTracker() {
 		this.issues = [];
 	};

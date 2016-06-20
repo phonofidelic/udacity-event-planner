@@ -1,5 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('signUp').factory('PasswordStrengthMeter', ['$log', function($log) {
+angular.module('eventPlan').factory('PasswordStrengthMeter', ['$log', function($log) {
 	function PasswordStrengthMeter() {
 		this.points = {
 			reccomendedChars: /[\!\@\#\$\%\^\&\*]/,
