@@ -23,5 +23,9 @@
   },
   "resolutions": {
     "angular": "^1.5.7"
+  },
+  "devDependencies": {
+    "jasmine-core": "jasmine#^2.4.1",
+    "angular-mocks": "^1.5.7"
   }
 }

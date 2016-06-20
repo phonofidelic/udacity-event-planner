@@ -5,12 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="google-signin-client_id" content="1025258861433-0a3hghsri3rkmk1l9onvq9sjor6nbcav..apps.googleusercontent.com">
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		<!-- bootstrap css -->
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+		<!-- jasmine css -->
+		<link rel="stylesheet" type="text/css" href="bower_components/jasmine-core/lib/jasmine-core/jasmine.css">
+		<!-- main css -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!-- jquery -->
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+		<!-- angular scripts -->
 		<script type="text/javascript" src="bower_components/angular/angular.js" asynch></script>
 		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="bower_components/angular-mocks/angular-mocks.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<!-- testing scripts -->
+<!-- 		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/boot.js"></script> -->
 	</head>
 	<body>
 		<header class="header container-fluid">
@@ -39,5 +50,6 @@
 		<script type="text/javascript" src="js/directives/SignUpDirective.js"></script>
 		<script type="text/javascript" src="js/services/IssueTracker.js"></script>
 		<script type="text/javascript" src="js/services/PasswordStrengthMeter.js"></script>
+		<script type="text/javascript" src="tests/controllers/SingnUpController-spec.js"></script>
 	</body>
 </html>

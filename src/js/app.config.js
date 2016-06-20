@@ -7,11 +7,13 @@ angular.module('eventPlan').
 			$routeProvider.
 				when('/', {
 					templateUrl: 'home.html',
-					controller: 'SignUpController'
+					controller: 'SignUpController',
+					controllerAs: 'vm'
 				}).
 				when('/edit-profile', {
 					templateUrl: 'templates/edit-profile.html',
-					controller: 'EditProfileController'
-				})
+					controller: 'EditProfileController',
+					controllerAs: 'vm'
+				});
 		}
 	]);
