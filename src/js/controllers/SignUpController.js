@@ -10,21 +10,25 @@ angular.module('eventPlan').controller('SignUpController', ['$scope', '$log', 'I
 		// check name input
 		if (angular.isUndefined(vm.data.name)) {
 			issueTracker.add('Pleas enter your name.');
+			return;
 		}
 
 		// check email input
 		if (angular.isUndefined(vm.data.email)) {
 			issueTracker.add('Please enter a vallid email address.');
+			return;
 		}
 
 		// check password
 		if (angular.isUndefined(vm.data.password1)) {
 			issueTracker.add('Pleas create a password.');
+			return;
 		}
 
 		// check that passwords match
 		if (vm.data.password1 !== vm.data.password2) {
 			issueTracker.add('Passwords do not match.');
+			return;
 		}
 
 		var inputIssues = issueTracker.retrieve();

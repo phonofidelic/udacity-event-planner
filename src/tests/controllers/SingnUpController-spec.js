@@ -19,12 +19,37 @@ describe('SignUpController', function() {
 	});
 
 	describe('check validation', function() {
-		it('should check validation', function() {
+		it('should be called', function() {
 			spyOn(controller, 'checkValidation');
 
 			controller.checkValidation();
 
 			expect(controller.checkValidation).toHaveBeenCalled();
 		});	
+	});
+
+	describe('sendData', function() {
+		it('data object should be populated', function() {
+			spyOn(controller, 'sendData');
+
+			controller.data = {
+				name: 'john',
+				email: 'john@email.com',
+				password1: 'abc123!@#',
+				password2: 'abc123!@#'
+			};
+			
+			controller.sendData(controller.data);
+
+			expect(controller.data.name).toBeDefined();
+			expect(controller.data.email).toBeDefined();
+			expect(controller.data.password1).toBeDefined();
+			expect(controller.sendData).toHaveBeenCalledWith({
+				name: 'john',
+				email: 'john@email.com',
+				password1: 'abc123!@#',
+				password2: 'abc123!@#'
+			});
+		});
 	});
 });
