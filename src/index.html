@@ -2,6 +2,8 @@
 <html lang="en">
 	<head>
 		<title>Meet up app</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="google-signin-client_id" content="1025258861433-0a3hghsri3rkmk1l9onvq9sjor6nbcav..apps.googleusercontent.com">
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -9,13 +11,12 @@
 		<script type="text/javascript" src="bower_components/angular/angular.js" asynch></script>
 		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<meta name="google-signin-client_id" content="1025258861433-0a3hghsri3rkmk1l9onvq9sjor6nbcav..apps.googleusercontent.com">
 	</head>
 	<body>
-		<header class="header container">
+		<header class="header container-fluid">
 			<h1 class="logo">appName</h1>
 		</header>
-		<div class="container" ng-app="eventPlan">
+		<div class="container-fluid" ng-app="eventPlan">
 
 			<div ng-view></div>
 			
