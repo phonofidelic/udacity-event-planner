@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 		<script type="text/javascript" src="bower_components/angular/angular.js" asynch></script>
-		<script type="text/javascript" scr="bower_components/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<meta name="google-signin-client_id" content="1025258861433-0a3hghsri3rkmk1l9onvq9sjor6nbcav..apps.googleusercontent.com">
 	</head>
@@ -16,41 +16,9 @@
 			<h1 class="logo">appName</h1>
 		</header>
 		<div class="container" ng-app="eventPlan">
-			<div ng-view>
-				<div class="main sign-in">
 
-					<div class="sign-in-native">Sign in
-						<form class="sign-in-form form-group">
-							<label class="controll-label" for="sgn-email">
-								<input type="email" 
-									   name="sgn-email" 
-									   id="sgn-email"
-									   class="form-control" 
-									   placeholder="email"
-									   ng-model="data.email">
-							</label>
-							<label class="controll-label" for="sgn-password">
-								<input type="password" 
-									   name="password"
-									   id="inp-password"
-									   class="form-control" 
-									   placeholder="password">
-							</label>
-						</form>
-					</div>
-
-					<div class="sign-in-google">Sign in w/ Google
-						<div class="g-signin2" data-onsuccess="onSignIn"></div>
-					</div>
-
-					<div class="sign-up" ng-controller="SignUpController as vm">Create an account
-						<button class="btn btn-default" ng-click="signUp = !signUp">Sign up</button>
-						<sign-up-directive>
-							<!-- sign-up template -->
-						</sign-up-directive>
-					</div>
-				</div>
-			</div>
+			<div ng-view></div>
+			
 		</div>
 		<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 		<script>
@@ -64,8 +32,9 @@
 		  firebase.initializeApp(config);
 		</script>
 		<script type="text/javascript" src="js/app.module.js"></script>
-		<!-- <script type="text/javascript" src="js/app.config.js"></script> -->
+		<script type="text/javascript" src="js/app.config.js"></script>
 		<script type="text/javascript" src="js/controllers/SignUpController.js"></script>
+		<script type="text/javascript" src="js/controllers/EditProfileController.js"></script>
 		<script type="text/javascript" src="js/directives/SignUpDirective.js"></script>
 		<script type="text/javascript" src="js/services/IssueTracker.js"></script>
 		<script type="text/javascript" src="js/services/PasswordStrengthMeter.js"></script>

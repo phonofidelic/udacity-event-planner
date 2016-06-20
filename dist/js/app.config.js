@@ -5,9 +5,13 @@ angular.module('eventPlan').
 			$locationProvider.hashPrefix('!');
 
 			$routeProvider.
-				when('/sign-in', {
-					template: '<sign-up-directive>'
+				when('/', {
+					templateUrl: 'home.html',
+					controller: 'SignUpController'
 				}).
-				otherwise('/sign-in');
+				when('/edit-profile', {
+					templateUrl: 'templates/edit-profile.html',
+					controller: 'EditProfileController'
+				})
 		}
 	]);

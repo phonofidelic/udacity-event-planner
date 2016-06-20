@@ -1,0 +1,36 @@
+<div class="main sign-in">				
+
+	<div class="sign-in-native">Sign in
+		<form class="sign-in-form form-group">
+			<label class="controll-label" for="sgn-email">
+				<input type="email" 
+					   name="sgn-email" 
+					   id="sgn-email"
+					   class="form-control" 
+					   placeholder="email"
+					   ng-model="data.email">
+			</label>
+			<label class="controll-label" for="sgn-password">
+				<input type="password" 
+					   name="password"
+					   id="inp-password"
+					   class="form-control" 
+					   placeholder="password">
+			</label>
+		</form>
+	</div>
+
+	<div class="sign-in-google">Sign in w/ Google
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	</div>
+
+	<div class="sign-up" ng-controller="SignUpController as vm">Create an account
+		<button class="btn btn-default" ng-click="signUp = !signUp">Sign up</button>
+
+		<sign-up-directive>
+			<!-- sign-up template -->
+		</sign-up-directive>
+
+	</div>
+
+</div>
