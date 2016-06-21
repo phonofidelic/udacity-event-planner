@@ -39,6 +39,15 @@ angular.module('eventPlan').controller('SignUpController', ['$scope', '$log', 'I
 		// after all inputs pass, send user-data to back-end (or 
 		// whatever we're using as a back-end)
 		vm.sendData(vm.data);
+		vm.createAccount(vm.data.email, vm.data.password1);
+	};
+
+	vm.createAccount = function(email, password) {
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+		.catch(function(error) {
+			// TODO: handle errors
+			$log.log(error);
+		});
 	};
 
 	vm.sendData = function(data) {
