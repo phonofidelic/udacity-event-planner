@@ -46,7 +46,7 @@ angular.module('eventPlan').controller('SignUpController', ['$scope', '$log', 'I
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 		.catch(function(error) {
 			// TODO: handle errors
-			$log.log(error);
+			$log.error(error.message);
 		});
 	};
 
