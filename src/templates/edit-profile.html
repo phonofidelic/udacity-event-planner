@@ -1,23 +1,74 @@
-<div class="main ">hello {{vm.name}}!
+<div class="main">hello {{vm.userData.name}}!
 	<h2>Edit Profile</h2>
-	<form class="input-form form-group">
-		<label class="controll-label" for="username">
-			<input type="text" 
-				   id="inp-username"
-				   name="username"
-				   class="form-control"
-				   placeholder="username"
-				   ng-model="vm.username">
-		</label>
+	<form class="input-form form-group">		
+		<div class="edit-username form-group">
+			<label class="controll-label" for="inp-username">
+				Username: <span class="glyphicon glyphicon-asterisk input-warning" ng-show="vm.userData.username === undefined"></span><span ng-show="!editing">{{vm.userData.username}}</span>
+			</label>
+				<input type="username" 
+					   name="username"
+					   id="inp-username"
+					   class="form-control"
+					   placeholder="username"
+					   ng-model="vm.userData.username"
+					   ng-show="editing"
+					   required>
+		</div>
 
-		<label class="controll-label" for="save-btn">
-			<input type="submit" 
-				   name="save"
-				   id="save-btn"
-				   class="btn btn-default"
-				   value="Save"
-				   ng-click="vm.saveUserData()">
-		</label>
+		<div class="edit-email form-group">
+			<label class="controll-label" for="inp-email">
+				Email: <span ng-show="!editing">{{vm.userData.email}}</span>
+			</label>
+				<input type="email" 
+					   name="email"
+					   id="inp-email"
+					   class="form-control"
+					   placeholder="email"
+					   ng-model="vm.userData.email"
+					   ng-show="editing">
+		</div>
+
+		<div ng-click="resetPassword = !resetPassword">
+			<button class="btn btn-default">Reset Password</button>
+		</div>			
+		<section class="reset-password" ng-show="resetPassword">
+
+			<label class="controll-label">
+				<input type="password" 
+					   name="old-password"
+					   id="old-password"
+					   class="form-control"
+					   placeholder="old password">
+			</label>
+			<label class="controll-label">
+				<input type="password" 
+					   name="new-password"
+					   id="new-password"
+					   class="form-control"
+					   placeholder="new password">
+			</label>
+			<label class="controll-label">
+				<input type="password" 
+					   name="repeat-password"
+					   id="repeat-password"
+					   class="form-control"
+					   placeholder="repeat password">
+			</label>
+		</section>
+		
+		<div class="edit-controllbar">
+			<button class="btn btn-warning" ng-click="editing = true">
+				Edit
+			</button>
+
+			<button class="btn btn-danger" ng-click="editing = false">
+				Cancel
+			</button>
+
+			<button class="btn btn-success" ng-click="vm.saveUserData()">
+				Save
+			</button>
+		</div>
 	</form>
 </div>
 

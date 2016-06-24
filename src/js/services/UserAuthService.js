@@ -13,17 +13,20 @@ angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
 				$log.error(error.message);
 			});
 		},
-		setUserInDatabase: function(email, name) {
-			var timestamp = Date.now();
-			var userData = {
-				email: email,
-				name: name,
-				id: timestamp
+		setUser: function() {
+			this.data = {
+				uid: firebase.auth().currentUser.uid,
+				email: firebase.auth().currentUser.email
 			};
-			firebase.database().ref('users/' + userData.id).set(userData);
+			firebase.database().ref('users/' + this.data.uid).set(this.data);
+		},
+		setData: function(newData) {
+			// this.data./* newDataKey */ = newData;
+			firebase.database().ref('users/' + this.data.uid).set(newData);
 		},
 		getUserData: function() {
-			
+			var currentUserEmail = firebase.auth().currentUser.email;
+			firebase.database().ref('users/' + currentUserEmail);
 		}
 	};
 	return User;

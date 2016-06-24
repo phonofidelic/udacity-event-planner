@@ -19,6 +19,9 @@ body {
 .controll-label {
   width: 100%; }
 
+.input-warning {
+  color: #d9534f; }
+
 .sign-in-native,
 .sign-in-google,
 .sign-up {
@@ -48,3 +51,6 @@ input.btn {
 
 .sign-up button.btn {
   display: block; }
+
+.edit-controllbar {
+  margin-top: 50px; }

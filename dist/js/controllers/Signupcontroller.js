@@ -72,7 +72,7 @@ angular.module('eventPlan').controller('SignUpController', [
 			localStorage.setItem('user_email', email);
 			
 			// set userdata to firebase database
-			user.setUserInDatabase(email, name);
+			// user.setUserInDatabase(email, name);
 
 			$log.log('All clear');
 			window.open('#!/edit-profile', '_self');
@@ -88,7 +88,7 @@ angular.module('eventPlan').controller('SignUpController', [
 		vm.passwordProgress = passwordStrengthMeter.passTest(password);	
 		// send passwordProgress value for ng-style to set width of progress bar
 		vm.passwordProgress = vm.passwordProgress+'%';
-		$log.log('vm.passwordProgress: ', vm.passwordProgress);
+		// $log.log('vm.passwordProgress: ', vm.passwordProgress);
 		return vm.passwordProgress;
 	};
 
