@@ -6,7 +6,10 @@ angular.module('eventPlan').controller('SignInController', ['$scope', '$log', fu
 		firebase.auth().signInWithEmailAndPassword(email, password)
 		.catch(function(error) {
 			// TODO: handle errors
-			$log.error(error.message);
+			$log.log('login error message: ', error.message, error.code);
 		});
+
+		// navigate to 
+		window.open('#!/edit-profile', '_self');
 	};
 }]);

@@ -13,7 +13,7 @@ angular.module('eventPlan').factory('PasswordStrengthMeter', ['$log', function($
 		passTest: function(password) {
 			var strength = 0;
 			// convert password input to an array of single character strings
-			password = password.split('');
+			if (password) { password = password.split('') } else { return };
 
 			// each time passTest is called, check each character against 
 			// points. Increase strength by 10 for each passing condition.

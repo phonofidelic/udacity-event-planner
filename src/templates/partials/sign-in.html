@@ -1,34 +1,40 @@
-<div class="sign-in-native">Sign in
-	<form class="sign-in-form form-group">
+<div ng-controller="SignInController as vm">
+	<div class="sign-in-native">Sign in
+		<form class="sign-in-form form-group">
 
-		<label class="controll-label" for="sgn-email">
-			<input type="email" 
-				   name="sgn-email" 
-				   id="sgn-email"
-				   class="form-control" 
-				   placeholder="email"
-				   ng-model="vm.email">
-		</label>
+			<label class="controll-label" for="sgn-email">
+				<input type="email" 
+					   name="sgn-email" 
+					   id="sgn-email"
+					   class="form-control"
+					   autocomplete="email" 
+					   placeholder="email"
+					   ng-model="vm.email"
+					   required>
+			</label>
 
-		<label class="controll-label" for="sgn-password">
-			<input type="password"
-				   name="password"
-				   id="inp-password"
-				   class="form-control" 
-				   placeholder="password"
-				   ng-model="vm.password">
-		</label>
+			<label class="controll-label" for="sgn-password">
+				<input type="password"
+					   name="password"
+					   id="inp-password"
+					   class="form-control" 
+					   placeholder="password"
+					   ng-model="vm.password"
+					   required>
+			</label>
 
-		<label class="controll-label">
-			<input type="submit" 
-				   name="sign-in-btn" 
-				   class="btn btn-default"
-				   value="Sign in"
-				   ng-click="vm.signIn(vm.email, vm.password)">
-		</label>
-	</form>
-</div>
+			<label class="controll-label">
+				<input type="submit" 
+					   name="sign-in-btn" 
+					   class="btn btn-default"
+					   value="Sign in"
+					   ng-click="vm.signIn(vm.email, vm.password)">
+			</label>
 
-<div class="sign-in-google">Sign in w/ Google
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		</form>
+	</div>
+
+	<div class="sign-in-google">Sign in w/ Google
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	</div>
 </div>

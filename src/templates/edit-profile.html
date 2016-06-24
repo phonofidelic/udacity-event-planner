@@ -1,1 +1,24 @@
-hello world!
+<div class="main ">hello {{vm.name}}!
+	<h2>Edit Profile</h2>
+	<form class="input-form form-group">
+		<label class="controll-label" for="username">
+			<input type="text" 
+				   id="inp-username"
+				   name="username"
+				   class="form-control"
+				   placeholder="username"
+				   ng-model="vm.username">
+		</label>
+
+		<label class="controll-label" for="save-btn">
+			<input type="submit" 
+				   name="save"
+				   id="save-btn"
+				   class="btn btn-default"
+				   value="Save"
+				   ng-click="vm.saveUserData()">
+		</label>
+	</form>
+</div>
+
+<button ng-click="vm.signOut()">sign out</button>

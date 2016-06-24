@@ -4,11 +4,13 @@
 		<title>Meet up app</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="google-signin-client_id" content="1025258861433-0a3hghsri3rkmk1l9onvq9sjor6nbcav..apps.googleusercontent.com">
-		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		
 		<!-- bootstrap css -->
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 		<!-- jasmine css -->
 		<link rel="stylesheet" type="text/css" href="bower_components/jasmine-core/lib/jasmine-core/jasmine.css">
+		<!-- fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<!-- main css -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<!-- jquery -->
@@ -44,13 +46,15 @@
 		<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 		<script>
 		  // Initialize Firebase
-		  var config = {
-		    apiKey: "AIzaSyDZgoboTrOfRjGiBd02iJ6elTIM1026cGQ",
-		    authDomain: "orbital-caldron-134319.firebaseapp.com",
-		    databaseURL: "https://orbital-caldron-134319.firebaseio.com",
-		    storageBucket: "orbital-caldron-134319.appspot.com",
-		  };
-		  firebase.initializeApp(config);
+			var config = {
+				apiKey: "AIzaSyDZgoboTrOfRjGiBd02iJ6elTIM1026cGQ",
+				authDomain: "orbital-caldron-134319.firebaseapp.com",
+				databaseURL: "https://orbital-caldron-134319.firebaseio.com",
+				storageBucket: "orbital-caldron-134319.appspot.com"
+			};
+			firebase.initializeApp(config);
+			// Get a reference to the database service
+			var database = firebase.database();
 		</script>
 		<!-- main app -->
 		<script type="text/javascript" src="js/app.module.js"></script>
@@ -65,6 +69,7 @@
 		<!-- services -->
 		<script type="text/javascript" src="js/services/IssueTracker.js"></script>
 		<script type="text/javascript" src="js/services/PasswordStrengthMeter.js"></script>
+		<script type="text/javascript" src="js/services/UserAuthService.js"></script>
 		<!-- <script type="text/javascript" src="tests/controllers/SingnUpController-spec.js"></script> -->
 	</body>
 </html>

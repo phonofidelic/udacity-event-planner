@@ -19,6 +19,12 @@ angular.module('eventPlan').factory('IssueTracker', function() {
 				break;
 			}
 			return message;
+		},
+		retrieveIssueArray: function() {
+			return this.issues;
+		},
+		clearIssues: function() {
+			return this.issues = [];
 		}
 	};
 	return IssueTracker;
