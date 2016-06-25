@@ -12,7 +12,7 @@
 					   placeholder="username"
 					   ng-model="vm.userData.username"
 					   ng-show="editing"
-					   required>
+					   >
 		</div>
 
 		<div class="edit-email form-group">
@@ -68,6 +68,7 @@
 			<button class="btn btn-success" ng-click="vm.saveUserData()">
 				Save
 			</button>
+			<button ng-click="vm.getUserData()">userData</button>
 		</div>
 	</form>
 </div>

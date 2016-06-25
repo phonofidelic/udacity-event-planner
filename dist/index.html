@@ -29,6 +29,19 @@
   				// ...
   			};
   		</script>
+  				<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyDZgoboTrOfRjGiBd02iJ6elTIM1026cGQ",
+				authDomain: "orbital-caldron-134319.firebaseapp.com",
+				databaseURL: "https://orbital-caldron-134319.firebaseio.com",
+				storageBucket: "orbital-caldron-134319.appspot.com"
+			};
+			firebase.initializeApp(config);
+			// Get a reference to the database service
+			var database = firebase.database();
+		</script>
 		<!-- testing scripts -->
 <!-- 		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/jasmine.js"></script>
 		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
@@ -43,19 +56,7 @@
 			<div ng-view></div>
 			
 		</div>
-		<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-		<script>
-		  // Initialize Firebase
-			var config = {
-				apiKey: "AIzaSyDZgoboTrOfRjGiBd02iJ6elTIM1026cGQ",
-				authDomain: "orbital-caldron-134319.firebaseapp.com",
-				databaseURL: "https://orbital-caldron-134319.firebaseio.com",
-				storageBucket: "orbital-caldron-134319.appspot.com"
-			};
-			firebase.initializeApp(config);
-			// Get a reference to the database service
-			var database = firebase.database();
-		</script>
+
 		<!-- main app -->
 		<script type="text/javascript" src="js/app.module.js"></script>
 		<script type="text/javascript" src="js/app.config.js"></script>

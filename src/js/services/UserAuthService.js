@@ -24,9 +24,10 @@ angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
 			// this.data./* newDataKey */ = newData;
 			firebase.database().ref('users/' + this.data.uid).set(newData);
 		},
-		getUserData: function() {
-			var currentUserEmail = firebase.auth().currentUser.email;
-			firebase.database().ref('users/' + currentUserEmail);
+		getUserData: function(id) {
+			firebase.database().ref('users/' + id).on('value', function(snapshot) {
+				console.log('db snapshot: ', snapshot.val());
+			});
 		}
 	};
 	return User;

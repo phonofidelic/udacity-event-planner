@@ -5,6 +5,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log
 	vm.userData = {};
 	vm.userData.name = localStorage.getItem('user_name');
 	vm.userData.email = localStorage.getItem('user_email');
+	// vm.userData.username = 
 	
 	// vm.currentUser = firebase.auth().currentUser;
 
@@ -39,6 +40,9 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log
 	vm.resetPassword = function() {
 
 	};
-
-	$log.log('user data: ', vm.userData);
+	vm.getUserData = function() {
+		var id = firebase.auth().currentUser.uid;
+		user.getUserData(id);		
+	}
+	$log.log('db data: ', user.getUserData());
 }]);
