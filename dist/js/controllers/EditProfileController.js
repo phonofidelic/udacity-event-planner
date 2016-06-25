@@ -1,13 +1,15 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log', '$timeout', 'UserAuthService', function($scope, $log, $timeout, UserAuthService) {
+angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log', '$timeout', 'UserAuthService', '$firebaseObject', function($scope, $log, $timeout, UserAuthService, $firebaseObject) {
 	var vm = this,
-		user = new UserAuthService();
+		user = new UserAuthService(),
+		ref = firebase.database().ref().child('users'),
+		syncObject = $firebaseObject(ref);
 	vm.userData = {};
 	vm.userData.name = localStorage.getItem('user_name');
 	vm.userData.email = localStorage.getItem('user_email');
 	// vm.userData.username = 
 	
-	// vm.currentUser = firebase.auth().currentUser;
+	syncObject.$bindTo($scope, 'users');
 
 	// unreliable way to make sure function is executed after 
 	// firbase auth stuff is done
@@ -41,8 +43,9 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log
 
 	};
 	vm.getUserData = function() {
-		var id = firebase.auth().currentUser.uid;
-		user.getUserData(id);		
+		// var id = firebase.auth().currentUser.uid;
+		// user.getUserData(id);	
+		$log.log('db data: ', $scope.users);	
 	}
-	$log.log('db data: ', user.getUserData());
+	
 }]);
