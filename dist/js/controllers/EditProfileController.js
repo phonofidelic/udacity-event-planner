@@ -5,7 +5,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 		ref = firebase.database().ref().child('users'),
 		syncObject = $firebaseObject(ref);
 
-	// initialize userData
+	// initialize data model
 	vm.userData = {};
 
 	// async request to firebase db
