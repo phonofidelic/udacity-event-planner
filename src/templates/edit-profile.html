@@ -3,7 +3,12 @@
 	<form class="input-form form-group">		
 		<div class="edit-username form-group">
 			<label class="controll-label" for="inp-username">
-				Username: <span class="glyphicon glyphicon-asterisk input-warning" ng-show="vm.userData.username === undefined"></span><span ng-show="!editing">{{vm.userData.username}}</span>
+				Username: 
+				<span class="glyphicon glyphicon-asterisk input-warning" 
+					  ng-show="vm.userData.username === undefined"
+					  ng-click="editing = !editing">
+				</span>
+				<span ng-show="!editing">{{vm.userData.username}}</span>
 			</label>
 				<input type="username" 
 					   name="username"
@@ -65,10 +70,10 @@
 				Cancel
 			</button>
 
-			<button class="btn btn-success" ng-click="vm.saveUserData()">
+			<button class="btn btn-success" ng-click="vm.saveUserData(); editing = false">
 				Save
 			</button>
-			<button ng-click="vm.getUserData()">userData</button>
+
 		</div>
 	</form>
 </div>

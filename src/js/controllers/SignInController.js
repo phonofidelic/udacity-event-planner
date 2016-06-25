@@ -1,5 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('SignInController', ['$scope', '$log', function($scope, $log) {
+angular.module('eventPlan').controller('SignInController', ['$scope', '$window', '$log', function($scope, $window, $log) {
 	var vm = this;
 
 	vm.signIn = function(email, password){
@@ -10,6 +10,6 @@ angular.module('eventPlan').controller('SignInController', ['$scope', '$log', fu
 		});
 
 		// navigate to 
-		window.open('#!/edit-profile', '_self');
+		$window.open('#!/edit-profile', '_self');
 	};
 }]);

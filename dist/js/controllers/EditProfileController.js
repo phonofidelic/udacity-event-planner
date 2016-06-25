@@ -1,22 +1,33 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log', '$timeout', 'UserAuthService', '$firebaseObject', function($scope, $log, $timeout, UserAuthService, $firebaseObject) {
+angular.module('eventPlan').controller('EditProfileController', ['$scope', '$window', '$log', '$timeout', 'UserAuthService', '$firebaseObject', function($scope, $window, $log, $timeout, UserAuthService, $firebaseObject) {
 	var vm = this,
 		user = new UserAuthService(),
 		ref = firebase.database().ref().child('users'),
 		syncObject = $firebaseObject(ref);
+
+	// initialize userData
 	vm.userData = {};
-	vm.userData.name = localStorage.getItem('user_name');
-	vm.userData.email = localStorage.getItem('user_email');
-	// vm.userData.username = 
+
+	// async request to firebase db
+	syncObject.$loaded()
+		.then(function(data) {
+			var user = data[firebase.auth().currentUser.uid];
+			$log.log('from syncObject: ', user);
+			// set user data locally
+			vm.userData.uid = firebase.auth().currentUser.uid;
+			vm.userData.username = user.username || firebase.auth().currentUser.username;
+			vm.userData.name = user.name;
+			vm.userData.email = user.email;
+		})
+		.catch(function(error) {
+			$log.log('syncObject error: ', error);
+		});
+
+
+
 	
 	syncObject.$bindTo($scope, 'users');
 
-	// unreliable way to make sure function is executed after 
-	// firbase auth stuff is done
-	$timeout(function() {
-		user.setUser();
-		$log.log('document is ready');
-	}, 2000);
 	
 	vm.addUid = function() {
 		
@@ -26,18 +37,13 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log
 		firebase.auth().signOut();
 		localStorage.clear();
 		$log.log('signed out');
-		window.open('/', '_self');
+		$window.open('/', '_self');
 	};
 
 	vm.saveUserData = function() {
-		var data = {
-			uid: firebase.auth().currentUser.uid,
-			name: vm.userData.name,
-			email: vm.userData.email,
-			username: vm.userData.username
-		};	
-		// firebase.database().ref()
-		user.setData(data)
+		var data = vm.userData;
+		var uid = vm.userData.uid;	
+		user.setData(uid, data);
 	};
 	vm.resetPassword = function() {
 
@@ -45,7 +51,8 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$log
 	vm.getUserData = function() {
 		// var id = firebase.auth().currentUser.uid;
 		// user.getUserData(id);	
-		$log.log('db data: ', $scope.users);	
-	}
+		// $log.log('db data: ', $scope.users[firebase.auth().currentUser.uid]);
+		$log.log('db data: ', syncObject);	
+	};
 	
 }]);

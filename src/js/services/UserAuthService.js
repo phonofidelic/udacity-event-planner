@@ -8,6 +8,9 @@ angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
 		register: function(email, password) {
 			firebase.auth()
 			.createUserWithEmailAndPassword(email, password)
+				.then(function(user) {
+					$log.log('User created with uid: ' + user.uid);
+				})
 			.catch(function(error) {
 				// TODO: handle errors
 				$log.error(error.message);
@@ -20,14 +23,17 @@ angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
 			};
 			firebase.database().ref('users/' + this.data.uid).set(this.data);
 		},
-		setData: function(newData) {
+		setData: function(user, newData) {
 			// this.data./* newDataKey */ = newData;
-			firebase.database().ref('users/' + this.data.uid).set(newData);
+			firebase.database().ref('users/' + user).set(newData);
 		},
 		getUserData: function(id) {
 			firebase.database().ref('users/' + id).on('value', function(snapshot) {
-				console.log('db snapshot: ', snapshot.val());
+				$log.log('db snapshot: ', snapshot.val());
 			});
+		},
+		dbRef: function(id) {
+			firebase.database().ref('users/' + id);
 		}
 	};
 	return User;

@@ -1,11 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('SignUpController', [
-	'$scope', 
-	'$log', 
-	'IssueTracker', 
-	'PasswordStrengthMeter', 
-	'UserAuthService', 
-	function($scope, $log, IssueTracker, PasswordStrengthMeter, UserAuthService) {
+angular.module('eventPlan').controller('SignUpController', ['$scope','$window', '$log', 'IssueTracker', 'PasswordStrengthMeter', 'UserAuthService', 'Auth', '$firebaseObject', function($scope, $window, $log, IssueTracker, PasswordStrengthMeter, UserAuthService, Auth, $firebaseObject) {
 	var inputArr = [],
 		vm = this;
 	vm.data = {};
@@ -67,6 +61,7 @@ angular.module('eventPlan').controller('SignUpController', [
 			// calls firebase user creation through UserAuthService
 			user.register(email, password);	// ---------------------------------------------------------- un-comment to turn onfirebase signup
 			
+
 			// use localStorage as mock database
 			localStorage.setItem('user_name', name);
 			localStorage.setItem('user_email', email);
@@ -75,12 +70,29 @@ angular.module('eventPlan').controller('SignUpController', [
 			// user.setUserInDatabase(email, name);
 
 			$log.log('All clear');
-			window.open('#!/edit-profile', '_self');
+			$window.open('#!/edit-profile', '_self');
 		} else {
 			// get issues from issueTracker
 			$log.log('There was a problem');
 		}
 	};
+
+	vm.createAccount2 = function(validation) {
+		vm.message  = null;
+		vm.error = null;
+
+		if(validation === true) {
+			Auth.$createUserWithEmailAndPassword(vm.data.email, vm.data.password1)
+				.then(function(userId) {
+					// setData
+					vm.message = 'User created with uid: ' + user.uid;
+					user.setData(userId.uid, vm.data);
+					$window.open('#!/edit-profile', '_self');
+				}).catch(function(error) {
+					vm.error = error;
+				});
+		}
+	}
 
 	// check password strength
 	var passwordStrengthMeter = new PasswordStrengthMeter();
