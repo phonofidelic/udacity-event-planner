@@ -10,10 +10,19 @@ angular.module('eventPlan').
 					controller: 'SignUpController',
 					controllerAs: 'vm'
 				}).
+				when('/main', {
+					templateUrl: 'templates/main.html'
+				}).
 				when('/edit-profile', {
 					templateUrl: 'templates/edit-profile.html',
 					controller: 'EditProfileController',
 					controllerAs: 'vm'
+				}).
+				when('/events', {
+					templateUrl: 'templates/browse-events.html'
+				}).
+				when('/create-event', {
+					templateUrl: 'templates/create-event.html'
 				});
 		}
 	]);

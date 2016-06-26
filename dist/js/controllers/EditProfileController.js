@@ -18,7 +18,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 			vm.userData.uid = firebase.auth().currentUser.uid;
 			vm.userData.username = user.username || firebase.auth().currentUser.username;
 			vm.userData.name = user.name;
-			vm.userData.email = user.email;
+			vm.userData.email = user.email || firebase.auth().currentUser.email;
 		})
 		.catch(function(error) {
 			$log.log('syncObject error: ', error);
@@ -37,7 +37,9 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	vm.saveUserData = function() {
 		var data = vm.userData;
 		var uid = vm.userData.uid;	
+		$log.log('data from saveUserData: ', data);
 		user.setData(uid, data);
+
 	};
 	vm.resetPassword = function() {
 
