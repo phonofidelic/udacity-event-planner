@@ -1,4 +1,25 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
-	[create events]
+	<h2>Create an Event</h2>
+	<form class="input-form form-group">
+		<div class="form-group">
+			<label class="control-label" for="inp-event-name">
+				<input type="text" 
+					   name="event-name"
+					   id="inp-event-name"
+					   class="form-control"
+					   placeholder="Event name"
+					   ng-model="vm.eventData.eventName">
+			</label>
+		</div>
+	
+		<div class="form-group">
+			<label class="control-label" for="inp-event-type">
+				<select class="selectpicker" data-live-search="true">
+					<option data-tokens="birthday party">Birthday Party</option>
+					<option data-tokens="confrence talk">Confrence Talk</option>
+				</select>
+			</label>
+		</div>
+	</form>
 </div>
