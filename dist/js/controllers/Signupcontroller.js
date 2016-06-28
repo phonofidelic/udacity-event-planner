@@ -73,7 +73,7 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 					vm.error = error;
 				});
 		}
-	}
+	};
 
 	// check password strength
 	var passwordStrengthMeter = new PasswordStrengthMeter();

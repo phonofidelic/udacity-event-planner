@@ -80,3 +80,26 @@ input.btn {
 .edit-controllbar {
 	margin-top: 50px;
 }
+
+// ---- create event ---- //
+.event-form-group input,
+.event-form-group textarea,
+.event-form-group select, 
+.event-form-group {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+@media (max-width: 768px) {
+	.event-form-group input,
+	.event-form-group textarea,
+	.event-form-group select,
+	.event-form-group {
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
