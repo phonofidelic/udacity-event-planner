@@ -3,13 +3,19 @@
 angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log', '$firebaseObject', '$firebaseArray', 'UserAuthService', function($scope, $log, $firebaseObject, $firebaseArray, UserAuthService) {
 	var vm = this,
 		user = new UserAuthService(),
-		ref = firebase.database().ref().child('events/'),
+		ref = firebase.database().ref().child('events'),
 		dbObject = $firebaseObject(ref),
 		dbArray = $firebaseArray(ref);
 
 	vm.eventData = {};
 
-
+	dbObject.$loaded()
+		.then(function(data) {
+			$log.log('from dbObject: ', data);
+		})
+		.catch(function(error) {
+			$log.log('syncObject error: ', error);
+		});
 
     vm.autoAddress = function() {
         var defaultBounds = new google.maps.LatLngBounds(
@@ -26,4 +32,5 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
     vm.saveEvent = function() {
     	firebase.database().ref().child('events/').set(vm.eventData);
     };
+
 }]);

@@ -10,6 +10,9 @@ body {
   padding: 20px;
   margin: 0 auto; }
 
+.main h2 {
+  text-align: center; }
+
 .input-form {
   background: #9EB0B0; }
 
