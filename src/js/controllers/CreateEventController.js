@@ -9,6 +9,9 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
 
 	vm.eventData = {};
 
+    // set event uid property 
+    vm.eventData.eventCreatorsUid = firebase.auth().currentUser.uid;
+
 	dbObject.$loaded()
 		.then(function(data) {
 			$log.log('from dbObject: ', data);
@@ -30,7 +33,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
     };
 
     vm.saveEvent = function() {
-    	firebase.database().ref().child('events/').set(vm.eventData);
+    	firebase.database().ref().child('events/').push(vm.eventData);
     };
 
 }]);
