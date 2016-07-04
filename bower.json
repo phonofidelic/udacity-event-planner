@@ -18,9 +18,10 @@
   "dependencies": {
     "angular": "^1.5.7",
     "bootstrap": "^3.3.6",
-    "jquery": "^3.0.0",
+    "jquery": "^2.2.4",
     "angular-route": "^1.5.7",
-    "angularfire": "^2.0.1"
+    "angularfire": "^2.0.1",
+    "bootstrap-select": "^1.10.0"
   },
   "resolutions": {
     "angular": "^1.5.7"

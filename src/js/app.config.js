@@ -22,7 +22,9 @@ angular.module('eventPlan').
 					templateUrl: 'templates/browse-events.html'
 				}).
 				when('/create-event', {
-					templateUrl: 'templates/create-event.html'
+					templateUrl: 'templates/create-event.html',
+					controller: 'CreateEventController',
+					controllerAs: 'vm'
 				});
 		}
 	]);

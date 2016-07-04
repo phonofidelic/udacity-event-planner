@@ -17,7 +17,12 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 			// get userdata from db and set local vars
 			vm.userData.uid = firebase.auth().currentUser.uid;
 			vm.userData.username = user.username || firebase.auth().currentUser.username;
-			vm.userData.name = user.name;
+			if (angular.isUndefined(user.name)) {
+				vm.userData.name = 'no name';
+			} else {
+				vm.userData.name = user.name;
+			}
+			
 			vm.userData.email = user.email || firebase.auth().currentUser.email;
 		})
 		.catch(function(error) {
@@ -44,11 +49,11 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	vm.resetPassword = function() {
 
 	};
+
 	vm.getUserData = function() {
 		// var id = firebase.auth().currentUser.uid;
 		// user.getUserData(id);	
 		// $log.log('db data: ', $scope.users[firebase.auth().currentUser.uid]);
 		$log.log('db data: ', syncObject);	
 	};
-	
 }]);

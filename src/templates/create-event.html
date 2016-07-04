@@ -1,4 +1,91 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
-	[create events]
+	<h2>Create an Event</h2>
+	<form class="input-form">
+		<div class="form-group event-form-group">
+			<label class="control-label" for="inp-event-name">name:
+				<input type="text" 
+					   name="event-name"
+					   id="inp-event-name"
+					   class="form-control"
+					   placeholder="Event name"
+					   ng-model="vm.eventData.eventName"
+					   autofocus>
+			</label>
+		</div>
+	
+		<div class="form-group event-form-group">
+			<label class="control-label" for="inp-event-type">type:
+				<select class=" form-control"
+						id="inp-event-type" 
+					    data-live-search="true"
+					    ng-model="vm.eventData.eventType">
+					<option data-tokens="birthday party">Birthday Party</option>
+					<option data-tokens="confrence">Confrence</option>
+					<option data-tokens="Convention">Convention</option>
+					<option data-tokens="Exhibition">Exhibition</option>
+					<option data-tokens="Fundraiser">Fundraiser</option>
+					<option data-tokens="Gala">Gala</option>
+					<option data-tokens="Meetup">Meetup</option>
+					<option data-tokens="Party">Party</option>
+					<option data-tokens="Political Event">Political Event</option>
+					<option data-tokens="Press Conference">Press Conference</option>
+					<option data-tokens="Product Launch">Product Launch</option>
+					<option data-tokens="Reception">Reception</option>
+					<option data-tokens="Seminar">Seminar</option>
+					<option data-tokens="Team Building">Team Building</option>
+					<option data-tokens="Workshop">Workshop</option>
+					<option data-tokens=""></option>
+				</select>
+			</label>
+		</div>
+
+		<div class="form-group event-form-group">
+			<label class="control-label" for="inp-event-start-time">start:
+				<input type="datetime-local" 
+					   name="event-start-time"
+					   id="inp-event-start-time"
+					   class="form-control"
+					   ng-model="vm.eventData.eventStartTime">
+			</label>
+			<label class="control-label" for="inp-event-end-time">end:
+				<input type="datetime-local" 
+					   name="event-end-time"
+					   id="inp-event-end-time"
+					   class="form-control"
+					   ng-model="vm.eventData.eventEndTime">
+			</label>
+		</div>
+
+		<div class="form-group event-form-group">
+			<label class="control-label" for="inp-event-location">location:
+				<input type="text" 
+					   name="event-location"
+					   id="inp-event-location"
+					   class="form-control"
+					   autocomplete="street-address"
+					   placeholder="enter a location" 
+					   ng-focus="vm.autoAddress()"
+					   ng-model="vm.eventData.eventLocation">
+			</label>
+		</div>
+
+		<div class="form-group event-form-group">
+			<label class="control-label" for="inp-event-description">description:
+				<textarea id="inp-event-descrition"
+						  name="event-description"
+						  class="form-control"
+						  placeholder="enter description"
+						  ng-model="vm.eventData.eventDescription"
+						  rows="5">
+				</textarea>
+			</label>
+		</div>
+
+		<div class="edit-controllbar">
+			<button class="btn btn-success" ng-click="vm.saveEvent(); editing = false">
+				Save
+			</button>
+		</div>
+	</form>
 </div>
