@@ -62,15 +62,25 @@ input.btn {
 .event-form-group textarea,
 .event-form-group select,
 .event-form-group {
+  width: 500px; }
+
+.event-input {
   width: 500px;
   margin-left: auto;
   margin-right: auto; }
+
+.date-input {
+  width: 250px; }
 
 @media (max-width: 768px) {
   .event-form-group input,
   .event-form-group textarea,
   .event-form-group select,
   .event-form-group {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto; }
+  .event-input {
     width: 300px;
     margin-left: auto;
     margin-right: auto; } }
