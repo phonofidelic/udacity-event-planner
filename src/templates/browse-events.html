@@ -1,4 +1,8 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
-	[brows events]
+	<h2>Browse Events</h2>
+	<div class="event" ng-repeat="event in vm.events">
+		<h3>{{event.eventName}}</h3>
+		<div>{{event.eventType}}</div>
+	</div>
 </div>

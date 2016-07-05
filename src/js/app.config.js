@@ -19,7 +19,9 @@ angular.module('eventPlan').
 					controllerAs: 'vm'
 				}).
 				when('/events', {
-					templateUrl: 'templates/browse-events.html'
+					templateUrl: 'templates/browse-events.html',
+					controller: 'BrowseEventsController',
+					controllerAs: 'vm'
 				}).
 				when('/create-event', {
 					templateUrl: 'templates/create-event.html',

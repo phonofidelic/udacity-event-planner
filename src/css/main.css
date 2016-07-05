@@ -69,9 +69,18 @@ input.btn {
   margin-left: auto;
   margin-right: auto; }
 
+<<<<<<< HEAD
 .date-input {
   width: 250px; }
 
+||||||| merged common ancestors
+=======
+.event {
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
+
+>>>>>>> 54831009b60cc6cc77f6d1df2e067efebd9f833c
 @media (max-width: 768px) {
   .event-form-group input,
   .event-form-group textarea,
