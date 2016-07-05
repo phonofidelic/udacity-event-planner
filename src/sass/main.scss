@@ -99,8 +99,14 @@ input.btn {
 	// text-align: center;
 }
 
+// ---- browse events ----//
+.event {
+	margin-bottom: 20px;
+	background: #fff;
+	box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+}
 
-
+// ---- mobile ---- //
 @media (max-width: 768px) {
 	.event-form-group input,
 	.event-form-group textarea,
