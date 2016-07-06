@@ -1,6 +1,6 @@
 /*eslint angular/di: [2,"array"]*/
 'use-strict';
-angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log', '$firebaseObject', '$firebaseArray', 'UserAuthService', function($scope, $log, $firebaseObject, $firebaseArray, UserAuthService) {
+angular.module('eventPlan').controller('CreateEventController', ['$scope', '$window', '$log', '$firebaseObject', '$firebaseArray', 'UserAuthService', 'IssueTracker', function($scope, $window, $log, $firebaseObject, $firebaseArray, UserAuthService, IssueTracker) {
 	var vm = this,
 		user = new UserAuthService(),
 		ref = firebase.database().ref().child('events'),
@@ -21,7 +21,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
         .catch(function(error) {
             // handle error
             $log.error('usrObject error: ', error);
-        })
+        });
 
 	// set event uid property 
 	// vm.eventData.eventCreatorsUid = firebase.auth().currentUser.uid;
@@ -50,15 +50,49 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
 
 	vm.addGuest = function(guest) {
 		vm.eventData.eventGuests.push(guest);
-	}
+	};
 
 	vm.removeGuest = function(guest) {
 		$log.log('remove ', guest);
 		vm.eventData.eventGuests.splice(guest, 1);
-	}
+	};
 
-	vm.saveEvent = function() {
-		firebase.database().ref().child('events/').push(vm.eventData);
+	vm.checkValidation = function() {
+		var issueTracker = new IssueTracker();
+		if (angular.isUndefined(vm.eventData.eventName)) {
+			issueTracker.add('Please name your event.');
+		}
+
+		if (angular.isUndefined(vm.eventData.eventType)) {
+			issueTracker.add('Please select a type of event.');
+		}
+
+		if (angular.isUndefined(vm.eventData.eventStartTime)) {
+			issueTracker.add('When will your event begin?');
+		}
+
+		if (angular.isUndefined(vm.eventData.eventEndTime)) {
+			issueTracker.add('When will your event end?');
+		}
+
+		if (angular.isUndefined(vm.eventData.eventLocation)) {
+			issueTracker.add('Where will your event be held?');
+		}
+
+		if (issueTracker.issues.length === 0) {
+			status = true;
+		} else {
+			status = false;
+		}
+		issueTracker.clearIssues();
+		return status;
+	};
+
+	vm.saveEvent = function(validation) {
+		if (validation === true) {
+			firebase.database().ref().child('events/').push(vm.eventData);
+			$window.open('#!/events', '_self');
+		}
 	};
 
 }]);

@@ -12,6 +12,7 @@
 						   class="form-control"
 						   placeholder="Event name"
 						   ng-model="vm.eventData.eventName"
+						   required 
 						   autofocus>
 				</label>
 			</div>
@@ -22,7 +23,8 @@
 				<label class="control-label" for="inp-event-type">type:
 					<select class="form-control"
 							id="inp-event-type" 						    
-						    ng-model="vm.eventData.eventType">
+						    ng-model="vm.eventData.eventType"
+						    required>
 						<option>Birthday Party</option>
 						<option>Confrence</option>
 						<option>Convention</option>
@@ -118,7 +120,7 @@
 		</div>
 
 		<div class="edit-controllbar">
-			<button class="btn btn-success" ng-click="vm.saveEvent(); editing = false">
+			<button class="btn btn-success" ng-click="vm.saveEvent(vm.checkValidation()); editing = false">
 				Save
 			</button>
 		</div>
