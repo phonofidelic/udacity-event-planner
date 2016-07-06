@@ -1,6 +1,6 @@
 
 <div class="sign-up">Create an account
-	<button class="btn btn-default" ng-click="signUp = !signUp">Sign up</button>
+	<button class="btn btn-default signup-btn" ng-click="signUp = !signUp">Sign up</button>
 	<div>
 		<form class="input-form form-group" ng-show="signUp" ng-init="!signUp">
 		
@@ -8,10 +8,9 @@
 				<input type="text" 
 					   name="name" 
 					   id="inp-name"
-					   class="form-control"
+					   class="form-control signup-input"
 					   placeholder="Name:"
-					   ng-model="vm.data.name"
-					   autofocus 
+					   ng-model="vm.data.name" 
 					   required>
 			</label>
 
@@ -19,7 +18,7 @@
 				<input type="email" 
 					   name="email"
 					   id="inp-email"
-					   class="form-control"
+					   class="form-control signup-input"
 					   placeholder="Email:"
 					   ng-model="vm.data.email"
 					   required>
@@ -31,7 +30,7 @@
 				<input type="password" 
 					   name="password"
 					   id="inp-password"
-					   class="form-control"
+					   class="form-control signup-input"
 					   placeholder="Enter a password"
 					   ng-model="vm.data.password1"
 					   ng-change="vm.passwordStrength(vm.data.password1)"
@@ -54,7 +53,7 @@
 				<input type="password" 
 					   name="password-rep"
 					   id="inp-password-rep"
-					   class="form-control"
+					   class="form-control signup-input"
 					   placeholder="Repeat password"
 					   ng-model="vm.data.password2">
 			</label>

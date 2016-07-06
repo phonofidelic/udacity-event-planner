@@ -16,6 +16,15 @@ body {
 .input-form {
   background: #9EB0B0; }
 
+.signin-input {
+  margin-bottom: 20px; }
+
+.signup-input {
+  margin-bottom: 20px; }
+
+.signup-btn {
+  margin-bottom: 20px; }
+
 .sign-in-form label {
   display: inline; }
 
@@ -33,12 +42,15 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
-label.controll-label {
+label.control-label {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-label.controll-label input {
-  border-radius: 0px; }
+.form-control {
+  border-color: #fff;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
 
 input.btn {
   border-radius: 0px;
