@@ -5,12 +5,27 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
 		user = new UserAuthService(),
 		ref = firebase.database().ref().child('events'),
 		dbObject = $firebaseObject(ref),
-		dbArray = $firebaseArray(ref);
+		dbArray = $firebaseArray(ref),
+        usrRef = firebase.database().ref().child('users'),
+        usrObject = $firebaseObject(usrRef);
 
 	vm.eventData = {};
 
+    // get user data from db
+    usrObject.$loaded()
+        .then(function(data) {
+            var user = data[firebase.auth().currentUser.uid];
+            vm.eventData.eventHost = user.username;
+        })
+        .catch(function(error) {
+            // handle error
+            $log.error('usrObject error: ', error);
+        })
+
 	// set event uid property 
-	vm.eventData.eventCreatorsUid = firebase.auth().currentUser.uid;
+	// vm.eventData.eventCreatorsUid = firebase.auth().currentUser.uid;
+
+    // vm.eventData.eventHost = firebase.auth().currentUser.username;
 
 	dbObject.$loaded()
 		.then(function(data) {

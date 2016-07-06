@@ -9,7 +9,6 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	vm.userData = {};
 
 	// async request to firebase db
-	// vm.test = function() {
 	syncObject.$loaded()
 		.then(function(data) {
 			var user = data[firebase.auth().currentUser.uid];
@@ -22,13 +21,11 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 			} else {
 				vm.userData.name = user.name;
 			}
-			
 			vm.userData.email = user.email || firebase.auth().currentUser.email;
 		})
 		.catch(function(error) {
 			$log.log('syncObject error: ', error);
 		});
-	// };
 
 	syncObject.$bindTo($scope, 'users');
 

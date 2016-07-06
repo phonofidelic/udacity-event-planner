@@ -11,6 +11,7 @@ angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
 		getUserData: function(id) {
 			firebase.database().ref('users/' + id).on('value', function(snapshot) {
 				$log.log('db snapshot: ', snapshot.val());
+				return snapshot.val();
 			});
 		}
 	};
