@@ -10,6 +10,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
         usrObject = $firebaseObject(usrRef);
 
 	vm.eventData = {};
+	vm.eventData.eventGuests = [];
 
     // get user data from db
     usrObject.$loaded()
@@ -46,6 +47,15 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$log
 		};
 		$scope.addrAoutocomplete = new google.maps.places.Autocomplete(input, options);
 	};
+
+	vm.addGuest = function(guest) {
+		vm.eventData.eventGuests.push(guest);
+	}
+
+	vm.removeGuest = function(guest) {
+		$log.log('remove ', guest);
+		vm.eventData.eventGuests.splice(guest, 1);
+	}
 
 	vm.saveEvent = function() {
 		firebase.database().ref().child('events/').push(vm.eventData);

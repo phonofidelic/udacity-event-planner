@@ -44,24 +44,24 @@
 		</div>
 
 		<div class="row event-input">
-			<div class="control-group col-sm-6 col-xs-12">
-				<label class="" for="inp-event-start-time">start:
-				</label>
+			<div class="control-group date-input-group col-sm-6 col-xs-12">
+				<label class="control-label" for="inp-event-start-time">start:
 					<input type="datetime-local" 
 						   name="event-start-time"
 						   id="inp-event-start-time"
 						   class="form-control date-input"
 						   ng-model="vm.eventData.eventStartTime">
+				</label>
 				
 			</div>
-			<div class="control-group col-sm-6 col-xs-12">
-				<label class="" for="inp-event-end-time">end:
-				</label>
+			<div class="control-group date-input-group col-sm-6 col-xs-12">
+				<label class="control-label" for="inp-event-end-time">end:
 					<input type="datetime-local" 
 						   name="event-end-time"
 						   id="inp-event-end-time"
 						   class="form-control date-input"
 						   ng-model="vm.eventData.eventEndTime">
+				</label>
 				
 			</div>
 		</div>
@@ -92,6 +92,28 @@
 							  rows="5">
 					</textarea>
 				</label>
+			</div>
+		</div>
+
+		<div class="row event-input">
+			<div class="form-group event-form-group col-sm-12">
+				<label class="control-label" for="np-event-guestlist">guests:</label>
+				<div class="input-group">
+						<input type="text" 
+							   name="event-guestlist"
+							   id="inp-event-guestlist"
+							   class="form-control input-group"
+							   ng-model="vm.guest">
+						<div class="input-group-btn">
+							<button class="btn btn-default" ng-click="vm.addGuest(vm.guest)">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</div>
+
+				</div>
+			</div>
+			<div class="col-sm-12" ng-repeat="guest in vm.eventData.eventGuests">
+				<span class="glyphicon glyphicon-remove" ng-click="vm.removeGuest($index)"></span>{{guest}} 
 			</div>
 		</div>
 

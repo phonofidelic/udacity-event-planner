@@ -81,6 +81,9 @@ input.btn {
   margin-left: auto;
   margin-right: auto; }
 
+.date-input-group {
+  margin-bottom: 15px; }
+
 .date-input {
   width: 250px; }
 
