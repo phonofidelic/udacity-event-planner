@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	
-		<div class="row event-input">
+		<div class="row event-input" ng-show="vm.eventData.eventName">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-type">type:
 					<select class="form-control"
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-		<div class="row event-input">
+		<div class="row event-input" ng-show="vm.eventData.eventName && vm.eventData.eventType">
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-start-time">start:
 					<input type="text" 
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 
-		<div class="row event-input">
+		<div class="row event-input" ng-show="vm.eventData.eventName && vm.eventData.eventType && vm.eventData.eventEndTime">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-location">location:
 					<input type="text" 
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 
-		<div class="row event-input">
+		<div class="row event-input" ng-show="vm.eventData.eventName && vm.eventData.eventType && vm.eventData.eventEndTime && vm.eventData.eventLocation">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-description">description:
 					<textarea id="inp-event-descrition"

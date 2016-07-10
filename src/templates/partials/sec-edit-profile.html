@@ -1,4 +1,3 @@
-<nav-bar-directive></nav-bar-directive>
 <div class="main">hello {{vm.userData.name}}!
 	<h2>Edit Profile</h2>
 	<form class="input-form">		
@@ -63,15 +62,15 @@
 		</section>
 		
 		<div class="edit-controllbar">
-			<button class="btn btn-warning" ng-click="editing = true" ng-show="!editing">
+			<button class="btn btn-warning" ng-click="editing = true">
 				Edit
 			</button>
 
-			<button class="btn btn-danger" ng-click="editing = false" ng-show="editing">
+			<button class="btn btn-danger" ng-click="editing = false">
 				Cancel
 			</button>
 
-			<button class="btn btn-success" ng-click="vm.saveUserData(); editing = false" ng-show="editing">
+			<button class="btn btn-success" ng-click="vm.saveUserData(); editing = false">
 				Save
 			</button>
 

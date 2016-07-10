@@ -1,7 +1,7 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
 	<h2>Browse Events</h2>
-	<div ng-repeat="event in vm.events">
+	<div ng-repeat="event in vm.events | orderBy:'id':true">
 		<div class="event" data-toggle="modal" data-target="#modal-for{{event.$id}}">
 			<h3>{{event.eventName}}</h3>
 			<div>{{event.eventType}}</div>

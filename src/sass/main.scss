@@ -150,6 +150,14 @@ input.btn {
 
 // ---- mobile ---- //
 @media (max-width: 768px) {
+	.nav {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.container-fluid {
+		padding: 0px;
+	}
+
 	.event-form-group input,
 	.event-form-group textarea,
 	.event-form-group select,

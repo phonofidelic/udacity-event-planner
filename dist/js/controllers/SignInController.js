@@ -9,20 +9,15 @@ angular.module('eventPlan').controller('SignInController', ['$scope', '$window',
 
 		Auth.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
 			vm.firebaseUser = firebaseUser;
+			$window.open('#!/edit-profile', '_self');
 		}).catch(function(error) {
 			// TODO: handle errors
 			$log.log('login error message: ', error.message, error.code);
 			vm.error = error;
+			alert(error);
 		});
-
 		// navigate to 
-		$window.open('#!/edit-profile', '_self');
+		
 	};
 
-	// vm.signIn2 = function() {
-	// 	vm.firebaseUser = null;
-	// 	vm.error = null;
-
-	// 	auth.$signInWithEmailAndPassword
-	// }
 }]);
