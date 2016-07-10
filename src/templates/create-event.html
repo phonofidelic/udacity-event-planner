@@ -48,23 +48,21 @@
 		<div class="row event-input">
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-start-time">start:
-					<input type="datetime-local" 
+					<input type="text" 
 						   name="event-start-time"
 						   id="inp-event-start-time"
 						   class="form-control date-input"
-						   ng-model="vm.eventData.eventStartTime">
-				</label>
-				
+						   ng-blur="vm.getEventStartTime($event)">
+				</label>				
 			</div>
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-end-time">end:
-					<input type="datetime-local" 
+					<input type="text" 
 						   name="event-end-time"
 						   id="inp-event-end-time"
 						   class="form-control date-input"
-						   ng-model="vm.eventData.eventEndTime">
-				</label>
-				
+						   ng-blur="vm.getEventEndTime($event)">
+				</label>				
 			</div>
 		</div>
 
@@ -107,7 +105,7 @@
 							   class="form-control input-group"
 							   ng-model="vm.guest">
 						<div class="input-group-btn">
-							<button class="btn btn-default" ng-click="vm.addGuest(vm.guest)">
+							<button class="btn btn-default add-btn" ng-click="vm.addGuest(vm.guest)">
 								<span class="glyphicon glyphicon-plus"></span>
 							</button>
 						</div>
@@ -120,9 +118,10 @@
 		</div>
 
 		<div class="edit-controllbar">
-			<button class="btn btn-success" ng-click="vm.saveEvent(vm.checkValidation()); editing = false">
-				Save
-			</button>
+			<input class="btn btn-success" 
+				   type="submit"
+				   value="Save" 
+				   ng-click="vm.saveEvent(vm.checkValidation())">
 		</div>
 	</form>
 </div>

@@ -2,6 +2,7 @@
 $font-stack: Raleway, sans-serif;
 $background-1: #9EB0B0;
 $background-2: #BDD5D5;
+$shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
 
 body {     font: 2em $font-stack; }
 
@@ -74,7 +75,7 @@ label.control-label input {
 	border-color: #fff;
 	border-radius: 0px;
 	-webkit-appearance: none;
-	box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+	box-shadow: $shadow;
 }
 
 input.btn {
@@ -132,11 +133,19 @@ input.btn {
 	width: 250px;
 }
 
+.add-btn {
+	box-shadow: $shadow;
+}
+
 // ---- browse events ----//
 .event {
 	margin-bottom: 20px;
 	background: #fff;
-	box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+	box-shadow: $shadow;
+}
+
+.event:hover {
+	background: #d1d1d1;
 }
 
 // ---- mobile ---- //

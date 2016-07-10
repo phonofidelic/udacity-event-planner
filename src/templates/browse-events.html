@@ -1,9 +1,41 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
 	<h2>Browse Events</h2>
-	<div class="event" ng-repeat="event in vm.events">
-		<h3>{{event.eventName}}</h3>
-		<div>{{event.eventType}}</div>
-		<div>Hosted by {{event.eventHost}}</div>
+	<div ng-repeat="event in vm.events">
+		<div class="event" data-toggle="modal" data-target="#modal-for{{event.$id}}">
+			<h3>{{event.eventName}}</h3>
+			<div>{{event.eventType}}</div>
+			<div>Hosted by {{event.eventHost}}</div>
+		</div>
+
+		<div class="modal fade" 
+			 id="modal-for{{event.$id}}" 
+			 tabindex="-1" 
+			 role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">{{event.eventName}}</h4>
+					</div>
+					<div class="modal-body">
+						<div>{{event.eventType}}</div>
+						<div>Hosted by {{event.eventHost}}</div>
+						<div>Starts: {{event.eventStartTime}}</div>
+						<div>Ends: {{event.eventEndTime}}</div>
+						<div>Description:
+							<p class="event-description">{{event.eventDescription}}</p>
+						</div>
+						<div>Guests:</div>
+						<ul>
+							<li ng-repeat="guest in event.eventGuests">{{guest}}</li>
+						</ul>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>	
+
 	</div>
 </div>
+
