@@ -75,8 +75,7 @@
 						   class="form-control"
 						   autocomplete="street-address"
 						   placeholder="enter a location" 
-						   ng-focus="vm.autoAddress()"
-						   ng-model="vm.eventData.eventLocation">
+						   ng-init="vm.autoAddress()">
 				</label>
 			</div>
 		</div>
@@ -112,7 +111,7 @@
 
 				</div>
 			</div>
-			<div class="col-sm-12" ng-repeat="guest in vm.eventData.eventGuests">
+			<div class="col-sm-12" ng-repeat="guest in vm.eventData.eventGuests | orderBy:'id':true">
 				<span class="glyphicon glyphicon-remove" ng-click="vm.removeGuest($index)"></span>{{guest}} 
 			</div>
 		</div>
@@ -121,7 +120,7 @@
 			<input class="btn btn-success" 
 				   type="submit"
 				   value="Save" 
-				   ng-click="vm.saveEvent(vm.checkValidation())">
+				   ng-click="vm.getEventAddress(); vm.saveEvent(vm.checkValidation())">
 		</div>
 	</form>
 </div>

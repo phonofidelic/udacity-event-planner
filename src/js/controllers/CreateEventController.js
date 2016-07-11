@@ -56,8 +56,9 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$win
 		vm.eventData.eventEndTime = event.target.value;
 	};
 
-	vm.getEventAddress = function(event) {
-		vm.eventData.eventLocation = event.target.value;
+	vm.getEventAddress = function() {
+		$log.log($scope.addrAoutocomplete.getPlace());
+		vm.eventData.eventLocation = $scope.addrAoutocomplete.getPlace();
 	}
 
 	vm.addGuest = function(guest) {
