@@ -23,8 +23,13 @@
 						<div>Hosted by {{event.eventHost}}</div>
 						<div>Starts: {{event.eventStartTime}}</div>
 						<div class="modal-location">
-							<div>Location: </div>
-							<div class="event-map" id="map{{event.$id}}"></div>
+							<div class="event-map">Location: </div>
+							<div  id="map{{event.$id}}">
+								<ui-gmap-google-map  
+													center="map.center"
+													zoom="map.zoom">														
+								</ui-gmap-google-map>
+							</div>
 							<div>{{event.eventLocation.name}}</div>
 						<div>Ends: {{event.eventEndTime}}</div>
 						<div>Description:

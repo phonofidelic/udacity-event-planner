@@ -1,7 +1,7 @@
 /*eslint angular/di: [2,"array"]*/
 angular.module('eventPlan').
-	config(['$locationProvider', '$routeProvider', 
-		function config($locationProvider, $routeProvider) {
+	config(['$locationProvider', '$routeProvider', 'uiGmapGoogleMapApiProvider', 
+		function($locationProvider, $routeProvider, uiGmapGoogleMapApiProvider) {
 			$locationProvider.hashPrefix('!');
 
 			$routeProvider.
@@ -28,5 +28,10 @@ angular.module('eventPlan').
 					controller: 'CreateEventController',
 					controllerAs: 'vm'
 				});
+
+			uiGmapGoogleMapApiProvider.configure({
+				key: 'AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA',
+				v: '3.20'
+			})
 		}
 	]);
