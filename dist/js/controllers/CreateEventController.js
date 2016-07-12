@@ -61,6 +61,16 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$win
 		vm.eventData.eventLocation = $scope.addrAoutocomplete.getPlace();
 	}
 
+	// vm.eventData.getMap = function() {
+	// 	$log.log('map');
+	// 	var map = new google.maps.Map(document.getElementById('map'+item.$id), {
+	// 		center: {lat: -34.397, lng: 150.644},
+ //    		scrollwheel: false,
+ //    		zoom: 8
+ //    	});
+    	
+	// };
+
 	vm.addGuest = function(guest) {
 		vm.eventData.eventGuests.push(guest);
 	};

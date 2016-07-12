@@ -98,6 +98,10 @@ input.btn {
 .event:hover {
   background: #d1d1d1; }
 
+.event-map {
+  width: 200px;
+  height: 200px; }
+
 @media (max-width: 768px) {
   .nav {
     padding-left: 15px;

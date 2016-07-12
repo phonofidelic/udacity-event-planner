@@ -22,7 +22,10 @@
 						<div>{{event.eventType}}</div>
 						<div>Hosted by {{event.eventHost}}</div>
 						<div>Starts: {{event.eventStartTime}}</div>
-						<div>Location: {{event.eventLocation.name}}</div>
+						<div class="modal-location">
+							<div>Location: </div>
+							<div class="event-map" id="map{{event.$id}}"></div>
+							<div>{{event.eventLocation.name}}</div>
 						<div>Ends: {{event.eventEndTime}}</div>
 						<div>Description:
 							<p class="event-description">{{event.eventDescription}}</p>
