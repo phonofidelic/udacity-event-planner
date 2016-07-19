@@ -1,6 +1,6 @@
 /*eslint angular/di: [2,"array"]*/
 'use-strict';
-angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$log', '$firebaseObject', '$firebaseArray', 'uiGmapGoogleMapApi', function($scope, $log, $firebaseObject, $firebaseArray, uiGmapGoogleMapApi) {
+angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$http', '$log', '$firebaseObject', '$firebaseArray', 'uiGmapGoogleMapApi', function($scope, $http, $log, $firebaseObject, $firebaseArray, uiGmapGoogleMapApi) {
 	var vm = this,
 		gMaps = uiGmapGoogleMapApi;
 
@@ -8,19 +8,25 @@ angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$lo
 	var eventsRef = firebase.database().ref().child('events');
 	vm.events = $firebaseArray(eventsRef);
 
-	// function initMaps() {
+	// vm.geocode = function(addr) {
+	// 	if (angular.isDefined(addr)) {
+	// 		var address = addr;
+	// 		$log.log('geocode address: ', address);
+	// 	}
 
-	// 	var map = new google.maps.Map(document.getElementById('map'+item.$id), {
-	// 		center: {lat: -34.397, lng: 150.644},
- //    		scrollwheel: false,
- //    		zoom: 8
- //    	});		
+	// 	$http({
+	// 		method: 'GET',
+	// 		url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA'
+	// 	}).then(function successCallback(response) {
+	// 		// handle response
+	// 		// var center = response.data.results[0].geometry.location;
+	// 		$log.log('geocode response: ', response);
+	// 		// return center
+			
+	// 	}, function errorCallback(response) {
+	// 		// handle error
+	// 	})
 	// }
-
-	// vm.getMap = function(item) {
-	// 	$log.log('map'+item.$id);
-	// 	initMap(item);	
-	// };
 
 	$scope.map = {
 		center: {

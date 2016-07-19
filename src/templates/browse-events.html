@@ -2,7 +2,7 @@
 <div class="main">
 	<h2>Browse Events</h2>
 	<div ng-repeat="event in vm.events | orderBy:'id':true">
-		<div class="event" data-toggle="modal" data-target="#modal-for{{event.$id}}">
+		<div class="event" data-toggle="modal" data-target="#modal-for{{event.$id}}" ng-click="vm.geocode(event.eventLocation.name)">
 			<h3>{{event.eventName}}</h3>
 			<div>{{event.eventType}}</div>
 			<div>Hosted by {{event.eventHost}}</div>
@@ -30,7 +30,7 @@
 													zoom="map.zoom">														
 								</ui-gmap-google-map>
 							</div>
-							<div>{{event.eventLocation.name}}</div>
+							<div>{{event.eventLocation}}</div>
 						<div>Ends: {{event.eventEndTime}}</div>
 						<div>Description:
 							<p class="event-description">{{event.eventDescription}}</p>
