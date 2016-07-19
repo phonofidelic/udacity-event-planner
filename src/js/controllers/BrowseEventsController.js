@@ -27,12 +27,21 @@ angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$ht
 	// 		// handle error
 	// 	})
 	// }
+	for (item in vm.events) {
+		if (angular.isDefined(item.mapCenter)) {
+			item.statMap = 'https://maps.googleapis.com/maps/api/staticmap?center='+item.mapCenter.lat+','+item.mapCenter.lng;
+			return item.statMap;
+		}
+	}
+
+	vm.getMapCenter = function(index) {
+		$log.log(index);
+		return vm.events[index].mapCenter;
+	};
+
 
 	$scope.map = {
-		center: {
-			latitude: 45,
-			longitude: -73
-		},
+		// center: vm.getMapCenter(i),
 		zoom: 14
 	};
 
