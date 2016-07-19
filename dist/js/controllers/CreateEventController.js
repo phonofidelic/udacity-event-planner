@@ -4,7 +4,6 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 	var vm = this,
 		user = new UserAuthService(),
 		ref = firebase.database().ref().child('events'),
-		dbObject = $firebaseObject(ref),
 		dbArray = $firebaseArray(ref),
         usrRef = firebase.database().ref().child('users'),
         usrObject = $firebaseObject(usrRef);
@@ -23,14 +22,6 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
             // handle error
             $log.error('usrObject error: ', error);
         });
-
-	// dbObject.$loaded()
-	// 	.then(function(data) {
-	// 		$log.log('from dbObject: ', data);
-	// 	})
-	// 	.catch(function(error) {
-	// 		$log.log('syncObject error: ', error);
-	// 	});
 
 	// datetime picker setup
 	// TODO: use angular.element instead of jQuery selector
@@ -153,5 +144,4 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			}
 		}, function(error) {$log.log('error: ', error)});
 	};
-
 }]);

@@ -25,10 +25,9 @@
 						<div class="modal-location">
 							<div class="event-map">Location: </div>
 							<div  id="map{{event.$id}}">
-								<img src="https://maps.googleapis.com/maps/api/staticmap?center={{event.eventLocation}}&zoom=14&size=400x400&markers=color:red|{{event.eventLocation}}&key=AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA">
-								{{event.mapCenter}}
+								<img class="img-responsive" src="https://maps.googleapis.com/maps/api/staticmap?center={{event.eventLocation}}&zoom=14&size=400x400&markers=color:red|{{event.eventLocation}}&key=AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA">
 							</div>
-							<div>{{event.eventLocation}}</div>
+							<div>Location: {{event.eventLocation}}</div>
 						<div>Ends: {{event.eventEndTime}}</div>
 						<div>Description:
 							<p class="event-description">{{event.eventDescription}}</p>
