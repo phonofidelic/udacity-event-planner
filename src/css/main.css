@@ -52,20 +52,21 @@ label.control-label {
   -webkit-appearance: none;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
 
-input.btn {
+input.btn,
+.signup-btn {
   border-radius: 0px;
   background-image: none;
   width: 50;
   display: block;
   margin: 0 auto; }
 
+.signup-btn {
+  margin-bottom: 20px; }
+
 .progress {
   margin-bottom: 0px;
   border-radius: 0px;
   height: 10px; }
-
-.sign-up button.btn {
-  display: block; }
 
 .edit-controllbar {
   margin-top: 50px; }

@@ -1,7 +1,7 @@
 /*eslint angular/di: [2,"array"]*/
 angular.module('eventPlan').controller('EditProfileController', ['$scope', '$window', '$log', '$timeout', 'UserAuthService', '$firebaseObject', function($scope, $window, $log, $timeout, UserAuthService, $firebaseObject) {
 	var vm = this,
-		user = new UserAuthService(),
+		userAuthServiceService = new UserAuthService(),
 		ref = firebase.database().ref().child('users'),
 		syncObject = $firebaseObject(ref);
 
@@ -22,6 +22,10 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				vm.userData.name = user.name;
 			}
 			vm.userData.email = user.email || firebase.auth().currentUser.email;
+			
+			// if (firebase.auth().currentUser.email) {
+				userAuthServiceService.setData(vm.userData.uid, vm.userData);
+			// }
 		})
 		.catch(function(error) {
 			$log.log('syncObject error: ', error);
@@ -40,7 +44,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 		var data = vm.userData;
 		var uid = vm.userData.uid;	
 		$log.log('data from saveUserData: ', data);
-		user.setData(uid, data);
+		userAuthServiceService.setData(uid, data);
 
 	};
 	vm.resetPassword = function() {
@@ -49,7 +53,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 
 	vm.getUserData = function() {
 		// var id = firebase.auth().currentUser.uid;
-		// user.getUserData(id);	
+		// userAuthServiceService.getUserData(id);	
 		// $log.log('db data: ', $scope.users[firebase.auth().currentUser.uid]);
 		$log.log('db data: ', syncObject);	
 	};

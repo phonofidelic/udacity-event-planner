@@ -78,21 +78,22 @@ label.control-label input {
 	box-shadow: $shadow;
 }
 
-input.btn {
+input.btn,
+.signup-btn {
 	border-radius: 0px;
     background-image: none;
     width: 50;
     display: block;
     margin: 0 auto;
 }
+.signup-btn {
+	margin-bottom: 20px;
+}
 
 .progress {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	height: 10px;
-}
-.sign-up button.btn {
-	display: block;
 }
 
 //---- edit profile ----//

@@ -1,5 +1,7 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <div ng-controller="SignInController as vm">
-	<div class="sign-in-native">Sign in
+	<div class="sign-in-native">
+	<h3>Sign in</h3>
 		<form class="sign-in-form form-group">
 
 			<label class="controll-label" for="sgn-email">
@@ -35,7 +37,28 @@
 		</form>
 	</div>
 
-	<div class="sign-in-google">Sign in w/ Google
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<div class="sign-in-google">
+	<h3>Sign in w/ Google</h3>
+		<div class="g-signin2" data-onsuccess="" ng-click="vm.googleSignIn()"></div>
 	</div>
 </div>
+
+<a href="#!" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+
+<script type="text/javascript">
+		function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail());
+	}
+</script>
