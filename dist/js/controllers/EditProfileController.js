@@ -22,10 +22,6 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				vm.userData.name = user.name;
 			}
 			vm.userData.email = user.email || firebase.auth().currentUser.email;
-			
-			// if (firebase.auth().currentUser.email) {
-				userAuthServiceService.setData(vm.userData.uid, vm.userData);
-			// }
 		})
 		.catch(function(error) {
 			$log.log('syncObject error: ', error);
