@@ -13,11 +13,14 @@ body {
   padding: 20px;
   margin: 0 auto; }
 
-.main h2 {
-  text-align: center; }
+.main h2,
+.main h3 {
+  text-align: center;
+  color: #777; }
 
 .input-form {
-  background: #e8ecee; }
+  background: #e8ecee;
+  margin-top: 50px; }
 
 .signin-input {
   margin-bottom: 20px; }
@@ -64,15 +67,36 @@ input.btn,
   margin: 0 auto; }
 
 .signup-btn {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  width: 200px; }
+
+.signin-btn {
+  width: 200px; }
 
 .progress {
   margin-bottom: 0px;
   border-radius: 0px;
   height: 10px; }
 
-nav.navbar-default {
+.btn-default {
+  color: #777;
   background: #e8ecee; }
+
+.btn-cancel {
+  background: rgba(217, 83, 79, 0.5); }
+
+.btn-cancel:hover {
+  background: #d9534f; }
+
+.btn-save {
+  background: rgba(92, 184, 29, 0.5); }
+
+.btn-save:hover {
+  background: #5cb85c; }
+
+nav.navbar-default {
+  background: #e8ecee;
+  border-bottom: 1px solid #777; }
 
 .edit-email,
 .edit-username {
@@ -104,7 +128,8 @@ nav.navbar-default {
   width: 250px; }
 
 .add-btn {
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0; }
 
 .event {
   margin-bottom: 20px;

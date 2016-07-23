@@ -2,6 +2,8 @@
 $font-stack: Raleway, sans-serif;
 $background-1: #e8ecee;
 $background-2: #BDD5D5;
+$color-1: #000;
+$color-2: #777;
 $shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
 
 body {     
@@ -14,9 +16,6 @@ body {
 	margin-top: 100px;
 	margin-bottom: 50px;
 }
-.nav {
-	// max-width: 700px;
-}
 
 .main {
 	background: $background-1;
@@ -26,13 +25,15 @@ body {
 	// text-align: center;
 }
 
-.main h2 {
+.main h2,
+.main h3 {
 	text-align: center;
+	color: $color-2;
 }
 
 .input-form {
 	background: $background-1;
-	// max-width: 700px;
+	margin-top: 50px;
 }
 
 .signin-input {
@@ -93,6 +94,11 @@ input.btn,
 }
 .signup-btn {
 	margin-bottom: 20px;
+	width: 200px;
+}
+
+.signin-btn {
+	width: 200px;
 }
 
 .progress {
@@ -101,12 +107,37 @@ input.btn,
 	height: 10px;
 }
 
-//---- nav-bar ---//
-nav.navbar-default {
+//---- buttons ----//
+.btn-default {
+	color: $color-2;
 	background: $background-1;
 }
 
+.btn-cancel {
+	background: rgba(217, 83, 79, 0.5);
+}
+.btn-cancel:hover {
+	background: rgb(217, 83, 79);
+}
+
+.btn-save {
+	 background: rgba(92, 184, 29, 0.5);
+}
+
+.btn-save:hover {
+	background: #5cb85c;
+}
+
+//---- nav-bar ---//
+nav.navbar-default {
+	background: $background-1;
+	border-bottom: 1px solid $color-2;
+}
+
 //---- edit profile ----//
+.edit-profile {
+}
+
 .edit-email,
 .edit-username {
 	// display: inline;
@@ -155,6 +186,7 @@ nav.navbar-default {
 
 .add-btn {
 	box-shadow: $shadow;
+	border-radius: 0;
 }
 
 // ---- browse events ----//
