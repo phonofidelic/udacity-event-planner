@@ -1,13 +1,18 @@
 
 $font-stack: Raleway, sans-serif;
-$background-1: #9EB0B0;
+$background-1: #e8ecee;
 $background-2: #BDD5D5;
 $shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
 
-body {     font: 2em $font-stack; }
+body {     
+	font: 2em $font-stack; 
+	background: $background-1;
+}
 
 .logo {
 	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 50px;
 }
 .nav {
 	// max-width: 700px;
@@ -96,17 +101,22 @@ input.btn,
 	height: 10px;
 }
 
+//---- nav-bar ---//
+nav.navbar-default {
+	background: $background-1;
+}
+
 //---- edit profile ----//
 .edit-email,
 .edit-username {
 	// display: inline;
-	background: $background-2;
+	background: $background-1;
 }
 
 .edit-controllbar {
 	margin: 50px 0 0 0;
 	padding: 5px;
-	background: $background-2;
+	background: $background-1;
 }
 
 .sign-out {

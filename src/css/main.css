@@ -1,11 +1,14 @@
 body {
-  font: 2em Raleway, sans-serif; }
+  font: 2em Raleway, sans-serif;
+  background: #e8ecee; }
 
 .logo {
-  text-align: center; }
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px; }
 
 .main {
-  background: #9EB0B0;
+  background: #e8ecee;
   max-width: 700px;
   padding: 20px;
   margin: 0 auto; }
@@ -14,7 +17,7 @@ body {
   text-align: center; }
 
 .input-form {
-  background: #9EB0B0; }
+  background: #e8ecee; }
 
 .signin-input {
   margin-bottom: 20px; }
@@ -68,14 +71,17 @@ input.btn,
   border-radius: 0px;
   height: 10px; }
 
+nav.navbar-default {
+  background: #e8ecee; }
+
 .edit-email,
 .edit-username {
-  background: #BDD5D5; }
+  background: #e8ecee; }
 
 .edit-controllbar {
   margin: 50px 0 0 0;
   padding: 5px;
-  background: #BDD5D5; }
+  background: #e8ecee; }
 
 .sign-out {
   float: right; }
