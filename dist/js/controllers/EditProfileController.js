@@ -11,11 +11,23 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	// async request to firebase db
 	syncObject.$loaded()
 		.then(function(data) {
-			var user = data[firebase.auth().currentUser.uid];
+			var uid = firebase.auth().currentUser.uid;
+			var user = data[uid];
 			$log.log('from syncObject: ', user);
 			// get userdata from db and set local vars
-			vm.userData.uid = firebase.auth().currentUser.uid;
-			vm.userData.username = user.username || firebase.auth().currentUser.username;
+			vm.userData.uid = uid;
+
+			// if username is exists in db, set local username variable to it 
+			if (user.username) {
+				vm.userData.username = user.username;
+			} else {
+				// if username does not exist in db, set it to users email username
+				var email = firebase.auth().currentUser.email;
+				vm.userData.username = email.substr(0, email.indexOf('@'));
+				userAuthServiceService.setOne(uid, 'username', vm.userData.username);
+			}
+
+			// vm.userData.username = user.username || firebase.auth().currentUser.username;
 			if (angular.isUndefined(user.name)) {
 				vm.userData.name = 'no name';
 			} else {
