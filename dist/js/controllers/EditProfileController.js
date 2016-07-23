@@ -33,6 +33,20 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				vm.userData.name = user.name;
 			}
 			vm.userData.email = user.email || firebase.auth().currentUser.email;
+
+			if (angular.isUndefined(user.avatar)) {
+				// set firstLetter variable for user avatar
+				vm.firstLetter = vm.userData.email.toLowerCase().trim().split('')[0];
+				$log.log('firstLetter: ', vm.firstLetter);
+
+				var randomHexString = (Math.random()*0xFFFFFF<<0).toString(16);
+				$log.log('randomHexString: ', randomHexString);
+
+				vm.userData.avatar = 'https://avatars.discourse.org/v2/letter/'+vm.firstLetter+'/'+randomHexString+'/100.png';
+				userAuthServiceService.setOne(uid, 'avatar', vm.userData.avatar)
+			} else {
+				vm.userData.avatar = user.avatar;
+			}
 		})
 		.catch(function(error) {
 			$log.log('syncObject error: ', error);
@@ -57,6 +71,11 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	vm.resetPassword = function() {
 
 	};
+
+	vm.getUserAvatar = function() {
+		// var firstLetter = vm.firstLetter;
+		// $log.log('firstLetter: ', firstLetter);
+	}
 
 	vm.getUserData = function() {
 		// var id = firebase.auth().currentUser.uid;
