@@ -97,14 +97,21 @@ input.btn,
 }
 
 //---- edit profile ----//
-.edit-email {
+.edit-email,
+.edit-username {
 	// display: inline;
+	background: $background-2;
 }
 
 .edit-controllbar {
 	margin: 50px 0 0 0;
 	padding: 5px;
 	background: $background-2;
+}
+
+.sign-out {
+	float: right;
+	// padding: 15px;
 }
 
 // ---- create event ---- //

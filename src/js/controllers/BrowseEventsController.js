@@ -6,4 +6,11 @@ angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$ht
 	//get all event entries from db and save in local array
 	var eventsRef = firebase.database().ref().child('events');
 	vm.events = $firebaseArray(eventsRef);
+
+	vm.signOut = function() {
+		firebase.auth().signOut();
+		localStorage.clear();
+		$log.log('signed out');
+		$window.open('/', '_self');
+	};
 }]);

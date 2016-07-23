@@ -144,4 +144,11 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			}
 		}, function(error) {$log.log('error: ', error)});
 	};
+
+	vm.signOut = function() {
+		firebase.auth().signOut();
+		localStorage.clear();
+		$log.log('signed out');
+		$window.open('/', '_self');
+	};
 }]);

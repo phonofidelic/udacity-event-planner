@@ -8,13 +8,13 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	// initialize data model
 	vm.userData = {};
 
-	// async request to firebase db
+	// async request to firebase db retrievs saved user-data and sets local variables
 	syncObject.$loaded()
 		.then(function(data) {
 			var uid = firebase.auth().currentUser.uid;
 			var user = data[uid];
 			$log.log('from syncObject: ', user);
-			// get userdata from db and set local vars
+			
 			vm.userData.uid = uid;
 
 			// if username is exists in db, set local username variable to it 
@@ -27,7 +27,6 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				userAuthServiceService.setOne(uid, 'username', vm.userData.username);
 			}
 
-			// vm.userData.username = user.username || firebase.auth().currentUser.username;
 			if (angular.isUndefined(user.name)) {
 				vm.userData.name = 'no name';
 			} else {

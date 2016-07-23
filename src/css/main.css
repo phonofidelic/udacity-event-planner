@@ -68,10 +68,17 @@ input.btn,
   border-radius: 0px;
   height: 10px; }
 
+.edit-email,
+.edit-username {
+  background: #BDD5D5; }
+
 .edit-controllbar {
   margin: 50px 0 0 0;
   padding: 5px;
   background: #BDD5D5; }
+
+.sign-out {
+  float: right; }
 
 .event-form-group input,
 .event-form-group textarea,
