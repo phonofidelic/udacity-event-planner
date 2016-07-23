@@ -107,6 +107,15 @@ nav.navbar-default {
   padding: 5px;
   background: #e8ecee; }
 
+.user-img {
+  border-radius: 50%;
+  margin: 20px auto;
+  width: 100px;
+  display: block; }
+
+.user-img-editing {
+  border: dashed #777 3px; }
+
 .sign-out {
   float: right; }
 

@@ -25,15 +25,7 @@
 			</label>
 
 			<label class="controll-label" for="inp-password">
-				<input type="password" 
-					   name="password"
-					   id="inp-password"
-					   class="form-control signup-input"
-					   placeholder="Enter a password"
-					   ng-model="vm.data.password1"
-					   ng-change="vm.passwordStrength(vm.data.password1)"
-					   required>
-				
+
 				<div class="progress">	   
 				  <div class="progress-bar" 
 				  	   role="progressbar" 
@@ -43,7 +35,18 @@
 				  	   ng-style="{width: vm.passwordProgress}">
 				    <span class="sr-only">0% Complete</span>
 				  </div>
-				</div>	
+				</div>
+			
+				<input type="password" 
+					   name="password"
+					   id="inp-password"
+					   class="form-control signup-input"
+					   placeholder="Enter a password"
+					   ng-model="vm.data.password1"
+					   ng-change="vm.passwordStrength(vm.data.password1)"
+					   required>
+				
+	
 
 			</label>
 
@@ -57,10 +60,10 @@
 			</label>
 
 			<section class="submit-form">
-				<input id="submit" 
-					   class="btn btn-default" 
-					   value="submit" 
-					   ng-click="vm.createAccount(vm.checkValidation())" >
+				<button id="submit" 
+					   class="btn btn-default signup-btn" 
+					   ng-click="vm.createAccount(vm.checkValidation())" >Submit
+				</button>
 			</section>
 
 		</form>

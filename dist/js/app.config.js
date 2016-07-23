@@ -1,7 +1,7 @@
 /*eslint angular/di: [2,"array"]*/
 angular.module('eventPlan').
-	config(['$locationProvider', '$routeProvider', 
-		function($locationProvider, $routeProvider) {
+	config(['$locationProvider', '$routeProvider', 'gravatarServiceProvider',
+		function($locationProvider, $routeProvider,gravatarServiceProvider) {
 			$locationProvider.hashPrefix('!');
 
 			$routeProvider.
@@ -28,5 +28,9 @@ angular.module('eventPlan').
 					controller: 'CreateEventController',
 					controllerAs: 'vm'
 				});
+
+				gravatarServiceProvider.defaults = {
+					'default': 'mm'
+				}
 		}
 	]);

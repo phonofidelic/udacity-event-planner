@@ -150,6 +150,16 @@ nav.navbar-default {
 	background: $background-1;
 }
 
+.user-img {
+	border-radius: 50%;
+	margin: 20px auto;
+	width: 100px;
+	display: block;	
+}
+.user-img-editing {
+	border: dashed $color-2 3px;
+}
+
 .sign-out {
 	float: right;
 	// padding: 15px;
