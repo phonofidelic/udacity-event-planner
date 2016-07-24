@@ -43,7 +43,6 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 
 		var inputIssues = issueTracker.retrieve();
 
-		// $log.log('data: ', vm.data);
 		$log.log(inputIssues);
 		$log.log('issues array: ', issueTracker.retrieveIssueArray());
 
@@ -52,6 +51,7 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 			status = true;
 		} else {
 			status = false;
+			vm.issues = issueTracker.issues;
 		}
 		issueTracker.clearIssues();
 		return status;

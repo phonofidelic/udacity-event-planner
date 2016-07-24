@@ -30,9 +30,13 @@
 					   name="sign-in-btn" 
 					   class="btn btn-default signin-btn"
 					   value="Sign in"
-					   ng-click="vm.signIn(vm.email, vm.password)">
+					   ng-click="vm.signIn(vm.email, vm.password, vm.checValidation())">
 			</label>
 
 		</form>
+		<div class="issues" ng-show="vm.issues">
+			<div class="issue" ng-repeat="issue in vm.issues">{{issue}}</div>
+		</div>
+		<div class="issues" ng-show="vm.error">{{vm.error}}</div>
 	</div>
 </div>
