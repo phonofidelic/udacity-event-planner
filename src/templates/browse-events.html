@@ -5,6 +5,7 @@
 	<div ng-repeat="event in vm.events | orderBy:'id':true" class="col-sm-4">
 		<div class="event" data-toggle="modal" data-target="#modal-for{{event.$id}}" ng-click="vm.geocode(event.eventLocation.name)">
 			<h3>{{event.eventName}}</h3>
+			<img class="user-img" src="{{event.hostAvatar+'100.png'}}">
 			<div>{{event.eventType}}</div>
 			<div>Hosted by {{event.eventHost}}</div>
 			<div>{{event.eventStartTime}}</div>
@@ -22,7 +23,7 @@
 					</div>
 					<div class="modal-body">
 						<div>{{event.eventType}}</div>
-						<div>Hosted by {{event.eventHost}}</div>
+						<div>Hosted by {{event.eventHost}} <span><img class="user-img-thumb" src="{{event.hostAvatar+'50.png'}}"></span></div>
 						<div>Starts: {{event.eventStartTime}}</div>
 						<div class="modal-location">
 							<div class="event-map">Location: </div>

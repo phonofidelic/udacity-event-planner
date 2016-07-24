@@ -37,12 +37,8 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 			if (angular.isUndefined(user.avatar)) {
 				// set firstLetter variable for user avatar
 				vm.firstLetter = vm.userData.email.toLowerCase().trim().split('')[0];
-				$log.log('firstLetter: ', vm.firstLetter);
-
 				var randomHexString = (Math.random()*0xFFFFFF<<0).toString(16);
-				$log.log('randomHexString: ', randomHexString);
-
-				vm.userData.avatar = 'https://avatars.discourse.org/v2/letter/'+vm.firstLetter+'/'+randomHexString+'/100.png';
+				vm.userData.avatar = 'https://avatars.discourse.org/v2/letter/'+vm.firstLetter+'/'+randomHexString+'/';
 				userAuthServiceService.setOne(uid, 'avatar', vm.userData.avatar)
 			} else {
 				vm.userData.avatar = user.avatar;

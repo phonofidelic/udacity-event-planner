@@ -17,6 +17,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
         .then(function(data) {
             var user = data[firebase.auth().currentUser.uid];
             vm.eventData.eventHost = user.username;
+            vm.eventData.hostAvatar = user.avatar;
         })
         .catch(function(error) {
             // handle error

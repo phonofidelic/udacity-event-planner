@@ -1,6 +1,6 @@
 /*eslint angular/di: [2,"array"]*/
 'use-strict';
-angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$http', '$log', '$firebaseObject', '$firebaseArray', function($scope, $http, $log, $firebaseObject, $firebaseArray) {
+angular.module('eventPlan').controller('BrowseEventsController', ['$scope', '$http', '$log','$window', '$firebaseObject', '$firebaseArray', function($scope, $http, $log, $window, $firebaseObject, $firebaseArray) {
 	var vm = this;
 
 	//get all event entries from db and save in local array

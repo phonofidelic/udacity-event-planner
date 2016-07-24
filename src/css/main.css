@@ -110,11 +110,13 @@ nav.navbar-default {
 .user-img {
   border-radius: 50%;
   margin: 20px auto;
-  width: 100px;
   display: block; }
 
 .user-img-editing {
   border: dashed #777 3px; }
+
+.user-img-thumb {
+  border-radius: 50%; }
 
 .sign-out {
   float: right; }
