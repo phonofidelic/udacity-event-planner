@@ -121,6 +121,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			status = true;
 		} else {
 			status = false;
+			vm.issues = issueTracker.issues;
 		}
 		$log.log('status: ', status);
 		issueTracker.clearIssues();

@@ -59,7 +59,7 @@
 					   ng-model="vm.data.password2">
 			</label>
 
-			<div class="issues">
+			<div class="issues" ng-show="vm.issues">
 				<div class="issue" ng-repeat="issue in vm.issues">{{issue}}</div>
 			</div>
 

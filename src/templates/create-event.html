@@ -124,11 +124,16 @@
 			</div>
 		</div>
 
+		<div class="issues" ng-show="vm.issues">
+			<div class="issue" ng-repeat="issue in vm.issues">{{issue}}</div>
+		</div>
+
 		<div class="edit-controllbar">
 			<input class="btn btn-success" 
 				   type="submit"
 				   value="Save" 
 				   ng-click="vm.saveEvent()">
 		</div>
+
 	</form>
 </div>
