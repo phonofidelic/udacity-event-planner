@@ -14,7 +14,8 @@ body {
   margin: 0 auto; }
 
 .main h2,
-.main h3 {
+.main h3,
+.main h4 {
   text-align: center;
   color: #777; }
 
@@ -80,16 +81,30 @@ input.btn,
 
 .btn-default {
   color: #777;
-  background: #e8ecee; }
+  background: #e8ecee;
+  border-radius: 0px;
+  width: 200px; }
+
+.btn-edit {
+  display: block;
+  margin: 0 auto; }
 
 .btn-cancel {
-  background: rgba(217, 83, 79, 0.5); }
+  background: rgba(217, 83, 79, 0.5);
+  border-radius: 0px;
+  width: 200px;
+  display: block;
+  margin: 5px auto; }
 
 .btn-cancel:hover {
   background: #d9534f; }
 
 .btn-save {
-  background: rgba(92, 184, 29, 0.5); }
+  background: rgba(92, 184, 29, 0.5);
+  border-radius: 0px;
+  width: 200px;
+  display: block;
+  margin: 5px auto; }
 
 .btn-save:hover {
   background: #5cb85c; }
@@ -97,6 +112,15 @@ input.btn,
 nav.navbar-default {
   background: #e8ecee;
   border-bottom: 1px solid #777; }
+
+.sign-out {
+  float: right; }
+
+.profile-form {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center; }
 
 .edit-email,
 .edit-username {
@@ -114,12 +138,6 @@ nav.navbar-default {
 
 .user-img-editing {
   border: dashed #777 3px; }
-
-.user-img-thumb {
-  border-radius: 50%; }
-
-.sign-out {
-  float: right; }
 
 .event-form-group input,
 .event-form-group textarea,
@@ -140,18 +158,29 @@ nav.navbar-default {
 
 .add-btn {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0; }
+  border-radius: 0;
+  width: 50px; }
 
 .event {
   margin-bottom: 20px;
   background: #fff;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 5px 0 20px 0; }
 
 .event:hover {
   background: #d1d1d1; }
 
-.angular-google-map-container {
-  height: 400px; }
+.event-body {
+  width: 400px;
+  margin: 0 auto; }
+
+.modal-content {
+  border-radius: 0px;
+  width: 400px;
+  margin: 0 auto; }
+
+.user-img-thumb {
+  border-radius: 50%; }
 
 @media (max-width: 768px) {
   .nav {
