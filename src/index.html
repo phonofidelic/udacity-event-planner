@@ -6,31 +6,48 @@
 		<meta name="google-signin-client_id" content="1025258861433-0a3hghsri3rkmk1l9onvq9sjor6nbcav.apps.googleusercontent.com">
 		
 		<!-- bootstrap css -->
+		<!-- build:bootstrapCss -->
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
-		<!-- <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css"> -->
 		<link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
+		<!-- endbuild -->
 		<!-- jasmine css -->
+		<!-- build:jasmineCss -->
 		<link rel="stylesheet" type="text/css" href="bower_components/jasmine-core/lib/jasmine-core/jasmine.css">
+		<!-- endbuild -->
 		<!-- fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<!-- main css -->
+		<!-- build:mainCss -->
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!-- endbuild -->
+
+		<!-- build:headScripts -->
 		<!-- jquery -->
+		<!-- build:jQuery -->
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+		<!-- endbuild -->
 		<!-- angular scripts -->
+		<!-- build:angular -->
 		<script type="text/javascript" src="bower_components/angular/angular.js" asynch></script>
 		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 		<script type="text/javascript" src="bower_components/angular-mocks/angular-mocks.js"></script>
 		<script type="text/javascript" src="bower_components/angularfire/dist/angularfire.js"></script>
+		<!-- endbuild -->
 		<!-- google scripts -->
 		<!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA&libraries=places" async defer></script>
 		<!-- moment js -->
+		<!-- build:moment -->
 		<script type="text/javascript" src="bower_components/moment/moment.js"></script>
+		<!-- endbuild -->
 		<!-- bootstrap script -->
+		<!-- build:bootstrapScripts -->
 		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script type="text/javascript" src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
 		<script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+		<!-- endbuild -->
+		<!-- endbuild -->
+
 		<!-- firebase -->
 		<script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-app.js"></script>
   		<script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-auth.js"></script>
@@ -48,8 +65,7 @@
 			// Get a reference to the database service
 			var database = firebase.database();
 		</script>
-		<!-- angular-gravatar -->
-		<script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+
 		<!-- testing scripts -->
 <!-- 		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/jasmine.js"></script>
 		<script type="text/javascript" src="bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
@@ -64,6 +80,7 @@
 			<div ng-view></div>
 		</div>
 
+		<!-- build:appScripts -->
 		<!-- main app -->
 		<script type="text/javascript" src="js/app.module.js"></script>
 		<script type="text/javascript" src="js/app.config.js"></script>
@@ -84,5 +101,6 @@
 		<script type="text/javascript" src="js/services/UserAuthService.js"></script>
 		<script type="text/javascript" src="js/services/Auth.js"></script>
 		<!-- <script type="text/javascript" src="tests/controllers/SingnUpController-spec.js"></script> -->
+		<!-- endbuild -->
 	</body>
 </html>
