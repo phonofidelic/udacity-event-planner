@@ -13,16 +13,20 @@ var gulp = require('gulp'),
 
 var browserSync = require('browser-sync').create();
 
-// browserSync.init({
-// 	server: {
-// 		baseDir: './src',
-// 		routes: {
-// 			'/bower_components': 'bower_components'
-// 		}
-// 	}
-// });
-// browserSync.stream();
+//  browser sync
+gulp.task('sync', function() {
+	browserSync.init({
+		server: {
+			baseDir: './src',
+			routes: {
+				'/bower_components': 'bower_components'
+			}
+		}
+	});
+	browserSync.stream();	
+});
 
+// js lint
 gulp.task('lint', function() {
 	return gulp.src(['src/**/*.js', '!node_modules/**', '!bower_components/**'])
 		.pipe(eslint())
@@ -49,13 +53,14 @@ gulp.task('html', function() {
 		],
 		'appScripts': 'js/app.min.js'
 	}))
-	.pipe(gulp.dest('dist/'));
-	// .pipe(browserSync.stream());
+	.pipe(gulp.dest('dist/'))
+	.pipe(browserSync.stream());
 });
 gulp.task('watch-html', function() {
 	gulp.watch('src/**/*.html', ['html']);
 });
 
+// templates
 gulp.task('templates', function() {
 	gulp.src('src/templates/**/*')
 	.pipe(gulp.dest('dist/templates'));
@@ -70,8 +75,8 @@ gulp.task('styles', function() {
 	}))
 	// TODO: switch to dist directory on build
 	// .pipe(gulp.multiDest(['./src/css', './dist/css']));
-	.pipe(gulp.dest('dist/css'));
-	// .pipe(browserSync.stream());
+	.pipe(gulp.dest('dist/css'))
+	.pipe(browserSync.stream());
 });
 gulp.task('watch-css', function() {
 	gulp.watch('src/sass/**/*.scss', ['styles']);	
@@ -109,8 +114,8 @@ gulp.task('js', function() {
 	gulp.src(['src/js/app.module.js', 'src/js/app.config.js', 'src/js/**/*.js'])
 	.pipe(concat('app.min.js'))
 	.pipe(uglify())
-	.pipe(gulp.dest('dist/js'));
-	// .pipe(browserSync.stream());
+	.pipe(gulp.dest('dist/js'))
+	.pipe(browserSync.stream());
 });
 gulp.task('watch-js', function() {
 	gulp.watch('src/js/**/*.js', ['js']);
@@ -132,4 +137,4 @@ gulp.task('watch-tests', function() {
 // build
 gulp.task('build', ['html', 'styles', 'js', 'headScripts', 'templates', 'bootstrapCss']);
 
-gulp.task('default', ['watch-html', 'watch-css', 'lint', 'watch-js', 'watch-tests']);
+gulp.task('default', ['watch-html', 'watch-css', 'lint', 'watch-js', 'watch-tests', 'sync']);
