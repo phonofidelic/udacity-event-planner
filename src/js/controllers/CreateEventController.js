@@ -2,7 +2,7 @@
 'use-strict';
 angular.module('eventPlan').controller('CreateEventController', ['$scope', '$http', '$window', '$log', '$firebaseObject', '$firebaseArray', 'UserAuthService', 'IssueTracker', function($scope, $http, $window, $log, $firebaseObject, $firebaseArray, UserAuthService, IssueTracker) {
 	var vm = this,
-		user = new UserAuthService(),
+		userAuthService = new UserAuthService(),
 		ref = firebase.database().ref().child('events'),
 		dbArray = $firebaseArray(ref),
         usrRef = firebase.database().ref().child('users'),
@@ -148,9 +148,6 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 	};
 
 	vm.signOut = function() {
-		firebase.auth().signOut();
-		localStorage.clear();
-		$log.log('signed out');
-		$window.open('/', '_self');
+		userAuthService.signOut();
 	};
 }]);

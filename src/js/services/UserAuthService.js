@@ -1,5 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
+angular.module('eventPlan').factory('UserAuthService', ['$log', '$window', function($log, $window) {
 	// 
 	function User() {
 		this.data = {};
@@ -16,6 +16,12 @@ angular.module('eventPlan').factory('UserAuthService', ['$log', function($log) {
 				$log.log('db snapshot: ', snapshot.val());
 				return snapshot.val();
 			});
+		},
+		signOut: function() {
+			firebase.auth().signOut();
+			localStorage.clear();
+			$window.open('/#!/', '_self');
+
 		}
 	};
 	return User;

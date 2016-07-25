@@ -51,10 +51,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 	syncObject.$bindTo($scope, 'users');
 
 	vm.signOut = function() {
-		firebase.auth().signOut();
-		localStorage.clear();
-		$log.log('signed out');
-		$window.open('/', '_self');
+		userAuthService.signOut();
 	};
 
 	vm.saveUserData = function() {
