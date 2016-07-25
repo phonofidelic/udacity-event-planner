@@ -40,17 +40,18 @@ gulp.task('html', function() {
 	.pipe(htmlReplace({
 		'mainCss': 'css/main.css',
 		'bootstrapCss': 'css/bootstrapCss.min.css',
-		'headScripts': [
-			'js/jquery.min.js',
-			'js/angular.min.js',
-			'js/angular-route.min.js',
-			'js/angular-mocks.js',
-			'js/angularfire.min.js',
-			'js/moment.min.js',
-			'js/bootstrap.min.js',
-			'js/bootstrap-select.min.js',
-			'js/bootstrap-datetimepicker.min.js'
-		],
+		// 'headScripts': [
+		// 	'js/jquery.min.js',
+		// 	'js/angular.min.js',
+		// 	'js/angular-route.min.js',
+		// 	'js/angular-mocks.js',
+		// 	'js/angularfire.min.js',
+		// 	'js/moment.min.js',
+		// 	'js/bootstrap.min.js',
+		// 	'js/bootstrap-select.min.js',
+		// 	'js/bootstrap-datetimepicker.min.js'
+		// ],
+		'headScripts': 'js/headScripts.min.js',
 		'appScripts': 'js/app.min.js'
 	}))
 	.pipe(gulp.dest('dist/'))
@@ -75,6 +76,8 @@ gulp.task('styles', function() {
 	}))
 	// TODO: switch to dist directory on build
 	// .pipe(gulp.multiDest(['./src/css', './dist/css']));
+	.pipe(gulp.dest('src/css'))
+	.pipe(minCss())
 	.pipe(gulp.dest('dist/css'))
 	.pipe(browserSync.stream());
 });
@@ -89,6 +92,7 @@ gulp.task('bootstrapCss', function() {
 	 	'bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
 	])
 	.pipe(concatCss('bootstrapCss.min.css'))
+	.pipe(minCss())
 	.pipe(gulp.dest('dist/css'));
 });
 
@@ -105,7 +109,7 @@ gulp.task('headScripts', function() {
 		'bower_components/bootstrap-select/dist/js/bootstrap-select.min.js',
 		'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
 	])
-	// .pipe(concat('headScripts.min.js'))
+	.pipe(concat('headScripts.min.js'))
 	.pipe(gulp.dest('dist/js'));
 });
 
