@@ -1,7 +1,7 @@
 /*eslint angular/di: [2,"array"]*/
 angular.module('eventPlan').controller('EditProfileController', ['$scope', '$window', '$log', '$timeout', 'UserAuthService', '$firebaseObject', function($scope, $window, $log, $timeout, UserAuthService, $firebaseObject) {
 	var vm = this,
-		userAuthServiceService = new UserAuthService(),
+		userAuthService = new UserAuthService(),
 		ref = firebase.database().ref().child('users'),
 		syncObject = $firebaseObject(ref);
 
@@ -24,7 +24,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				// if username does not exist in db, set it to users email username
 				var email = firebase.auth().currentUser.email;
 				vm.userData.username = email.substr(0, email.indexOf('@'));
-				userAuthServiceService.setOne(uid, 'username', vm.userData.username);
+				userAuthService.setOne(uid, 'username', vm.userData.username);
 			}
 
 			if (angular.isUndefined(user.name)) {
@@ -39,7 +39,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				vm.firstLetter = vm.userData.email.toLowerCase().trim().split('')[0];
 				var randomHexString = (Math.random()*0xFFFFFF<<0).toString(16);
 				vm.userData.avatar = 'https://avatars.discourse.org/v2/letter/'+vm.firstLetter+'/'+randomHexString+'/';
-				userAuthServiceService.setOne(uid, 'avatar', vm.userData.avatar)
+				userAuthService.setOne(uid, 'avatar', vm.userData.avatar)
 			} else {
 				vm.userData.avatar = user.avatar;
 			}
@@ -58,7 +58,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 		var data = vm.userData;
 		var uid = vm.userData.uid;	
 		$log.log('data from saveUserData: ', data);
-		userAuthServiceService.setData(uid, data);
+		userAuthService.setData(uid, data);
 
 	};
 	vm.resetPassword = function() {
@@ -72,7 +72,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 
 	vm.getUserData = function() {
 		// var id = firebase.auth().currentUser.uid;
-		// userAuthServiceService.getUserData(id);	
+		// userAuthService.getUserData(id);	
 		// $log.log('db data: ', $scope.users[firebase.auth().currentUser.uid]);
 		$log.log('db data: ', syncObject);	
 	};

@@ -14,7 +14,7 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 		var status;
 		// check name input
 		if (angular.isUndefined(vm.data.name)) {
-			issueTracker.add('Pleas enter your name.');
+			issueTracker.add('Please enter your name.');
 			// return;
 		}
 

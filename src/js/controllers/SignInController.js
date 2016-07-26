@@ -24,11 +24,11 @@ angular.module('eventPlan').controller('SignInController', ['$scope', '$window',
 		var status;
 
 		if (angular.isUndefined(vm.email)) {
-			issueTracker.add('Pleas enter your email.');
+			issueTracker.add('Please enter your email.');
 		}
 
 		if (angular.isUndefined(vm.password)) {
-			issueTracker.add('Pleas enter your password.');
+			issueTracker.add('Please enter your password.');
 		}
 
 		if (issueTracker.issues.length === 0) {
