@@ -5,4 +5,4 @@ This is a project focused on developing best practices in form design. The appli
 
 To run the application locally, navigate to the root directory and run `npm install`, `bower install` and finally `gulp`.
 
-A live demo can be found here: [link to come].
+A live demo can be found here: [live demo](https://udacity-event-planner.herokuapp.com/#!/ "udacity-event-planner").
