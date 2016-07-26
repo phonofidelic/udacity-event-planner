@@ -26,7 +26,7 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 
 		// check password
 		if (angular.isUndefined(vm.privateData.password1)) {
-			issueTracker.add('Pleas create a password.');
+			issueTracker.add('Please create a password.');
 			// return;
 		}
 
