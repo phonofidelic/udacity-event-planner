@@ -5,9 +5,10 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 
 	// initialize data model
 	vm.data = {};
+	vm.privateData = {};
 
 	var issueTracker = new IssueTracker(),
-		user = new UserAuthService();
+		userAuthService = new UserAuthService();
 
 	vm.checkValidation = function() {
 		var status;
@@ -24,19 +25,19 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 		}
 
 		// check password
-		if (angular.isUndefined(vm.data.password1)) {
+		if (angular.isUndefined(vm.privateData.password1)) {
 			issueTracker.add('Pleas create a password.');
 			// return;
 		}
 
 		// check that passwords match
-		if (vm.data.password1 !== vm.data.password2) {
+		if (vm.privateData.password1 !== vm.privateData.password2) {
 			issueTracker.add('Passwords do not match.');
 			// return;
 		}
 
 		// check that passwords is at least 6 characters long
-		if (vm.data.password1 && vm.data.password1.length < 6) {
+		if (vm.privateData.password1 && vm.privateData.password1.length < 6) {
 			issueTracker.add('Passwords must be at least 6 characters.');
 			// return;
 		}
@@ -63,11 +64,11 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 
 		// check that validation returns true
 		if(validation === true) {
-			Auth.$createUserWithEmailAndPassword(vm.data.email, vm.data.password1)
+			Auth.$createUserWithEmailAndPassword(vm.data.email, vm.privateData.password1)
 				.then(function(userId) {
 					// setData
-					vm.message = 'User created with uid: ' + user.uid;
-					user.setData(userId.uid, vm.data);
+					vm.message = 'User created with uid: ' + userId.uid;
+					userAuthService.setData(userId.uid, vm.data);
 					$window.open('#!/edit-profile', '_self');
 				}).catch(function(error) {
 					vm.error = error;
