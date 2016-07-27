@@ -5,6 +5,21 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+				<label class="control-label" for="inp-event-host">event host:
+					<input type="text" 
+						   name="event-host"
+						   id="inp-event-host"
+						   class="form-control"
+						   
+						   ng-model="vm.eventData.eventHost"
+						   required
+						   autofocus>
+				</label>
+			</div>
+		</div>
+
+		<div class="row event-input">
+			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-name">name:
 					<input type="text" 
 						   name="event-name"
@@ -12,8 +27,7 @@
 						   class="form-control"
 						   placeholder="Event name"
 						   ng-model="vm.eventData.eventName"
-						   required 
-						   autofocus>
+						   required>
 				</label>
 			</div>
 		</div>
@@ -44,19 +58,17 @@
 				</label>
 			</div>
 		</div>
-		<div><datetimepicker ng-show="dateselect" data-ng-model="data.date"></div>
 		<div class="row event-input">
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-start-time">start:
 					<div class="input-group date">
-						<!-- <datetimepicker ng-show="dateselect" data-ng-model="data.date"></datetimepicker> -->
-						<input type="datetime-local" 
+						<input type="text" 
 							   name="event-start-time"
 							   id="inp-event-start-time"
 							   class="form-control date-input"
-							   ng-click="dateselect"
+							   placeholder="When will your event begin?" 
 							   ng-blur="vm.getEventStartTime($event)">
-			<!-- 			<span class="input-group-addon">
+<!-- 						<span class="input-group-addon">
 							<span class="glyphicon glyphicon-calendar"></span>
 						</span> -->
 					</div>
@@ -65,13 +77,14 @@
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-end-time">end:
 					<div class="input-group date">
-						<input type="datetime-local" 
+						<input type="text" 
 							   name="event-end-time"
 							   id="inp-event-end-time"
-							   min="{{vm.eventData.eventStartTime}}"
+							   min="{{vm.eventData.eventStartTimeEpoch}}"
 							   class="form-control date-input"
+							   placeholder="When will your event end?" 
 							   ng-blur="vm.getEventEndTime($event)">
-			<!-- 			<span class="input-group-addon">
+<!-- 						<span class="input-group-addon">
 							<span class="glyphicon glyphicon-calendar"></span>
 						</span>	 -->					
 					</div>

@@ -165,7 +165,7 @@ nav.navbar-default {
 
 .date-input {
   padding: 7px;
-  width: 250px; }
+  width: 250px !important; }
 
 .date-input#event-start-time {
   margin-right: 5px; }

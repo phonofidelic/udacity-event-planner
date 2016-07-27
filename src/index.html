@@ -26,6 +26,8 @@
 		<!-- build:headScripts -->
 		<!-- jquery -->
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+		<!-- moment js -->
+		<script type="text/javascript" src="bower_components/moment/moment.js"></script>
 		<!-- angular scripts -->
 		<script type="text/javascript" src="bower_components/angular/angular.js" asynch></script>
 		<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
@@ -34,8 +36,7 @@
 		<!-- google scripts -->
 		<!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA&libraries=places" async></script>
-		<!-- moment js -->
-		<script type="text/javascript" src="bower_components/moment/moment.js"></script>
+
 		<!-- bootstrap script -->
 		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 		<script type="text/javascript" src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
@@ -74,9 +75,9 @@
 			<h1 class="logo">Event Planner</h1>
 		</header>
 		
-		<div class="container-fluid" ng-app="eventPlan">
+		<main class="container-fluid" ng-app="eventPlan">
 			<div ng-view></div>
-		</div>
+		</main>
 
 		<!-- build:appScripts -->
 		<!-- main app -->

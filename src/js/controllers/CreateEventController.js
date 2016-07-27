@@ -25,8 +25,8 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
         });
 
 	// datetime picker setup
-	// angular.element('#inp-event-start-time').datetimepicker();
-	// angular.element('#inp-event-end-time').datetimepicker();
+	angular.element('#inp-event-start-time').datetimepicker();
+	angular.element('#inp-event-end-time').datetimepicker();
 
 	vm.autoAddress = function() {
 		var input = document.getElementById('inp-event-location');
@@ -91,6 +91,10 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 	vm.checkValidation = function() {
 		var issueTracker = new IssueTracker();
 		var status;
+
+		if (angular.isUndefined(vm.eventData.eventHost)) {
+			issueTracker.add('Who will host your event?.');
+		}
 
 		if (angular.isUndefined(vm.eventData.eventName)) {
 			issueTracker.add('Please name your event.');
