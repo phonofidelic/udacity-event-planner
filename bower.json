@@ -24,7 +24,9 @@
     "bootstrap-select": "^1.10.0",
     "eonasdan-bootstrap-datetimepicker": "^4.17.37",
     "angular-google-maps": "^2.3.3",
-    "angular-gravatar": "^0.4.2"
+    "angular-gravatar": "^0.4.2",
+    "angular-bootstrap-datetimepicker": "^1.0.1",
+    "angular-date-time-input": "^1.1.0"
   },
   "resolutions": {
     "angular": "^1.5.7"

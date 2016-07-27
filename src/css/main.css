@@ -123,6 +123,9 @@ nav.navbar-default {
 .sign-out {
   float: right; }
 
+.profile-container {
+  margin-top: 50px; }
+
 .profile-form {
   display: block;
   width: 400px;
@@ -161,12 +164,23 @@ nav.navbar-default {
   margin-bottom: 15px; }
 
 .date-input {
+  padding: 7px;
   width: 250px; }
+
+.date-input#event-start-time {
+  margin-right: 5px; }
+
+.guests {
+  width: 500px; }
 
 .add-btn {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0;
-  width: 50px; }
+  width: 50px;
+  margin-left: 10px !important; }
+
+.events-container {
+  margin-top: 50px; }
 
 .event {
   margin-bottom: 20px;
@@ -205,4 +219,8 @@ nav.navbar-default {
   .event-input {
     width: 300px;
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto; }
+  .date-input {
+    width: 300px !important; }
+  .guests {
+    width: 300px; } }

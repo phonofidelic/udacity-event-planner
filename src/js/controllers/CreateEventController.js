@@ -25,28 +25,29 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
         });
 
 	// datetime picker setup
-	// TODO: use angular.element instead of jQuery selector
-	$('#inp-event-start-time').datetimepicker();
-	$('#inp-event-end-time').datetimepicker();
+	// angular.element('#inp-event-start-time').datetimepicker();
+	// angular.element('#inp-event-end-time').datetimepicker();
 
 	vm.autoAddress = function() {
-		// var defaultBounds = new google.maps.LatLngBounds(
-		//   new google.maps.LatLng(-33.8902, 151.1759),
-		//   new google.maps.LatLng(-33.8474, 151.2631));
 		var input = document.getElementById('inp-event-location');
 		var options = {
-			// bounds: defaultBounds,
 			types: ['address']
 		};
 		$scope.addrAoutocomplete = new google.maps.places.Autocomplete(input, options);
 	};
 
-	vm.getEventStartTime = function(event) {
-		vm.eventData.eventStartTime = event.target.value;
+	vm.getEventStartTime = function() {
+		var startVal = angular.element('#inp-event-start-time').val();
+		vm.eventData.eventStartTime = moment(startVal).format('dddd, MM-DD-YYYY');
+		// set start epoch for validation comparison
+		vm.eventData.eventStartTimeEpoch = moment(startVal).valueOf();
 	};
 
 	vm.getEventEndTime = function(event) {
-		vm.eventData.eventEndTime = event.target.value;
+		var endVal = angular.element('#inp-event-end-time').val();
+		vm.eventData.eventEndTime = moment(endVal).format('dddd, MM-DD-YYYY');
+		// set end epoch for validation comparison
+		vm.eventData.eventEndTimeEpoch = moment(endVal).valueOf();
 	};
 
 	vm.getEventAddress = function() {
@@ -56,7 +57,6 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			vm.eventData.eventLocation = locationData.name;
 			$log.log('vm.eventData.eventLocation: ', vm.eventData.eventLocation);
 		}
-		
 	}
 
 	vm.geocode = function(addr) {
@@ -64,7 +64,6 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			var address = addr;
 			$log.log('geocode address: ', address);
 		}
-
 		var mapCenter = $http({
 			method: 'GET',
 			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyCXcFHRjLncSzc1UBklhRueyStZdZHaELA'
@@ -72,13 +71,11 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			// handle response
 			vm.eventData.mapCenter = response.data.results[0].geometry.location;
 			$log.log('geocode response: ', response.data.results[0].geometry.location);
-			// return response.data.results[0].geometry.location
-			
+			// return response.data.results[0].geometry.location		
 		}, function errorCallback(error) {
 			// handle error
 			$log.log('geocode error: ', error);
 		});
-
 		return mapCenter;
 	};
 
@@ -109,6 +106,10 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 
 		if (angular.isUndefined(vm.eventData.eventEndTime)) {
 			issueTracker.add('When will your event end?');
+		}
+
+		if (vm.eventData.eventStartTimeEpoch > vm.eventData.eventEndTimeEpoch) {
+			issueTracker.add('Sorry, your event cannot start before it begins.');
 		}
 
 		if (angular.isUndefined(vm.eventData.eventLocation)) {

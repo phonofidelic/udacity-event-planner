@@ -168,6 +168,10 @@ nav.navbar-default {
 .edit-profile {
 }
 
+.profile-container {
+	margin-top: 50px;
+}
+
 .profile-form {
 	display: block;
 	width: 400px;
@@ -227,17 +231,35 @@ nav.navbar-default {
 }
 
 .date-input {
-	// padding: 0;
+	padding: 7px;
 	width: 250px;
+}
+
+.date-input#event-start-time {
+	margin-right:5px;
+}
+
+//---- datetime picker
+::-webkit-inner-spin-button { 
+	// display: none; 
+}
+
+.guests {
+	width: 500px;
 }
 
 .add-btn {
 	box-shadow: $shadow;
 	border-radius: 0;
 	width: 50px;
+	margin-left:10px !important;
 }
 
 //---- browse events ----//
+.events-container {
+	margin-top: 50px;
+}
+
 .event {
 	margin-bottom: 20px;
 	background: #fff;
@@ -292,5 +314,13 @@ nav.navbar-default {
 		width: 300px;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.date-input {
+		width: 300px !important;
+	}
+
+	.guests {
+		width: 300px;
 	}
 }
