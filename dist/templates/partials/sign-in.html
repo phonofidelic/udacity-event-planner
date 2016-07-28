@@ -1,42 +1,39 @@
-<div ng-controller="SignInController as vm">
-	<div class="sign-in-native">
-	<h3>Sign in</h3>
-		<form class="sign-in-form form-group">
+<div class="sign-in-native" ng-controller="SignInController as vm">
+	<form class="sign-in-form form-group">
 
-			<label class="controll-label" for="sgn-email">
-				<input type="email" 
-					   name="sgn-email" 
-					   id="sgn-email"
-					   class="form-control signin-input"
-					   autocomplete="email" 
-					   placeholder="email"
-					   ng-model="vm.email"
-					   autofocus
-					   required>
-			</label>
+		<label class="controll-label" for="sgn-email">
+			<input type="email" 
+				   name="sgn-email" 
+				   id="sgn-email"
+				   class="form-control signin-input"
+				   autocomplete="email" 
+				   placeholder="Email"
+				   ng-model="vm.email"
+				   autofocus
+				   required>
+		</label>
 
-			<label class="controll-label" for="sgn-password">
-				<input type="password"
-					   name="password"
-					   id="sgn-password"
-					   class="form-control signin-input" 
-					   placeholder="password"
-					   ng-model="vm.password"
-					   required>
-			</label>
+		<label class="controll-label" for="sgn-password">
+			<input type="password"
+				   name="password"
+				   id="sgn-password"
+				   class="form-control signin-input" 
+				   placeholder="Password"
+				   ng-model="vm.password"
+				   required>
+		</label>
 
-			<label class="controll-label">
-				<input type="submit" 
-					   name="sign-in-btn" 
-					   class="btn btn-default signin-btn"
-					   value="Sign in"
-					   ng-click="vm.signIn(vm.email, vm.password, vm.checValidation())">
-			</label>
+		<label class="controll-label">
+			<input type="submit" 
+				   name="sign-in-btn" 
+				   class="btn btn-default signin-btn"
+				   value="Sign in"
+				   ng-click="vm.signIn(vm.email, vm.password, vm.checValidation())">
+		</label>
 
-		</form>
-		<div class="issues" ng-show="vm.issues">
-			<div class="issue" ng-repeat="issue in vm.issues">{{issue}}</div>
-		</div>
-		<div class="issues" ng-show="vm.error">{{vm.error}}</div>
+	</form>
+	<div class="issues" ng-show="vm.issues">
+		<div class="issue" ng-repeat="issue in vm.issues">{{issue}}</div>
 	</div>
+	<div class="issues" ng-show="vm.error">{{vm.error}}</div>
 </div>

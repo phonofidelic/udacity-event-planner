@@ -20,8 +20,7 @@ body {
   color: #777; }
 
 .input-form {
-  background: #e8ecee;
-  margin-top: 50px; }
+  background: #e8ecee; }
 
 .tabs {
   max-width: 500px;
@@ -71,7 +70,8 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
-.sign-in-native {
+.sign-in-native,
+.sign-up {
   border: 1px solid #ccc;
   padding: 10px; }
 

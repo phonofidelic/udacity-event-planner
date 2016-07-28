@@ -36,7 +36,6 @@ body {
 
 .input-form {
 	background: $background-1;
-	margin-top: 50px;
 }
 
 .tabs {
@@ -100,7 +99,8 @@ body {
 	margin-right: auto;
 }
 
-.sign-in-native {
+.sign-in-native,
+.sign-up {
 	border: 1px solid $color-3;
 	// border-top: none;
 	padding: 10px

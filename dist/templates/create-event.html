@@ -5,6 +5,21 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+				<label class="control-label" for="inp-event-host">event host:
+					<input type="text" 
+						   name="event-host"
+						   id="inp-event-host"
+						   class="form-control"
+						   
+						   ng-model="vm.eventData.eventHost"
+						   required
+						   autofocus>
+				</label>
+			</div>
+		</div>
+
+		<div class="row event-input">
+			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-name">name:
 					<input type="text" 
 						   name="event-name"
@@ -12,13 +27,12 @@
 						   class="form-control"
 						   placeholder="Event name"
 						   ng-model="vm.eventData.eventName"
-						   required 
-						   autofocus>
+						   required>
 				</label>
 			</div>
 		</div>
 	
-		<div class="row event-input" ng-show="vm.eventData.eventName">
+		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-type">type:
 					<select class="form-control"
@@ -44,32 +58,41 @@
 				</label>
 			</div>
 		</div>
-
-		<div class="row event-input" ng-show="vm.eventData.eventName && 
-											  vm.eventData.eventType">
+		<div class="row event-input">
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-start-time">start:
-					<input type="text" 
-						   name="event-start-time"
-						   id="inp-event-start-time"
-						   class="form-control date-input"
-						   ng-blur="vm.getEventStartTime($event)">
+					<div class="input-group date">
+						<input type="text" 
+							   name="event-start-time"
+							   id="inp-event-start-time"
+							   class="form-control date-input"
+							   placeholder="When will your event begin?" 
+							   ng-blur="vm.getEventStartTime($event)">
+<!-- 						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span> -->
+					</div>
 				</label>				
 			</div>
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
 				<label class="control-label" for="inp-event-end-time">end:
-					<input type="text" 
-						   name="event-end-time"
-						   id="inp-event-end-time"
-						   class="form-control date-input"
-						   ng-blur="vm.getEventEndTime($event)">
+					<div class="input-group date">
+						<input type="text" 
+							   name="event-end-time"
+							   id="inp-event-end-time"
+							   min="{{vm.eventData.eventStartTimeEpoch}}"
+							   class="form-control date-input"
+							   placeholder="When will your event end?" 
+							   ng-blur="vm.getEventEndTime($event)">
+<!-- 						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>	 -->					
+					</div>
 				</label>				
 			</div>
 		</div>
 
-		<div class="row event-input" ng-show="vm.eventData.eventName && 
-											  vm.eventData.eventType && 
-											  vm.eventData.eventEndTime">
+		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-location">location:
 					<input type="text" 
@@ -83,9 +106,7 @@
 			</div>
 		</div>
 
-		<div class="row event-input" ng-show="vm.eventData.eventName && 
-											  vm.eventData.eventType && 
-											  vm.eventData.eventEndTime">
+		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-description">description:
 					<textarea id="inp-event-descrition"
@@ -99,24 +120,20 @@
 			</div>
 		</div>
 
-		<div class="row event-input" ng-show="vm.eventData.eventName && 
-											  vm.eventData.eventType && 
-											  vm.eventData.eventEndTime && 
-											  vm.eventData.eventDescription">
+		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-guestlist">guests:</label>
-				<div class="input-group">
-						<input type="text" 
-							   name="event-guestlist"
-							   id="inp-event-guestlist"
-							   class="form-control input-group"
-							   ng-model="vm.guest">
-						<div class="input-group-btn">
-							<button class="btn btn-default add-btn" ng-click="vm.addGuest(vm.guest)">
-								<span class="glyphicon glyphicon-plus"></span>
-							</button>
-						</div>
-
+				<div class="input-group guests">
+					<input type="text" 
+						   name="event-guestlist"
+						   id="inp-event-guestlist"
+						   class="form-control input-group"
+						   ng-model="vm.guest">
+					<div class="input-group-btn">
+						<button class="btn btn-default add-btn" ng-click="vm.addGuest(vm.guest)">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-12" ng-repeat="guest in vm.eventData.eventGuests | orderBy:'id':true">
@@ -129,7 +146,7 @@
 		</div>
 
 		<div class="edit-controllbar">
-			<input class="btn btn-success" 
+			<input class="btn btn-save" 
 				   type="submit"
 				   value="Save" 
 				   ng-click="vm.saveEvent()">

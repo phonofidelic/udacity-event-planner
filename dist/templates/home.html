@@ -1,14 +1,19 @@
 
-<div class="main row sign-in">				
-	
+<div class="main">
+	<ul class="nav nav-tabs tabs">
+		<li role="presentation" class="tab active" id="sign-in-tab" ng-init="signInActive = true" ng-click="signInActive = true" ng-class="{active: signInActive}">
+			<a href="">Sign in</a>
+		</li>
+		<li role="presentation" id="sign-up-tab" ng-click="signInActive = false" ng-class="{active: !signInActive}">
+			<a href="">Create an account</a>
+		</li>
+	</ul>
 
-	<sign-in-directive>
-		<!-- sign-in template -->
-	</sign-in-directive>
+	<div ng-show="signInActive">
+		<sign-in-directive></sign-in-directive>
+	</div>
 
-	<sign-up-directive>
-		<!-- sign-up template -->
-	</sign-up-directive>
-
-
+	<div ng-show="!signInActive">
+		<sign-up-directive></sign-up-directive>
+	</div>
 </div>
