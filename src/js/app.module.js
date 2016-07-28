@@ -2,9 +2,7 @@
 'use-strict';
 angular.module('eventPlan', [
 	'ngRoute', 
-	'firebase', 
-	'ui.bootstrap.datetimepicker', 
-	'ui.dateTimeInput'
+	'firebase'
 ]);
 
 

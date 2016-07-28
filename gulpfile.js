@@ -109,7 +109,7 @@ gulp.task('headScripts', function() {
 		'bower_components/bootstrap-select/dist/js/bootstrap-select.min.js',
 		'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
 	])
-	.pipe(concat('headScripts.min.js'))
+	// .pipe(concat('headScripts.min.js'))
 	.pipe(gulp.dest('dist/js'));
 });
 
