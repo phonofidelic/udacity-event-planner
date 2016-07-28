@@ -2,6 +2,9 @@
 angular.module('eventPlan').controller('SignInController', ['$scope', '$window', '$log', 'Auth', 'IssueTracker', function($scope, $window, $log, Auth, IssueTracker) {
 	var vm = this;
 
+	// sign in tabs
+	// angular.element('#sign-in-tab').addClass('active');
+
 	vm.signIn = function(email, password, status){
 		vm.firebaseUser = null;
 		vm.error = null;

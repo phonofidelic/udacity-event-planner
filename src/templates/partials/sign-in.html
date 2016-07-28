@@ -1,6 +1,13 @@
 <div ng-controller="SignInController as vm">
+	<ul class="nav nav-tabs tabs">
+		<li role="presentation" class="tab active" id="sign-in-tab" ng-init="signInActive = true" ng-click="signInActive = true" ng-class="{active: signInActive}">
+			<a href="">Sign in</a>
+		</li>
+		<li role="presentation" id="sign-up-tab" ng-click="signInActive = false" ng-class="{active: !signInActive}">
+			<a href="">Create an account</a>
+		</li>
+	</ul>
 	<div class="sign-in-native">
-	<h3>Sign in</h3>
 		<form class="sign-in-form form-group">
 
 			<label class="controll-label" for="sgn-email">
