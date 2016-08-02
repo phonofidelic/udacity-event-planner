@@ -1,6 +1,6 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
-	<h2 aria-labledby="Create an Event">Create an Event</h2>
+	<h2 aria-label="Create an Event">Create an Event</h2>
 	<form class="input-form container-fluid" aria-label="Create event form">
 
 		<div class="row event-input">
@@ -39,10 +39,11 @@
 			<div class="form-group event-form-group col-sm-12">
 			<p class="sr-only" id="event-type-info">Select or input the type of event</p>
 				<label class="control-label" for="inp-event-type">type:
-					<input list="event-type" name="" 
+					<input list="event-type" 
+							name="event-type" 
 							class="form-control"
 							id="inp-event-type"
-							placeholder="Type of event" 						    
+							placeholder="Type of event"
 						    ng-model="vm.eventData.eventType"
 						    aria-describedby="event-type-info"
 						    required>
@@ -77,7 +78,8 @@
 						   placeholder="When will your event begin?" 
 						   area-describedby="event-starttime-info"
 						   onClick="document.getElementById('inp-event-start-time').select()"
-						   ng-blur="vm.getEventStartTime($event)">
+						   ng-blur="vm.getEventStartTime($event)"
+						   required>
 				</label>				
 			</div>
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
@@ -91,7 +93,8 @@
 						   placeholder="When will your event end?" 
 						   area-describedby="event-endtime-info"
 						   onClick="document.getElementById('inp-event-end-time').select()"
-						   ng-blur="vm.getEventEndTime($event)">					
+						   ng-blur="vm.getEventEndTime($event)"
+						   required>					
 				</label>				
 			</div>
 		</div>

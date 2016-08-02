@@ -45,20 +45,19 @@ body {
 .nav-tabs {
   border: none; }
 
-.signin-input {
-  margin-bottom: 20px; }
-
-.signup-input {
-  margin-bottom: 20px; }
-
-.signup-btn {
-  margin-bottom: 20px; }
-
 .sign-in-form label {
   display: inline; }
 
 .controll-label {
+  width: 100%;
+  display: box; }
+
+.description-container {
   width: 100%; }
+
+.description {
+  width: 100%;
+  display: block; }
 
 .input-warning {
   color: #d9534f; }
@@ -66,15 +65,13 @@ body {
 .sign-in-native,
 .sign-in-google,
 .sign-up {
-  max-width: 500px;
+  max-width: 800px;
   margin-bottom: 20px;
   margin-left: auto;
-  margin-right: auto; }
-
-.sign-in-native,
-.sign-up {
+  margin-right: auto;
   border: 1px solid #ccc;
-  padding: 10px; }
+  padding: 15px;
+  padding-top: 50px; }
 
 label.control-label {
   margin-top: 10px;
@@ -92,13 +89,17 @@ input.btn,
   background-image: none;
   width: 50;
   display: block;
-  margin: 0 auto; }
+  margin-left: auto;
+  margin-right: auto; }
+
+.signin-input,
+.signup-input,
+.signup-btn,
+.signin-btn {
+  margin-bottom: 20px; }
 
 .signup-btn {
   margin-bottom: 20px;
-  width: 200px; }
-
-.signin-btn {
   width: 200px; }
 
 .progress {
@@ -176,29 +177,14 @@ nav.navbar-default {
 .user-img-editing {
   border: dashed #777 3px; }
 
-.event-form-group input,
-.event-form-group textarea,
-.event-form-group select,
-.event-form-group {
-  width: 500px; }
-
-.event-input {
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto; }
+label.control-label {
+  width: 100%; }
 
 .date-input-group {
   margin-bottom: 15px; }
 
-.date-input {
-  padding: 7px;
-  width: 250px !important; }
-
 .date-input#event-start-time {
   margin-right: 5px; }
-
-.guests {
-  width: 500px; }
 
 .add-btn {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -235,19 +221,4 @@ nav.navbar-default {
     padding-left: 15px;
     padding-right: 15px; }
   .container-fluid {
-    padding: 0px; }
-  .event-form-group input,
-  .event-form-group textarea,
-  .event-form-group select,
-  .event-form-group {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto; }
-  .event-input {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto; }
-  .date-input {
-    width: 300px !important; }
-  .guests {
-    width: 300px; } }
+    padding: 0px; } }

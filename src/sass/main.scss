@@ -25,7 +25,6 @@ body {
 	padding: 20px;
 	margin: 0 auto; 
 	margin-bottom: 100px;
-	// text-align: center;
 }
 
 .main h2,
@@ -67,24 +66,22 @@ body {
 	border: none;
 }
 
-.signin-input {
-	margin-bottom: 20px;
-}
-
-.signup-input {
-	margin-bottom: 20px;
-}
-
-.signup-btn {
-	margin-bottom: 20px;
-}
-
 .sign-in-form label {
 	display: inline;
 }
 
 .controll-label {
 	width: 100%;
+	display: box;
+}
+
+.description-container{
+	width: 100%;
+}
+
+.description {
+	width: 100%;
+	display:block;
 }
 
 .input-warning {
@@ -94,25 +91,18 @@ body {
 .sign-in-native,
 .sign-in-google,
 .sign-up {
-	max-width: 500px;
+	max-width: 800px;
 	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.sign-in-native,
-.sign-up {
 	border: 1px solid $color-3;
-	// border-top: none;
-	padding: 10px
+	padding: 15px;
+	padding-top: 50px;
 }
 
 label.control-label {
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-label.control-label input {
-	// border-radius: 0px;
 }
 
 .form-control {
@@ -128,14 +118,19 @@ input.btn,
     background-image: none;
     width: 50;
     display: block;
-    margin: 0 auto;
-}
-.signup-btn {
-	margin-bottom: 20px;
-	width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.signin-input,
+.signup-input,
+.signup-btn,
 .signin-btn {
+	margin-bottom: 20px;
+}
+
+.signup-btn {
+	margin-bottom: 20px;
 	width: 200px;
 }
 
@@ -153,6 +148,9 @@ input.btn,
 	color: #fff;
 	border-radius: 4px;
 }
+
+//---- sign-up ----//
+
 
 //---- buttons ----//
 .btn-default {
@@ -217,7 +215,6 @@ nav.navbar-default {
 
 .edit-email,
 .edit-username {
-	// display: inline;
 	background: $background-1;
 }
 
@@ -230,7 +227,6 @@ nav.navbar-default {
 .user-img {
 	border-radius: 50%;
 	margin: 20px auto;
-	// width: 100px;
 	display: block;	
 }
 
@@ -238,50 +234,18 @@ nav.navbar-default {
 	border: dashed $color-2 3px;
 }
 
-// .btn-edit {
-// 	margin: 0 auto;
-// }
-
 // ---- create event ---- //
-.event-form-group input,
-.event-form-group textarea,
-.event-form-group select, 
-.event-form-group {
-	width: 500px;
-	// margin-left: auto;
-	// margin-right: auto;
-}
-
-.event-input {
-	width: 500px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.event-form-group label {
-	// text-align: center;
+label.control-label {
+	width: 100%;
 }
 
 .date-input-group {
 	margin-bottom: 15px;
 }
 
-.date-input {
-	padding: 7px;
-	width: 250px !important;
-}
 
 .date-input#event-start-time {
 	margin-right:5px;
-}
-
-//---- datetime picker
-::-webkit-inner-spin-button { 
-	// display: none; 
-}
-
-.guests {
-	width: 500px;
 }
 
 .add-btn {
@@ -307,11 +271,6 @@ nav.navbar-default {
 	background: #d1d1d1;
 }
 
-// .event-map {
-// 	width: 200px;
-// 	height: 200px;
-// }
-
 .event-body {
 	width: 400px;
 	margin: 0 auto;
@@ -335,28 +294,5 @@ nav.navbar-default {
 	}
 	.container-fluid {
 		padding: 0px;
-	}
-
-	.event-form-group input,
-	.event-form-group textarea,
-	.event-form-group select,
-	.event-form-group {
-		width: 300px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.event-input {
-		width: 300px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.date-input {
-		width: 300px !important;
-	}
-
-	.guests {
-		width: 300px;
 	}
 }

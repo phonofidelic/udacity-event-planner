@@ -1,27 +1,35 @@
 <div class="sign-in-native" ng-controller="SignInController as vm">
-	<form class="sign-in-form form-group">
+	<form class="sign-in-form form-group container-fluid">
 
-		<label class="controll-label" for="sgn-email">
-			<input type="email" 
-				   name="sgn-email" 
-				   id="sgn-email"
-				   class="form-control signin-input"
-				   autocomplete="email" 
-				   placeholder="Email"
-				   ng-model="vm.email"
-				   autofocus
-				   required>
-		</label>
+	<div class="row">
+		<div class="col-sm-12 event-form-group form-group">	
+			<label class="controll-label" for="sgn-email">
+				<input type="email" 
+					   name="sgn-email" 
+					   id="sgn-email"
+					   class="form-control signin-input"
+					   autocomplete="email" 
+					   placeholder="Email"
+					   ng-model="vm.email"
+					   autofocus
+					   required>
+			</label>
+		</div>
+	</div>
 
-		<label class="controll-label" for="sgn-password">
-			<input type="password"
-				   name="password"
-				   id="sgn-password"
-				   class="form-control signin-input" 
-				   placeholder="Password"
-				   ng-model="vm.password"
-				   required>
-		</label>
+	<div class="row">
+		<div class="col-sm-12 event-form-group form-group">	
+			<label class="controll-label" for="sgn-password">
+				<input type="password"
+					   name="password"
+					   id="sgn-password"
+					   class="form-control signin-input" 
+					   placeholder="Password"
+					   ng-model="vm.password"
+					   required>
+			</label>
+		</div>
+	</div>
 
 		<label class="controll-label">
 			<input type="submit" 
