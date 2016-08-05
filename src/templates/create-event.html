@@ -5,13 +5,19 @@
 
 		<div class="row event-input">
 			<p class="sr-only" id="event-host-info">Input the name of the host for your event</p>
-			<div class="form-group event-form-group col-sm-12">
-				<label class="control-label" for="inp-event-host">event host:
+			<div class="form-group event-form-group col-sm-12"
+				 ng-class="{ 'has-error': !vm.validation.eventHost && vm.validation.eventHost != null }">
+				<label class="control-label" for="inp-event-host">event host: 
+					<span class="text-danger"
+						  ng-show="!vm.validation.eventHost && vm.validation.eventHost != null">please enter the host for your event</span>
 					<input type="text" 
 						   name="event-host"
 						   id="inp-event-host"
 						   class="form-control"						   
 						   ng-model="vm.eventData.eventHost"
+						   ng-init="vm.validation.eventHost"
+						   ng-change="vm.validation.eventHost = vm.checkValidationService.validate(vm.eventData.eventHost, 'text')"
+						   ng-blur="vm.validation.eventHost = vm.checkValidationService.validate(vm.eventData.eventHost, 'text')"
 						   aria-describedby="event-host-info"
 						   required
 						   autofocus>
@@ -20,15 +26,21 @@
 		</div>
 
 		<div class="row event-input">
-			<div class="form-group event-form-group col-sm-12">
+			<div class="form-group event-form-group col-sm-12"
+				 ng-class="{ 'has-error': !vm.validation.eventName && vm.validation.eventName != null }">
 				<p class="sr-only" id="event-name-info">Input the name of your event</p>
 				<label class="control-label" for="inp-event-name">name:
+					<span class="text-danger"
+						  ng-show="!vm.validation.eventName && vm.validation.eventName != null">please enter the name of your event</span>
 					<input type="text" 
 						   name="event name test"
 						   id="inp-event-name"
 						   class="form-control"
 						   placeholder="Event name"
 						   ng-model="vm.eventData.eventName"
+						   ng-init="vm.validation.eventName"
+						   ng-change="vm.validation.eventName = vm.checkValidationService.validate(vm.eventData.eventName, 'text')"
+						   ng-blur="vm.validation.eventName = vm.checkValidationService.validate(vm.eventData.eventName, 'text')"
 						   aria-describedby="event-name-info"
 						   required>
 				</label>
@@ -36,15 +48,21 @@
 		</div>
 	
 		<div class="row event-input">
-			<div class="form-group event-form-group col-sm-12">
+			<div class="form-group event-form-group col-sm-12"
+			ng-class="{ 'has-error': !vm.validation.eventType && vm.validation.eventType != null }">
 			<p class="sr-only" id="event-type-info">Select or input the type of event</p>
 				<label class="control-label" for="inp-event-type">type:
+					<span class="text-danger"
+						  ng-show="!vm.validation.eventType && vm.validation.eventType != null">please enter a type of event</span>
 					<input list="event-type" 
 							name="event-type" 
 							class="form-control"
 							id="inp-event-type"
 							placeholder="Type of event"
 						    ng-model="vm.eventData.eventType"
+						    ng-init="vm.validation.eventType"
+						    ng-change="vm.validation.eventType = vm.checkValidationService.validate(vm.eventData.eventType, 'text')"
+						    ng-blur="vm.validation.eventType = vm.checkValidationService.validate(vm.eventData.eventType, 'text')"
 						    aria-describedby="event-type-info"
 						    required>
 					<datalist id="event-type">
