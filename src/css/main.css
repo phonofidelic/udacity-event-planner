@@ -84,7 +84,8 @@ label.control-label {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
 
 input.btn,
-.signup-btn {
+.signup-btn,
+.signin-btn {
   border-radius: 0px;
   background-image: none;
   width: 50;

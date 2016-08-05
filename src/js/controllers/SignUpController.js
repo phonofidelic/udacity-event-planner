@@ -1,11 +1,13 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('SignUpController', ['$scope','$window', '$log', 'IssueTracker', 'PasswordStrengthMeter', 'UserAuthService', 'Auth', '$firebaseObject', function($scope, $window, $log, IssueTracker, PasswordStrengthMeter, UserAuthService, Auth, $firebaseObject) {
+angular.module('eventPlan').controller('SignUpController', ['$scope','$window', '$log', 'IssueTracker', 'PasswordStrengthMeter', 'UserAuthService', 'Auth', '$firebaseObject', 'CheckValidationService', function($scope, $window, $log, IssueTracker, PasswordStrengthMeter, UserAuthService, Auth, $firebaseObject, CheckValidationService) {
 	var inputArr = [],
 		vm = this;
 
 	// initialize data model
 	vm.data = {};
 	vm.privateData = {};
+
+	vm.checkValidationService = new CheckValidationService();
 
 	var issueTracker = new IssueTracker(),
 		userAuthService = new UserAuthService();

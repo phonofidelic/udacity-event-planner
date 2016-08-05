@@ -1,6 +1,7 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('SignInController', ['$scope', '$window', '$log', 'Auth', 'IssueTracker', function($scope, $window, $log, Auth, IssueTracker) {
+angular.module('eventPlan').controller('SignInController', ['$scope', '$window', '$log', 'Auth', 'IssueTracker', 'CheckValidationService', function($scope, $window, $log, Auth, IssueTracker, CheckValidationService) {
 	var vm = this;
+	vm.checkValidationService = new CheckValidationService();
 
 	// sign in tabs
 	// angular.element('#sign-in-tab').addClass('active');
