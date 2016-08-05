@@ -62,8 +62,10 @@
 
 		<div class="row event-input">
 			<div class="col-sm-12 event-form-group form-group" 
-				 ng-class="{'has-error': signUpForm.password.$invalid && !signUpForm.password.$pristine}">
+				 ng-class="{'has-error': !vm.validation.password && vm.validation.password != null}">
 				<label class="controll-label" for="inp-password">
+					<p class="text-danger" 
+					   ng-show="!vm.validation.password && vm.validation.password != null">make sure to enter a password at least 6 characters long</p>
 					<div class="progress">	   
 					  <div class="progress-bar" 
 					  	   role="progressbar" 
@@ -80,8 +82,10 @@
 						   class="form-control signup-input"
 						   placeholder="Enter a password"
 						   ng-model="vm.privateData.password1"
-						   ng-change="vm.passwordStrength(vm.data.password1)"
-						   required>			
+						   ng-init="vm.validation.password = null"
+						   ng-blur="vm.validation.password = vm.checkValidationService.validate(vm.privateData.password1, 'password')"
+						   ng-change="vm.passwordStrength(vm.privateData.password1); vm.checkValidationService.validate(vm.privateData.password1, 'password')"
+						   required>				
 				</label>
 			</div>
 		</div>

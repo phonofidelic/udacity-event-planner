@@ -60,7 +60,8 @@ body {
   display: block; }
 
 .input-warning {
-  color: #d9534f; }
+  color: #d9534f;
+  border: solid #a94442 1px; }
 
 .sign-in-native,
 .sign-in-google,

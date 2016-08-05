@@ -40,6 +40,12 @@ angular.module('eventPlan').factory('CheckValidationService', ['$log', function(
 					break;
 				case 'password':
 					$log.log('*** password ***');
+					$log.log('input length: ', input.length);
+					if (angular.isDefined(input) && input.length > 5) {
+						status = true;
+					} else {
+						status = false;
+					}
 					break;
 				default:
 					status = false;

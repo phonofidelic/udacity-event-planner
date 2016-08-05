@@ -6,10 +6,10 @@
 
 		<div class="row">
 			<div class="col-sm-12 event-form-group form-group" 
-				 ng-class="{ 'has-error' : signInForm.sgn-email.$invalid && !signInForm.sgn-email.$pristine }">	
+				 ng-class="{ 'has-error' : !vm.validation.email && vm.validation.email != null }">	
 				<label class="controll-label" for="sgn-email">
 					<p class="text-danger" 
-					   ng-show="signInForm.sgn-email.$invalid && !signUpForm.sgn-email.$pristine">Enter your email</p>
+					   ng-show="!vm.validation.email && vm.validation.email != null">Enter your email</p>
 					<input type="email" 
 						   name="sgn-email" 
 						   id="sgn-email"
@@ -17,7 +17,9 @@
 						   autocomplete="email" 
 						   placeholder="Email"
 						   ng-model="vm.email"
-						   ng-blur="vm.checkValidationService.validate(vm.email, 'email')"
+						   ng-init="vm.validation.email = null"
+						   ng-change="vm.validation.email = vm.checkValidationService.validate(vm.email, 'email')"
+						   ng-blur="vm.validation.email = vm.checkValidationService.validate(vm.email, 'email')"
 						   autofocus
 						   required>
 				</label>
@@ -26,14 +28,18 @@
 
 		<div class="row">
 			<div class="col-sm-12 event-form-group form-group"
-				 ng-class="{ 'has-error' : vm.password.$invalid && !vm.password.$pristine }">	
+				 ng-class="{ 'has-error' : !vm.validation.password && vm.validation.password != null }">	
 				<label class="controll-label" for="sgn-password">
+					<p class="text-danger"
+					   ng-show="!vm.validation.password && vm.validation.password != null">please enter your password</p>
 					<input type="password"
 						   name="password"
 						   id="sgn-password"
 						   class="form-control signin-input" 
 						   placeholder="Password"
 						   ng-model="vm.password"
+						   ng-init="vm.validation.password = null"
+						   ng-blur="vm.validation.password = vm.checkValidationService.validate(vm.password, 'password')"
 						   required>
 				</label>
 			</div>
