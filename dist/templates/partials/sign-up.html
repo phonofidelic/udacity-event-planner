@@ -1,30 +1,46 @@
 
 <div class="sign-up">
-	<form class="input-form form-group container-fluid">
+	<form class="input-form form-group container-fluid" 
+		  name="signUpForm" 
+		  ng-submit="vm.createAccount(vm.checkValidation())"
+		  novalidate>
 	
 		<div class="row event-input">
-			<div class="col-sm-12 event-form-group">
+			<div class="col-sm-12 event-form-group form-group" 
+				 ng-class="{'has-error': !vm.validation.name && vm.validation.name != null}">
 				<label class="controll-label" for="inp-name">
+					<p class="text-danger" 
+					   ng-show="!vm.validation.name && vm.validation.name != null">please enter your name</p>
 					<input type="text" 
 						   name="name" 
 						   id="inp-name"
 						   class="form-control signup-input"
 						   placeholder="Name"
-						   ng-model="vm.data.name" 
+						   ng-model="vm.data.name"
+						   ng-init="vm.validation.name = null"
+						   ng-change="vm.validation.name = vm.checkValidationService.validate(vm.data.name, 'text')"
+						   ng-blur="vm.validation.name = vm.checkValidationService.validate(vm.data.name, 'text')"
 						   required>
+
 				</label>
 			</div>
 		</div>
 
 		<div class="row event-input">
-			<div class="col-sm-12 event-form-group">
+			<div class="col-sm-12 event-form-group form-group" 
+				 ng-class="{'has-error': !vm.validation.email && vm.validation.email != null}">
 				<label class="controll-label" for="inp-email">
+					<p class="text-danger" 
+					   ng-show="!vm.validation.email && vm.validation.email != null">please enter a valid email</p>
 					<input type="email" 
 						   name="email"
 						   id="inp-email"
 						   class="form-control signup-input"
 						   placeholder="Email"
 						   ng-model="vm.data.email"
+						   ng-init="vm.validation.email = null"
+						   ng-blur="vm.validation.email = vm.checkValidationService.validate(vm.data.email, 'email')"
+						   ng-change="vm.validation.email = vm.checkValidationService.validate(vm.data.email, 'email')"
 						   required>
 				</label>
 			</div>
@@ -45,8 +61,11 @@
 		</div>
 
 		<div class="row event-input">
-			<div class="col-sm-12 event-form-group">
+			<div class="col-sm-12 event-form-group form-group" 
+				 ng-class="{'has-error': !vm.validation.password && vm.validation.password != null}">
 				<label class="controll-label" for="inp-password">
+					<p class="text-danger" 
+					   ng-show="!vm.validation.password && vm.validation.password != null">make sure to enter a password at least 6 characters long</p>
 					<div class="progress">	   
 					  <div class="progress-bar" 
 					  	   role="progressbar" 
@@ -63,8 +82,10 @@
 						   class="form-control signup-input"
 						   placeholder="Enter a password"
 						   ng-model="vm.privateData.password1"
-						   ng-change="vm.passwordStrength(vm.data.password1)"
-						   required>			
+						   ng-init="vm.validation.password = null"
+						   ng-blur="vm.validation.password = vm.checkValidationService.validate(vm.privateData.password1, 'password')"
+						   ng-change="vm.passwordStrength(vm.privateData.password1); vm.checkValidationService.validate(vm.privateData.password1, 'password')"
+						   required>				
 				</label>
 			</div>
 		</div>
@@ -88,8 +109,9 @@
 
 		<section class="submit-form">
 			<button id="submit" 
-				   class="btn btn-default signup-btn" 
-				   ng-click="vm.createAccount(vm.checkValidation())" >Submit
+					type="submit" 
+				    class="btn btn-default signup-btn"
+				    ng-disabled="">Submit
 			</button>
 		</section>
 
