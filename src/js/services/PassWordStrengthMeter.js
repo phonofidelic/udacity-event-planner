@@ -1,4 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
+'use-strict';
 angular.module('eventPlan').factory('PasswordStrengthMeter', ['$log', function($log) {
 	function PasswordStrengthMeter() {
 		this.points = {
@@ -33,12 +34,6 @@ angular.module('eventPlan').factory('PasswordStrengthMeter', ['$log', function($
 			if (password.length >= 6) {
 				strength += 20;
 			}
-			
-
-
-
-			// $log.log(result);
-			// $log.log('strength: ', strength);
 			return strength;
 		}
 	};

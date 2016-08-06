@@ -1,6 +1,6 @@
 /*eslint angular/di: [2,"array"]*/
 'use-strict';
-angular.module('eventPlan').controller('CreateEventController', ['$scope', '$http', '$window', '$log', '$firebaseObject', '$firebaseArray', 'UserAuthService', 'IssueTracker', function($scope, $http, $window, $log, $firebaseObject, $firebaseArray, UserAuthService, IssueTracker) {
+angular.module('eventPlan').controller('CreateEventController', ['$scope', '$http', '$window', '$log', '$firebaseObject', '$firebaseArray', 'UserAuthService', 'IssueTracker', 'CheckValidationService', function($scope, $http, $window, $log, $firebaseObject, $firebaseArray, UserAuthService, IssueTracker, CheckValidationService) {
 	var vm = this,
 		userAuthService = new UserAuthService(),
 		ref = firebase.database().ref().child('events'),
@@ -11,6 +11,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 	vm.eventData = {};
 	vm.eventData.eventGuests = [];
 	vm.eventData.mapCenter = {};
+	vm.checkValidationService = new CheckValidationService();
 
     // get user data from db and set username as host
     usrObject.$loaded()
