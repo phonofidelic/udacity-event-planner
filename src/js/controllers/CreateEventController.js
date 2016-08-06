@@ -5,8 +5,8 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 		userAuthService = new UserAuthService(),
 		ref = firebase.database().ref().child('events'),
 		dbArray = $firebaseArray(ref),
-        usrRef = firebase.database().ref().child('users'),
-        usrObject = $firebaseObject(usrRef);
+		usrRef = firebase.database().ref().child('users'),
+		usrObject = $firebaseObject(usrRef);
 
 	vm.eventData = {};
 	vm.eventData.eventGuests = [];
@@ -57,7 +57,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			vm.eventData.eventLocation = locationData.name;
 			$log.log('vm.eventData.eventLocation: ', vm.eventData.eventLocation);
 		}
-	}
+	};
 
 	vm.geocode = function(addr) {
 		if (angular.isDefined(addr)) {
@@ -149,7 +149,10 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			} else {
 				$log.log('error');
 			}
-		}, function(error) {$log.log('error: ', error)});
+		}, 
+		function(error) {
+			$log.log('error: ', error);
+		});
 	};
 
 	vm.signOut = function() {

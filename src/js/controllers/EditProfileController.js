@@ -39,7 +39,7 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 				vm.firstLetter = vm.userData.email.toLowerCase().trim().split('')[0];
 				var randomHexString = (Math.random()*0xFFFFFF<<0).toString(16);
 				vm.userData.avatar = 'https://avatars.discourse.org/v2/letter/'+vm.firstLetter+'/'+randomHexString+'/';
-				userAuthService.setOne(uid, 'avatar', vm.userData.avatar)
+				userAuthService.setOne(uid, 'avatar', vm.userData.avatar);
 			} else {
 				vm.userData.avatar = user.avatar;
 			}
@@ -60,20 +60,5 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 		$log.log('data from saveUserData: ', data);
 		userAuthService.setData(uid, data);
 
-	};
-	vm.resetPassword = function() {
-
-	};
-
-	vm.getUserAvatar = function() {
-		// var firstLetter = vm.firstLetter;
-		// $log.log('firstLetter: ', firstLetter);
-	}
-
-	vm.getUserData = function() {
-		// var id = firebase.auth().currentUser.uid;
-		// userAuthService.getUserData(id);	
-		// $log.log('db data: ', $scope.users[firebase.auth().currentUser.uid]);
-		$log.log('db data: ', syncObject);	
 	};
 }]);

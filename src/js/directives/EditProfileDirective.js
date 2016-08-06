@@ -4,5 +4,5 @@ angular.module('eventPlan')
 		templateUrl: 'templates/partials/sec-edit-profile.html',
 		controller: 'EditProfileController',
 		controllerAs: 'vm'
-	}
+	};
 });

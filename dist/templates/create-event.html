@@ -1,17 +1,18 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
-	<h2>Create an Event</h2>
-	<form class="input-form container-fluid">
+	<h2 aria-label="Create an Event">Create an Event</h2>
+	<form class="input-form container-fluid" aria-label="Create event form">
 
 		<div class="row event-input">
+			<p class="sr-only" id="event-host-info">Input the name of the host for your event</p>
 			<div class="form-group event-form-group col-sm-12">
 				<label class="control-label" for="inp-event-host">event host:
 					<input type="text" 
 						   name="event-host"
 						   id="inp-event-host"
-						   class="form-control"
-						   
+						   class="form-control"						   
 						   ng-model="vm.eventData.eventHost"
+						   aria-describedby="event-host-info"
 						   required
 						   autofocus>
 				</label>
@@ -20,13 +21,15 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+				<p class="sr-only" id="event-name-info">Input the name of your event</p>
 				<label class="control-label" for="inp-event-name">name:
 					<input type="text" 
-						   name="event-name"
+						   name="event name test"
 						   id="inp-event-name"
 						   class="form-control"
 						   placeholder="Event name"
 						   ng-model="vm.eventData.eventName"
+						   aria-describedby="event-name-info"
 						   required>
 				</label>
 			</div>
@@ -34,66 +37,71 @@
 	
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+			<p class="sr-only" id="event-type-info">Select or input the type of event</p>
 				<label class="control-label" for="inp-event-type">type:
-					<select class="form-control"
-							id="inp-event-type" 						    
+					<input list="event-type" 
+							name="event-type" 
+							class="form-control"
+							id="inp-event-type"
+							placeholder="Type of event"
 						    ng-model="vm.eventData.eventType"
+						    aria-describedby="event-type-info"
 						    required>
-						<option>Birthday Party</option>
-						<option>Confrence</option>
-						<option>Convention</option>
-						<option>Exhibition</option>
-						<option>Fundraiser</option>
-						<option>Gala</option>
-						<option>Meetup</option>
-						<option>Party</option>
-						<option>Political Event</option>
-						<option>Press Conference</option>
-						<option>Product Launch</option>
-						<option>Reception</option>
-						<option>Seminar</option>
-						<option>Team Building</option>
-						<option>Workshop</option>
-					</select>
+					<datalist id="event-type">
+						<option value="Birthday Party"></option>
+						<option value="Confrence"></option>
+						<option value="Convention"></option>
+						<option value="Exhibition"></option>
+						<option value="Fundraiser"></option>
+						<option value="Gala"></option>
+						<option value="Meetup"></option>
+						<option value="Party"></option>
+						<option value="Political Event"></option>
+						<option value="Press Conference"></option>
+						<option value="Product Launch"></option>
+						<option value="Reception"></option>
+						<option value="Seminar"></option>
+						<option value="Team Building"></option>
+						<option value="Workshop"></option>
+					</datalist>
 				</label>
 			</div>
 		</div>
 		<div class="row event-input">
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
+				<p class="sr-only" id="event-starttime-info">Input the date and time that your event will begin. The format is month, day, year, time.</p>
 				<label class="control-label" for="inp-event-start-time">start:
-					<div class="input-group date">
-						<input type="text" 
-							   name="event-start-time"
-							   id="inp-event-start-time"
-							   class="form-control date-input"
-							   placeholder="When will your event begin?" 
-							   ng-blur="vm.getEventStartTime($event)">
-<!-- 						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"></span>
-						</span> -->
-					</div>
+					<input type="text" 
+						   name="event-start-time"
+						   id="inp-event-start-time"
+						   class="form-control date-input"
+						   placeholder="When will your event begin?" 
+						   area-describedby="event-starttime-info"
+						   onClick="document.getElementById('inp-event-start-time').select()"
+						   ng-blur="vm.getEventStartTime($event)"
+						   required>
 				</label>				
 			</div>
 			<div class="control-group date-input-group col-sm-6 col-xs-12">
+				<p class="sr-only" id="event-endtime-info">Input the date and time that your event will end. The format is month, day, year, time.</p>
 				<label class="control-label" for="inp-event-end-time">end:
-					<div class="input-group date">
-						<input type="text" 
-							   name="event-end-time"
-							   id="inp-event-end-time"
-							   min="{{vm.eventData.eventStartTimeEpoch}}"
-							   class="form-control date-input"
-							   placeholder="When will your event end?" 
-							   ng-blur="vm.getEventEndTime($event)">
-<!-- 						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"></span>
-						</span>	 -->					
-					</div>
+					<input type="text" 
+						   name="event-end-time"
+						   id="inp-event-end-time"
+						   min="{{vm.eventData.eventStartTimeEpoch}}"
+						   class="form-control date-input"
+						   placeholder="When will your event end?" 
+						   area-describedby="event-endtime-info"
+						   onClick="document.getElementById('inp-event-end-time').select()"
+						   ng-blur="vm.getEventEndTime($event)"
+						   required>					
 				</label>				
 			</div>
 		</div>
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+				<p class="sr-only" id="event-location-info">Enter the address for your event</p>
 				<label class="control-label" for="inp-event-location">location:
 					<input type="text" 
 						   name="event-location"
@@ -101,6 +109,7 @@
 						   class="form-control"
 						   autocomplete="street-address"
 						   placeholder="enter a location" 
+						   aria-describedby="event-location-info"
 						   ng-init="vm.autoAddress()">
 				</label>
 			</div>
@@ -108,12 +117,14 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+				<p class="sr-only" id="event-desctiption-info">Enter a description for your event</p>
 				<label class="control-label" for="inp-event-description">description:
 					<textarea id="inp-event-descrition"
 							  name="event-description"
 							  class="form-control"
 							  placeholder="enter description"
 							  ng-model="vm.eventData.eventDescription"
+							  aria-describedby="event-description-info"
 							  rows="5">
 					</textarea>
 				</label>
@@ -122,12 +133,14 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12">
+				<p class="sr-only" id="event-guest-info">Add guests to your event</p>
 				<label class="control-label" for="inp-event-guestlist">guests:</label>
 				<div class="input-group guests">
 					<input type="text" 
 						   name="event-guestlist"
 						   id="inp-event-guestlist"
 						   class="form-control input-group"
+						   aria-describedby="event-guest-info"
 						   ng-model="vm.guest">
 					<div class="input-group-btn">
 						<button class="btn btn-default add-btn" ng-click="vm.addGuest(vm.guest)">
