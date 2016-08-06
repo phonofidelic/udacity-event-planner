@@ -26,6 +26,19 @@ gulp.task('sync', function() {
 	browserSync.stream();	
 });
 
+// browser sync for production mode
+gulp.task('syncProd', function() {
+	browserSync.init({
+		server: {
+			baseDir: './dist',
+			// routes: {
+			// 	'/bower_components': 'bower_components'
+			// }
+		}
+	});
+	browserSync.stream();	
+});
+
 // js lint
 gulp.task('lint', function() {
 	return gulp.src(['src/**/*.js', '!node_modules/**', '!bower_components/**'])
@@ -139,6 +152,6 @@ gulp.task('watch-tests', function() {
 });
 
 // build
-gulp.task('build', ['html', 'styles', 'js', 'headScripts', 'templates', 'bootstrapCss']);
+gulp.task('build', ['html', 'styles', 'js', 'headScripts', 'templates', 'bootstrapCss', 'syncProd']);
 
 gulp.task('default', ['watch-html', 'watch-css', 'lint', 'watch-js', 'watch-tests', 'sync']);
