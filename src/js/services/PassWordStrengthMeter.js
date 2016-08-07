@@ -12,7 +12,8 @@ angular.module('eventPlan').factory('PasswordStrengthMeter', ['$log', function($
 	};
 	PasswordStrengthMeter.prototype = {
 		passTest: function(password) {
-			var strength = 0;
+			var status = {};
+			status.strength = 0;
 			// convert password input to an array of single character strings
 			if (password) { password = password.split(''); } else { return; }
 
@@ -20,21 +21,27 @@ angular.module('eventPlan').factory('PasswordStrengthMeter', ['$log', function($
 			// points. Increase strength by 10 for each passing condition.
 			var result = this.points.reccomendedChars.test(password);
 			if (result === true) {
-				strength += 20;
+				status.strength += 20;
+				status.characters = true;
 			}
 			if (this.points.hasLower.test(password)) {
-				strength += 20;
+				status.strength += 20;
+				status.hasLower = true;
 			}
 			if (this.points.hasUpper.test(password)) {
-				strength += 20;
+				status.strength += 20;
+				status.hasUpper = true;
 			}
 			if (this.points.hasNumber.test(password)) {
-				strength += 20;
+				status.strength += 20;
+				status.hasNumber = true;
 			}
 			if (password.length >= 6) {
-				strength += 20;
+				status.strength += 20;
+				status.length = true;
 			}
-			return strength;
+			$log.log('password: ', status);
+			return status;
 		}
 	};
 	return PasswordStrengthMeter;

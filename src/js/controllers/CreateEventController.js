@@ -146,7 +146,6 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 					}).catch(function(error) {
 						$log.log('error: ', error);
 					});
-				// $log.log('data to send: ', vm.eventData);
 			} else {
 				$log.log('error');
 			}

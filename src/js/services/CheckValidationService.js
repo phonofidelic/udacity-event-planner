@@ -13,7 +13,6 @@ angular.module('eventPlan').factory('CheckValidationService', ['$log', function(
 			
 			switch (type) {
 				case 'text':
-					$log.log('*** text ***');
 					if (angular.isDefined(input)) {
 						status = true;
 					} else {
@@ -21,7 +20,6 @@ angular.module('eventPlan').factory('CheckValidationService', ['$log', function(
 					}
 					break;
 				case 'email':
-					$log.log('*** email ***');
 					// regex for email taken from http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
 					var email = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 					if (email.test(input)) {
@@ -31,8 +29,6 @@ angular.module('eventPlan').factory('CheckValidationService', ['$log', function(
 					}
 					break;
 				case 'password':
-					$log.log('*** password ***');
-					$log.log('input length: ', input.length);
 					if (angular.isDefined(input) && input.length > 5) {
 						status = true;
 					} else {
@@ -42,8 +38,6 @@ angular.module('eventPlan').factory('CheckValidationService', ['$log', function(
 				default:
 					status = false;
 			}
-
-			$log.log('input: ', status);
 			return status
 		}
 	};

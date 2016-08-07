@@ -81,10 +81,10 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 	// check password strength
 	var passwordStrengthMeter = new PasswordStrengthMeter();
 	vm.passwordStrength = function(password) {
-		vm.passwordProgress = passwordStrengthMeter.passTest(password);	
+		vm.passwordStatus = passwordStrengthMeter.passTest(password);
+		vm.passwordProgress = vm.passwordStatus.strength;	
 		// send passwordProgress value for ng-style to set width of progress bar
 		vm.passwordProgress = vm.passwordProgress+'%';
-		// $log.log('vm.passwordProgress: ', vm.passwordProgress);
 		return vm.passwordProgress;
 	};
 

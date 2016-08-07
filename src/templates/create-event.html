@@ -172,6 +172,21 @@
 			</div>
 		</div>
 
+		<div class="row event-input">
+			<div class="form-group event-form-group col-sm-12">
+				<p class="sr-only" id="event-message-info">Send a message to your guests</p>
+				<label class="control-label" for="inp-event-message">optional message to your guests:</label>
+					<textarea id="inp-event-message"
+								  name="event-message"
+								  class="form-control"
+								  placeholder="message:"
+								  ng-model="vm.eventData.eventMessage"
+								  aria-describedby="event-message-info"
+								  rows="5">
+					</textarea>
+			</div>
+		</div>
+
 		<div class="issues" ng-show="vm.issues">
 			<div class="issue" ng-repeat="issue in vm.issues">{{issue}}</div>
 		</div>

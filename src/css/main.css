@@ -116,6 +116,9 @@ input.btn,
   color: #fff;
   border-radius: 4px; }
 
+.password-info {
+  font-size: 0.6em; }
+
 .btn-default {
   color: #777;
   background: #e8ecee;
