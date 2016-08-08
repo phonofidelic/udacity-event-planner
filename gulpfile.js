@@ -109,6 +109,12 @@ gulp.task('bootstrapCss', function() {
 	.pipe(gulp.dest('dist/css'));
 });
 
+// fonts
+gulp.task('fonts', function() {
+	gulp.src('bower_components/bootstrap/dist/fonts/*')
+	.pipe(gulp.dest('dist/fonts'));
+});
+
 // head scripts
 gulp.task('headScripts', function() {
 	gulp.src([
@@ -152,6 +158,6 @@ gulp.task('watch-tests', function() {
 });
 
 // build
-gulp.task('build', ['html', 'styles', 'js', 'headScripts', 'templates', 'bootstrapCss', 'syncProd']);
+gulp.task('build', ['html', 'styles', 'js', 'headScripts', 'templates', 'bootstrapCss', 'fonts', 'syncProd']);
 
 gulp.task('default', ['watch-html', 'watch-css', 'lint', 'watch-js', 'watch-tests', 'sync']);
