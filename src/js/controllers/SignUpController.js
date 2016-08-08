@@ -12,6 +12,12 @@ angular.module('eventPlan').controller('SignUpController', ['$scope','$window', 
 	var issueTracker = new IssueTracker(),
 		userAuthService = new UserAuthService();
 
+	// autoselect first input
+	// $('input[@type="text"]')[0].focus();
+	// vm.focus = function() {
+	// 	angular.element('#inp-name').focus();
+	// }
+
 	vm.checkValidation = function() {
 		var status;
 		// check name input

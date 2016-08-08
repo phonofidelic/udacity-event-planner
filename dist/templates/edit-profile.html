@@ -3,11 +3,6 @@
 	<h2>Profile</h2>
 	<div class="profile-container">
 		<h3>hello {{vm.userData.username}}!</h3>
-	<!-- 	<img gravatar-src="'{vm.userData.email}'" 
-			 gravatar-size="100" 
-			 class="user-img"
-			 ng-class="{'user-img-editing': editing}"
-			 ng-init="editing = false; vm.getUserAvatar()"> -->
 			 <img class="user-img" 
 			 	  ng-class="{'user-img-editing': editing}" 
 			 	  src="{{vm.userData.avatar+'100.png'}}">
@@ -28,6 +23,7 @@
 						   placeholder="username"
 						   ng-model="vm.userData.username"
 						   ng-show="editing"
+						   autofocus 
 						   >
 			</div>
 

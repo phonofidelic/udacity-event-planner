@@ -1,5 +1,5 @@
 
-<div class="sign-up">
+<div class="sign-up" ng-controller="SignUpController as vm">
 	<form class="input-form form-group container-fluid" 
 		  name="signUpForm" 
 		  ng-submit="vm.createAccount(vm.checkValidation())"
@@ -47,22 +47,31 @@
 		</div>
 
 		<div class="row event-input">
-			<div class="col-sm-12 event-form-group">
-				<label class="control-label" for="inp-description">
-					<textarea id="inp-description"
-							  name="profile-description"
-							  class="form-control signup-input description"
-							  placeholder="optional profile description"
-							  ng-model="vm.data.profileDescription"
-							  row event-inputs="2">
-					</textarea>
-				</label>
-			</div>
-		</div>
-
-		<div class="row event-input">
 			<div class="col-sm-12 event-form-group form-group" 
 				 ng-class="{'has-error': !vm.validation.password && vm.validation.password != null}">
+				 <ul class="password-info">
+				 	<p>Your password should include the following:</p>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.hasUpper === true }">Uppercase character
+				 		<span ng-show="vm.passwordStatus.hasUpper" 
+			 				  class="glyphicon glyphicon-ok">
+				 		</span>
+			 		</li>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.hasLower === true }">Lowercase character
+				 		<span ng-show="vm.passwordStatus.hasLower" 
+				 			  class="glyphicon glyphicon-ok">
+				 		</span>
+			 		</li>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.hasNumber === true }">At least one number
+					 	<span ng-show="vm.passwordStatus.hasNumber" 
+				 			  class="glyphicon glyphicon-ok">
+				 		</span>
+			 		</li>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.characters === true }">At least one of these characters: !, @, #, $, %, ^, &, *
+				 		<span ng-show="vm.passwordStatus.characters" 
+			 			 	  class="glyphicon glyphicon-ok">
+				 		</span>
+			 		</li>
+				 </ul>
 				<label class="controll-label" for="inp-password">
 					<p class="text-danger" 
 					   ng-show="!vm.validation.password && vm.validation.password != null">make sure to enter a password at least 6 characters long</p>
@@ -99,6 +108,20 @@
 						   class="form-control signup-input"
 						   placeholder="Repeat password"
 						   ng-model="vm.privateData.password2">
+				</label>
+			</div>
+		</div>
+
+		<div class="row event-input">
+			<div class="col-sm-12 event-form-group">
+				<label class="control-label" for="inp-description">
+					<textarea id="inp-description"
+							  name="profile-description"
+							  class="form-control signup-input description"
+							  placeholder="optional profile description"
+							  ng-model="vm.data.profileDescription"
+							  rows="5">
+					</textarea>
 				</label>
 			</div>
 		</div>

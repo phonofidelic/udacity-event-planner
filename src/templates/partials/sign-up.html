@@ -1,5 +1,5 @@
 
-<div class="sign-up">
+<div class="sign-up" ng-controller="SignUpController as vm">
 	<form class="input-form form-group container-fluid" 
 		  name="signUpForm" 
 		  ng-submit="vm.createAccount(vm.checkValidation())"
@@ -49,28 +49,29 @@
 		<div class="row event-input">
 			<div class="col-sm-12 event-form-group form-group" 
 				 ng-class="{'has-error': !vm.validation.password && vm.validation.password != null}">
-				 <div class="password-info">Must include the following:
-				 	<p ng-class="{ 'text-success': vm.passwordStatus.hasUpper === true }">Uppercase character
+				 <ul class="password-info">
+				 	<p>Your password should include the following:</p>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.hasUpper === true }">Uppercase character
 				 		<span ng-show="vm.passwordStatus.hasUpper" 
 			 				  class="glyphicon glyphicon-ok">
 				 		</span>
-			 		</p>
-				 	<p ng-class="{ 'text-success': vm.passwordStatus.hasLower === true }">Lowercase character
+			 		</li>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.hasLower === true }">Lowercase character
 				 		<span ng-show="vm.passwordStatus.hasLower" 
 				 			  class="glyphicon glyphicon-ok">
 				 		</span>
-			 		</p>
-				 	<p ng-class="{ 'text-success': vm.passwordStatus.hasNumber === true }">At least one number
+			 		</li>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.hasNumber === true }">At least one number
 					 	<span ng-show="vm.passwordStatus.hasNumber" 
 				 			  class="glyphicon glyphicon-ok">
 				 		</span>
-			 		</p>
-				 	<p ng-class="{ 'text-success': vm.passwordStatus.characters === true }">At least one of these characters: !, @, #, $, %, ^, &, *
+			 		</li>
+				 	<li ng-class="{ 'text-success': vm.passwordStatus.characters === true }">At least one of these characters: !, @, #, $, %, ^, &, *
 				 		<span ng-show="vm.passwordStatus.characters" 
 			 			 	  class="glyphicon glyphicon-ok">
 				 		</span>
-			 		</p>
-				 </div>
+			 		</li>
+				 </ul>
 				<label class="controll-label" for="inp-password">
 					<p class="text-danger" 
 					   ng-show="!vm.validation.password && vm.validation.password != null">make sure to enter a password at least 6 characters long</p>

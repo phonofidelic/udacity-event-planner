@@ -6,9 +6,7 @@ angular.module('eventPlan').
 
 			$routeProvider.
 				when('/', {
-					templateUrl: 'templates/home.html',
-					controller: 'SignUpController',
-					controllerAs: 'vm'
+					templateUrl: 'templates/home.html'
 				}).
 				when('/main', {
 					templateUrl: 'templates/main.html'
