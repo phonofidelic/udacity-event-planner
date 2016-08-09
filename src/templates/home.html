@@ -4,13 +4,13 @@
 			class="tab active" 
 			id="sign-in-tab" 
 			ng-init="signInActive = true" 
-			ng-click="signInActive = true; focusSignIn()" 
+			ng-click="signInActive = true; focusService.focus('#sgn-email')" 
 			ng-class="{active: signInActive}">
 			<a href="">Sign in</a>
 		</li>
 		<li role="presentation" 
 			id="sign-up-tab" 
-			ng-click="signInActive = false; focusCreateAccount()" 
+			ng-click="signInActive = false; focusService.focus('#inp-name')" 
 			ng-class="{active: !signInActive}">
 			<a href="">Create an account</a>
 		</li>

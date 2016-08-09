@@ -1,4 +1,4 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('NavBarController', ['$scope', '$window', '$log', function($scope, $window, $log) {
-	var vm = this;
+angular.module('eventPlan').controller('NavBarController', ['$scope', 'FocusService', function($scope, FocusService) {
+	$scope.focusService = new FocusService();
 }]);

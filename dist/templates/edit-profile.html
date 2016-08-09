@@ -23,8 +23,7 @@
 						   placeholder="username"
 						   ng-model="vm.userData.username"
 						   ng-show="editing"
-						   autofocus 
-						   >
+						   autofocus>
 			</div>
 
 			<div class="edit-email form-group col-sm-12">
@@ -69,7 +68,7 @@
 			</section>
 			
 			<div class="edit-controllbar">
-				<button class="btn btn-default btn-edit" ng-click="editing = true" ng-show="!editing">
+				<button class="btn btn-default btn-edit" ng-click="editing = true; vm.focusServoce.focus('#inp-username')" ng-show="!editing">
 					Edit
 				</button>
 

@@ -1,5 +1,5 @@
 /*eslint angular/di: [2,"array"]*/
-angular.module('eventPlan').controller('EditProfileController', ['$scope', '$window', '$log', '$timeout', 'UserAuthService', '$firebaseObject', function($scope, $window, $log, $timeout, UserAuthService, $firebaseObject) {
+angular.module('eventPlan').controller('EditProfileController', ['$scope', '$window', '$log', '$timeout', 'UserAuthService', '$firebaseObject', 'FocusService', function($scope, $window, $log, $timeout, UserAuthService, $firebaseObject, FocusService) {
 	var vm = this,
 		userAuthService = new UserAuthService(),
 		ref = firebase.database().ref().child('users'),
@@ -7,6 +7,8 @@ angular.module('eventPlan').controller('EditProfileController', ['$scope', '$win
 
 	// initialize data model
 	vm.userData = {};
+
+	vm.focusService = new FocusService();
 
 	// async request to firebase db retrievs saved user-data and sets local variables
 	syncObject.$loaded()

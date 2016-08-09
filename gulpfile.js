@@ -53,18 +53,18 @@ gulp.task('html', function() {
 	.pipe(htmlReplace({
 		'mainCss': 'css/main.css',
 		'bootstrapCss': 'css/bootstrapCss.min.css',
-		// 'headScripts': [
-		// 	'js/jquery.min.js',
-		// 	'js/angular.min.js',
-		// 	'js/angular-route.min.js',
-		// 	'js/angular-mocks.js',
-		// 	'js/angularfire.min.js',
-		// 	'js/moment.min.js',
-		// 	'js/bootstrap.min.js',
-		// 	'js/bootstrap-select.min.js',
-		// 	'js/bootstrap-datetimepicker.min.js'
-		// ],
-		'headScripts': 'js/headScripts.min.js',
+		'headScripts': [
+			'lib/jquery.min.js',
+			'lib/angular.min.js',
+			'lib/angular-route.min.js',
+			'lib/angular-mocks.js',
+			'lib/angularfire.min.js',
+			'lib/moment.min.js',
+			'lib/bootstrap.min.js',
+			'lib/bootstrap-select.min.js',
+			'lib/bootstrap-datetimepicker.min.js'
+		],
+		// 'headScripts': 'js/headScripts.min.js',
 		'appScripts': 'js/app.min.js'
 	}))
 	.pipe(gulp.dest('dist/'))
@@ -129,7 +129,7 @@ gulp.task('headScripts', function() {
 		'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
 	])
 	// .pipe(concat('headScripts.min.js'))
-	.pipe(gulp.dest('dist/js'));
+	.pipe(gulp.dest('dist/lib'));
 });
 
 // app scripts
