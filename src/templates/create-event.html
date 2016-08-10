@@ -134,11 +134,11 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12"
-				 ng-class="{ 'has-error': eventForm.eventLocation.$invalid && vm.submitted }">
+				 ng-class="{ 'has-error': !vm.validation.eventLocation && vm.validation.eventLocation != null || eventForm.eventLocation.$invalid && vm.submitted }">
 				<p class="sr-only" id="event-location-info">Enter the address for your event</p>
 				<label class="control-label" for="inp-event-location">location:
 					<span class="text-danger"
-						  ng-show="eventForm.eventLocation.$invalid && vm.submitted">please enter a location</span>
+						  ng-show="!vm.validation.eventLocation && vm.validation.eventLocation != null || eventForm.eventLocation.$invalid && vm.submitted">please enter a location</span>
 					<input type="text" 
 						   name="eventLocation"
 						   id="inp-event-location"
@@ -146,8 +146,9 @@
 						   autocomplete="street-address"
 						   placeholder="enter a location" 
 						   aria-describedby="event-location-info"
-						   ng-init="vm.autoAddress()"
-						   ng-blur="vm.getEventAddress()"
+						   ng-init="vm.autoAddress(); vm.validation.eventLocation"
+						   ng-change="vm.validation.eventLocation = vm.checkValidationService.validate(streetAddress, 'text')"
+						   ng-blur="vm.getEventAddress(); vm.validation.eventLocation = vm.checkValidationService.validate(streetAddress, 'text')"
 						   ng-model="streetAddress"
 						   required>
 				</label>
