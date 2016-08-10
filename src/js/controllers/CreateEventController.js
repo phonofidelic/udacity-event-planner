@@ -113,12 +113,16 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 			issueTracker.add('When will your event end?');
 		}
 
-		if (vm.eventData.eventStartTimeEpoch > vm.eventData.eventEndTimeEpoch) {
+		if (vm.eventData.eventStartTimeEpoch >= vm.eventData.eventEndTimeEpoch) {
 			issueTracker.add('Sorry, your event cannot start before it begins.');
 		}
 
 		if (angular.isUndefined(vm.eventData.eventLocation)) {
 			issueTracker.add('Where will your event be held?');
+		}
+
+		if (vm.eventData.eventGuests < 1) {
+			issueTracker.add('Please add some guests to your event.')
 		}
 
 		$log.log('issues: ', issueTracker.retrieve());
