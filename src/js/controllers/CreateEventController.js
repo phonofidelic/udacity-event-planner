@@ -97,7 +97,13 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 		} else {
 			vm.validation.eventTimeDelta = true;
 		}
-	}
+	};
+
+	vm.checkGuestList = function() {
+		if (vm.eventData.eventGuests.length === 0) {
+			vm.validation.eventGuestList = false;
+		}
+	};
 
 	vm.checkValidation = function() {
 		var issueTracker = new IssueTracker();

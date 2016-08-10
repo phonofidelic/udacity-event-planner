@@ -173,17 +173,19 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12"
-				 ng-class="{ 'has-error': vm.eventData.eventGuests.length === 0 && vm.submitted }">
+				 ng-class="{ 'has-error': vm.validation.eventGuestList === false || vm.eventData.eventGuests.length === 0 && vm.submitted }">
 				<p class="sr-only" id="event-guest-info">Add guests to your event</p>
-				<label class="control-label" for="inp-event-guestlist">guests:</label>
+				<label class="control-label" for="inp-event-guestlist">guests:
 					<span class="text-danger"
-						  ng-show="vm.eventData.eventGuests.length === 0 && vm.submitted">please add some guests to your event</span>
+						  ng-show="vm.validation.eventGuestList === false || vm.eventData.eventGuests.length === 0 && vm.submitted">please add some guests to your event</span>
+				</label>
 				<div class="input-group guests">
 					<input type="text" 
 						   name="event-guestlist"
 						   id="inp-event-guestlist"
 						   class="form-control input-group"
 						   aria-describedby="event-guest-info"
+						   ng-blur="vm.checkGuestList()"
 						   ng-model="vm.guest">
 					<div class="input-group-btn">
 						<button class="btn btn-default add-btn" ng-click="vm.addGuest(vm.guest)">
