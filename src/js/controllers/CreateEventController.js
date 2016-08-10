@@ -57,6 +57,8 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 		if (angular.isDefined(locationData)) {
 			vm.eventData.eventLocation = locationData.name;
 			$log.log('vm.eventData.eventLocation: ', vm.eventData.eventLocation);
+		} else {
+			vm.eventData.eventLocation = angular.element('#inp-event-location').val();
 		}
 	};
 
@@ -89,6 +91,14 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 		vm.eventData.eventGuests.splice(guest, 1);
 	};
 
+	vm.checkTimeDelta = function() {
+		if (vm.eventData.eventStartTimeEpoch >= vm.eventData.eventEndTimeEpoch) {
+			vm.validation.eventTimeDelta = false;
+		} else {
+			vm.validation.eventTimeDelta = true;
+		}
+	}
+
 	vm.checkValidation = function() {
 		var issueTracker = new IssueTracker();
 		var status;
@@ -114,7 +124,7 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 		}
 
 		if (vm.eventData.eventStartTimeEpoch >= vm.eventData.eventEndTimeEpoch) {
-			issueTracker.add('Sorry, your event cannot start before it begins.');
+			issueTracker.add('Event end time must be later than start time.');
 		}
 
 		if (angular.isUndefined(vm.eventData.eventLocation)) {

@@ -85,13 +85,14 @@
 				</label>
 			</div>
 		</div>
+
 		<div class="row event-input">
 			<div class="control-group date-input-group col-sm-6 col-xs-12"
 				 ng-class="{ 'has-error': eventForm.eventStartTime.$invalid && vm.submitted }">
 				<p class="sr-only" id="event-starttime-info">Input the date and time that your event will begin. The format is month, day, year, time.</p>
 				<label class="control-label" for="inp-event-start-time">start:
 					<span class="text-danger"
-						  ng-show="eventForm.eventStartTime.$invalid && vm.submitted">when will your event start?</span>
+						  ng-show="eventForm.eventStartTime.$invalid && vm.submitted">when will your event start?</span>			
 					<input type="text" 
 						   name="eventStartTime"
 						   id="inp-event-start-time"
@@ -100,16 +101,21 @@
 						   area-describedby="event-starttime-info"
 						   onClick="document.getElementById('inp-event-start-time').select()"
 						   ng-blur="vm.getEventStartTime($event)"
-						   ng-model="startTime"
+						   ng-model="vm.eventData.eventStartTime"
 						   required>
 				</label>				
 			</div>
+
 			<div class="control-group date-input-group col-sm-6 col-xs-12"
-				 ng-class="{ 'has-error': eventForm.eventEndTime.$invalid && vm.submitted }">
+				 ng-class="{ 'has-error': eventForm.eventEndTime.$invalid && vm.submitted || vm.validation.eventTimeDelta === false }">
 				<p class="sr-only" id="event-endtime-info">Input the date and time that your event will end. The format is month, day, year, time.</p>
 				<label class="control-label" for="inp-event-end-time">end:
 					<span class="text-danger"
-						  ng-show="eventForm.eventEndTime.$invalid && vm.submitted">when will your event end?</span>
+						  ng-show="eventForm.eventEndTime.$invalid && vm.submitted">when will your event end?
+					</span>
+					<span class="col-sm-12 time-delta-error text-danger" 
+						  ng-show="vm.validation.eventTimeDelta === false">Event end time must be later than start time.
+					</span>
 					<input type="text" 
 						   name="eventEndTime"
 						   id="inp-event-end-time"
@@ -118,11 +124,12 @@
 						   placeholder="When will your event end?" 
 						   area-describedby="event-endtime-info"
 						   onClick="document.getElementById('inp-event-end-time').select()"
-						   ng-blur="vm.getEventEndTime($event)"
-						   ng-model="endTime"
+						   ng-blur="vm.getEventEndTime($event); vm.checkTimeDelta()"
+						   ng-model="vm.eventData.eventEndTime"
 						   required>					
 				</label>				
 			</div>
+
 		</div>
 
 		<div class="row event-input">
@@ -140,6 +147,7 @@
 						   placeholder="enter a location" 
 						   aria-describedby="event-location-info"
 						   ng-init="vm.autoAddress()"
+						   ng-blur="vm.getEventAddress()"
 						   ng-model="streetAddress"
 						   required>
 				</label>
