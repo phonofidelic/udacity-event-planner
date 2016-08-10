@@ -159,6 +159,10 @@ angular.module('eventPlan').controller('CreateEventController', ['$scope', '$htt
 		});
 	};
 
+	vm.submit = function() {
+		vm.submitted = true;
+	};
+
 	vm.signOut = function() {
 		userAuthService.signOut();
 	};

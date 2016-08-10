@@ -1,17 +1,17 @@
 <nav-bar-directive></nav-bar-directive>
 <div class="main">
 	<h2 aria-label="Create an Event">Create an Event</h2>
-	<form class="input-form container-fluid" aria-label="Create event form">
+	<form class="input-form container-fluid" name="eventForm" aria-label="Create event form" ng-submit="vm.submit()" novalidate>
 
 		<div class="row event-input">
 			<p class="sr-only" id="event-host-info">Input the name of the host for your event</p>
 			<div class="form-group event-form-group col-sm-12"
-				 ng-class="{ 'has-error': !vm.validation.eventHost && vm.validation.eventHost != null }">
+				 ng-class="{ 'has-error': !vm.validation.eventHost && vm.validation.eventHost != null || eventForm.eventHost.$invalid && vm.submitted }">
 				<label class="control-label" for="inp-event-host">event host: 
 					<span class="text-danger"
-						  ng-show="!vm.validation.eventHost && vm.validation.eventHost != null">please enter the host for your event</span>
+						  ng-show="!vm.validation.eventHost && vm.validation.eventHost != null || eventForm.eventHost.$invalid && vm.submitted">please enter the host for your event</span>
 					<input type="text" 
-						   name="event-host"
+						   name="eventHost"
 						   id="inp-event-host"
 						   class="form-control"						   
 						   ng-model="vm.eventData.eventHost"
@@ -27,13 +27,13 @@
 
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12"
-				 ng-class="{ 'has-error': !vm.validation.eventName && vm.validation.eventName != null }">
+				 ng-class="{ 'has-error': !vm.validation.eventName && vm.validation.eventName != null || eventForm.eventName.$invalid && vm.submitted }">
 				<p class="sr-only" id="event-name-info">Input the name of your event</p>
 				<label class="control-label" for="inp-event-name">name:
 					<span class="text-danger"
-						  ng-show="!vm.validation.eventName && vm.validation.eventName != null">please enter the name of your event</span>
+						  ng-show="!vm.validation.eventName && vm.validation.eventName != null || eventForm.eventName.$invalid && vm.submitted">please enter the name of your event</span>
 					<input type="text" 
-						   name="event name test"
+						   name="eventName"
 						   id="inp-event-name"
 						   class="form-control"
 						   placeholder="Event name"
@@ -49,13 +49,13 @@
 	
 		<div class="row event-input">
 			<div class="form-group event-form-group col-sm-12"
-			ng-class="{ 'has-error': !vm.validation.eventType && vm.validation.eventType != null }">
+			ng-class="{ 'has-error': !vm.validation.eventType && vm.validation.eventType != null || eventForm.eventType.$invalid && vm.submitted }">
 			<p class="sr-only" id="event-type-info">Select or input the type of event</p>
 				<label class="control-label" for="inp-event-type">type:
 					<span class="text-danger"
-						  ng-show="!vm.validation.eventType && vm.validation.eventType != null">please enter a type of event</span>
+						  ng-show="!vm.validation.eventType && vm.validation.eventType != null || eventForm.eventType.$invalid && vm.submitted">please enter a type of event</span>
 					<input list="event-type" 
-							name="event-type" 
+							name="eventType" 
 							class="form-control"
 							id="inp-event-type"
 							placeholder="Type of event"
@@ -86,25 +86,32 @@
 			</div>
 		</div>
 		<div class="row event-input">
-			<div class="control-group date-input-group col-sm-6 col-xs-12">
+			<div class="control-group date-input-group col-sm-6 col-xs-12"
+				 ng-class="{ 'has-error': eventForm.eventStartTime.$invalid && vm.submitted }">
 				<p class="sr-only" id="event-starttime-info">Input the date and time that your event will begin. The format is month, day, year, time.</p>
 				<label class="control-label" for="inp-event-start-time">start:
+					<span class="text-danger"
+						  ng-show="eventForm.eventStartTime.$invalid && vm.submitted">when will your event start?</span>
 					<input type="text" 
-						   name="event-start-time"
+						   name="eventStartTime"
 						   id="inp-event-start-time"
 						   class="form-control date-input"
 						   placeholder="When will your event begin?" 
 						   area-describedby="event-starttime-info"
 						   onClick="document.getElementById('inp-event-start-time').select()"
 						   ng-blur="vm.getEventStartTime($event)"
+						   ng-model="startTime"
 						   required>
 				</label>				
 			</div>
-			<div class="control-group date-input-group col-sm-6 col-xs-12">
+			<div class="control-group date-input-group col-sm-6 col-xs-12"
+				 ng-class="{ 'has-error': eventForm.eventEndTime.$invalid && vm.submitted }">
 				<p class="sr-only" id="event-endtime-info">Input the date and time that your event will end. The format is month, day, year, time.</p>
 				<label class="control-label" for="inp-event-end-time">end:
+					<span class="text-danger"
+						  ng-show="eventForm.eventEndTime.$invalid && vm.submitted">when will your event end?</span>
 					<input type="text" 
-						   name="event-end-time"
+						   name="eventEndTime"
 						   id="inp-event-end-time"
 						   min="{{vm.eventData.eventStartTimeEpoch}}"
 						   class="form-control date-input"
@@ -112,23 +119,29 @@
 						   area-describedby="event-endtime-info"
 						   onClick="document.getElementById('inp-event-end-time').select()"
 						   ng-blur="vm.getEventEndTime($event)"
+						   ng-model="endTime"
 						   required>					
 				</label>				
 			</div>
 		</div>
 
 		<div class="row event-input">
-			<div class="form-group event-form-group col-sm-12">
+			<div class="form-group event-form-group col-sm-12"
+				 ng-class="{ 'has-error': eventForm.eventLocation.$invalid && vm.submitted }">
 				<p class="sr-only" id="event-location-info">Enter the address for your event</p>
 				<label class="control-label" for="inp-event-location">location:
+					<span class="text-danger"
+						  ng-show="eventForm.eventLocation.$invalid && vm.submitted">please enter a location</span>
 					<input type="text" 
-						   name="event-location"
+						   name="eventLocation"
 						   id="inp-event-location"
 						   class="form-control"
 						   autocomplete="street-address"
 						   placeholder="enter a location" 
 						   aria-describedby="event-location-info"
-						   ng-init="vm.autoAddress()">
+						   ng-init="vm.autoAddress()"
+						   ng-model="streetAddress"
+						   required>
 				</label>
 			</div>
 		</div>
@@ -150,9 +163,12 @@
 		</div>
 
 		<div class="row event-input">
-			<div class="form-group event-form-group col-sm-12">
+			<div class="form-group event-form-group col-sm-12"
+				 ng-class="{ 'has-error': vm.eventData.eventGuests.length === 0 && vm.submitted }">
 				<p class="sr-only" id="event-guest-info">Add guests to your event</p>
 				<label class="control-label" for="inp-event-guestlist">guests:</label>
+					<span class="text-danger"
+						  ng-show="vm.eventData.eventGuests.length === 0 && vm.submitted">please add some guests to your event</span>
 				<div class="input-group guests">
 					<input type="text" 
 						   name="event-guestlist"
